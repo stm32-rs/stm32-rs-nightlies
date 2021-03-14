@@ -1,0 +1,12 @@
+#[doc = "Reader of register TSSSR"]
+pub type R = crate::R<u32, super::TSSSR>;
+#[doc = "Reader of field `SS`"]
+pub type SS_R = crate::R<u16, u16>;
+impl R {
+    #[doc = "Bits 0:15 - Sub second value SS\\[15:0\\]
+is the value of the synchronous prescaler counter when the timestamp event occurred."]
+    #[inline(always)]
+    pub fn ss(&self) -> SS_R {
+        SS_R::new((self.bits & 0xffff) as u16)
+    }
+}

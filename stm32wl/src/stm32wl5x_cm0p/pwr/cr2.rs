@@ -1,0 +1,108 @@
+#[doc = "Reader of register CR2"]
+pub type R = crate::R<u32, super::CR2>;
+#[doc = "Writer for register CR2"]
+pub type W = crate::W<u32, super::CR2>;
+#[doc = "Register CR2 `reset()`'s with value 0"]
+impl crate::ResetValue for super::CR2 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
+    }
+}
+#[doc = "Reader of field `PVME3`"]
+pub type PVME3_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PVME3`"]
+pub struct PVME3_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PVME3_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Reader of field `PLS`"]
+pub type PLS_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `PLS`"]
+pub struct PLS_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PLS_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x07 << 1)) | (((value as u32) & 0x07) << 1);
+        self.w
+    }
+}
+#[doc = "Reader of field `PVDE`"]
+pub type PVDE_R = crate::R<bool, bool>;
+#[doc = "Write proxy for field `PVDE`"]
+pub struct PVDE_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> PVDE_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bit 6 - Peripheral voltage monitoring 3 enable: VDDA vs. 1.62V"]
+    #[inline(always)]
+    pub fn pvme3(&self) -> PVME3_R {
+        PVME3_R::new(((self.bits >> 6) & 0x01) != 0)
+    }
+    #[doc = "Bits 1:3 - Power voltage detector level selection."]
+    #[inline(always)]
+    pub fn pls(&self) -> PLS_R {
+        PLS_R::new(((self.bits >> 1) & 0x07) as u8)
+    }
+    #[doc = "Bit 0 - Power voltage detector enable"]
+    #[inline(always)]
+    pub fn pvde(&self) -> PVDE_R {
+        PVDE_R::new((self.bits & 0x01) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 6 - Peripheral voltage monitoring 3 enable: VDDA vs. 1.62V"]
+    #[inline(always)]
+    pub fn pvme3(&mut self) -> PVME3_W {
+        PVME3_W { w: self }
+    }
+    #[doc = "Bits 1:3 - Power voltage detector level selection."]
+    #[inline(always)]
+    pub fn pls(&mut self) -> PLS_W {
+        PLS_W { w: self }
+    }
+    #[doc = "Bit 0 - Power voltage detector enable"]
+    #[inline(always)]
+    pub fn pvde(&mut self) -> PVDE_W {
+        PVDE_W { w: self }
+    }
+}
