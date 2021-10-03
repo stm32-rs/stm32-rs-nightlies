@@ -1,0 +1,52 @@
+#[doc = "Register `DINR%s` reader"]
+pub struct R(crate::R<DINR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DINR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<DINR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DINR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `DIN` reader - Input data received from MDIO Master during write frames"]
+pub struct DIN_R(crate::FieldReader<u16, u16>);
+impl DIN_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        DIN_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for DIN_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl R {
+    #[doc = "Bits 0:15 - Input data received from MDIO Master during write frames"]
+    #[inline(always)]
+    pub fn din(&self) -> DIN_R {
+        DIN_R::new((self.bits & 0xffff) as u16)
+    }
+}
+#[doc = "MDIOS input data register %s\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dinr](index.html) module"]
+pub struct DINR_SPEC;
+impl crate::RegisterSpec for DINR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dinr::R](R) reader structure"]
+impl crate::Readable for DINR_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets DINR%s to value 0"]
+impl crate::Resettable for DINR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}

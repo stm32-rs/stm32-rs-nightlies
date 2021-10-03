@@ -1,0 +1,41 @@
+[package]
+edition = "2018"
+name = "stm32g0"
+version = "0.14.0"
+authors = ["Adam Greig <adam@adamgreig.com>", "stm32-rs Contributors"]
+description = "Device support crates for STM32G0 devices"
+repository = "https://github.com/stm32-rs/stm32-rs"
+readme = "README.md"
+keywords = ["stm32", "svd2rust", "no_std", "embedded"]
+categories = ["embedded", "no-std"]
+license = "MIT/Apache-2.0"
+
+[dependencies]
+bare-metal = "1.0.0"
+vcell = "0.1.3"
+cortex-m = "0.7.2"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = ">=0.6.15,<0.8"
+
+[package.metadata.docs.rs]
+features = ['rt', 'stm32g030', 'stm32g070', 'stm32g0b0', 'stm32g041', 'stm32g081', 'stm32g0c1']
+default-target = "thumbv6m-none-eabi"
+targets = []
+
+[features]
+default = ["rt"]
+rt = ["cortex-m-rt/device"]
+stm32g030 = []
+stm32g031 = []
+stm32g041 = []
+stm32g050 = []
+stm32g051 = []
+stm32g061 = []
+stm32g070 = []
+stm32g071 = []
+stm32g081 = []
+stm32g0b0 = []
+stm32g0b1 = []
+stm32g0c1 = []

@@ -1,0 +1,138 @@
+#[doc = "Register `ADC_AWD3TR` reader"]
+pub struct R(crate::R<ADC_AWD3TR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<ADC_AWD3TR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<ADC_AWD3TR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<ADC_AWD3TR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `ADC_AWD3TR` writer"]
+pub struct W(crate::W<ADC_AWD3TR_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<ADC_AWD3TR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<ADC_AWD3TR_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<ADC_AWD3TR_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `LT3` reader - Analog watchdog 3lower threshold These bits are written by software to define the lower threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+pub struct LT3_R(crate::FieldReader<u16, u16>);
+impl LT3_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        LT3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for LT3_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `LT3` writer - Analog watchdog 3lower threshold These bits are written by software to define the lower threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+pub struct LT3_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> LT3_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        self.w.bits = (self.w.bits & !0x0fff) | (value as u32 & 0x0fff);
+        self.w
+    }
+}
+#[doc = "Field `HT3` reader - Analog watchdog 3 higher threshold These bits are written by software to define the higher threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+pub struct HT3_R(crate::FieldReader<u16, u16>);
+impl HT3_R {
+    pub(crate) fn new(bits: u16) -> Self {
+        HT3_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for HT3_R {
+    type Target = crate::FieldReader<u16, u16>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `HT3` writer - Analog watchdog 3 higher threshold These bits are written by software to define the higher threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+pub struct HT3_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> HT3_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x0fff << 16)) | ((value as u32 & 0x0fff) << 16);
+        self.w
+    }
+}
+impl R {
+    #[doc = "Bits 0:11 - Analog watchdog 3lower threshold These bits are written by software to define the lower threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+    #[inline(always)]
+    pub fn lt3(&self) -> LT3_R {
+        LT3_R::new((self.bits & 0x0fff) as u16)
+    }
+    #[doc = "Bits 16:27 - Analog watchdog 3 higher threshold These bits are written by software to define the higher threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+    #[inline(always)]
+    pub fn ht3(&self) -> HT3_R {
+        HT3_R::new(((self.bits >> 16) & 0x0fff) as u16)
+    }
+}
+impl W {
+    #[doc = "Bits 0:11 - Analog watchdog 3lower threshold These bits are written by software to define the lower threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+    #[inline(always)]
+    pub fn lt3(&mut self) -> LT3_W {
+        LT3_W { w: self }
+    }
+    #[doc = "Bits 16:27 - Analog watchdog 3 higher threshold These bits are written by software to define the higher threshold for the analog watchdog. Refer to ADC_AWDxTR) on pageÂ 395."]
+    #[inline(always)]
+    pub fn ht3(&mut self) -> HT3_W {
+        HT3_W { w: self }
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "ADC watchdog threshold register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [adc_awd3tr](index.html) module"]
+pub struct ADC_AWD3TR_SPEC;
+impl crate::RegisterSpec for ADC_AWD3TR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [adc_awd3tr::R](R) reader structure"]
+impl crate::Readable for ADC_AWD3TR_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [adc_awd3tr::W](W) writer structure"]
+impl crate::Writable for ADC_AWD3TR_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets ADC_AWD3TR to value 0x0fff_0000"]
+impl crate::Resettable for ADC_AWD3TR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x0fff_0000
+    }
+}

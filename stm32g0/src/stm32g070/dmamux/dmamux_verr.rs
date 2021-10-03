@@ -1,0 +1,71 @@
+#[doc = "Register `DMAMUX_VERR` reader"]
+pub struct R(crate::R<DMAMUX_VERR_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<DMAMUX_VERR_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<DMAMUX_VERR_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<DMAMUX_VERR_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Field `MINREV` reader - Minor IP revision"]
+pub struct MINREV_R(crate::FieldReader<u8, u8>);
+impl MINREV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MINREV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MINREV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MAJREV` reader - Major IP revision"]
+pub struct MAJREV_R(crate::FieldReader<u8, u8>);
+impl MAJREV_R {
+    pub(crate) fn new(bits: u8) -> Self {
+        MAJREV_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MAJREV_R {
+    type Target = crate::FieldReader<u8, u8>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl R {
+    #[doc = "Bits 0:3 - Minor IP revision"]
+    #[inline(always)]
+    pub fn minrev(&self) -> MINREV_R {
+        MINREV_R::new((self.bits & 0x0f) as u8)
+    }
+    #[doc = "Bits 4:7 - Major IP revision"]
+    #[inline(always)]
+    pub fn majrev(&self) -> MAJREV_R {
+        MAJREV_R::new(((self.bits >> 4) & 0x0f) as u8)
+    }
+}
+#[doc = "DMAMUX version register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dmamux_verr](index.html) module"]
+pub struct DMAMUX_VERR_SPEC;
+impl crate::RegisterSpec for DMAMUX_VERR_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [dmamux_verr::R](R) reader structure"]
+impl crate::Readable for DMAMUX_VERR_SPEC {
+    type Reader = R;
+}
+#[doc = "`reset()` method sets DMAMUX_VERR to value 0x11"]
+impl crate::Resettable for DMAMUX_VERR_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0x11
+    }
+}
