@@ -1,0 +1,22 @@
+#[doc = "Register `STGENR_PIDR6` reader"]
+pub type R = crate::R<STGENR_PIDR6rs>;
+#[doc = "Field `PIDR6` reader - PIDR6"]
+pub type PIDR6_R = crate::FieldReader<u32>;
+impl R {
+    #[doc = "Bits 0:31 - PIDR6"]
+    #[inline(always)]
+    pub fn pidr6(&self) -> PIDR6_R {
+        PIDR6_R::new(self.bits)
+    }
+}
+#[doc = "STGENR peripheral ID6 register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stgenr_pidr6::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct STGENR_PIDR6rs;
+impl crate::RegisterSpec for STGENR_PIDR6rs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`stgenr_pidr6::R`](R) reader structure"]
+impl crate::Readable for STGENR_PIDR6rs {}
+#[doc = "`reset()` method sets STGENR_PIDR6 to value 0"]
+impl crate::Resettable for STGENR_PIDR6rs {
+    const RESET_VALUE: u32 = 0;
+}

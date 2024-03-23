@@ -1,0 +1,220 @@
+#[doc = "Register `FLASH_SECCR` reader"]
+pub type R = crate::R<FLASH_SECCRrs>;
+#[doc = "Register `FLASH_SECCR` writer"]
+pub type W = crate::W<FLASH_SECCRrs>;
+#[doc = "Field `PG` reader - Secure programming"]
+pub type PG_R = crate::BitReader;
+#[doc = "Field `PG` writer - Secure programming"]
+pub type PG_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PER` reader - Secure page erase"]
+pub type PER_R = crate::BitReader;
+#[doc = "Field `PER` writer - Secure page erase"]
+pub type PER_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `MER1` reader - Secure bank 1 mass erase This bit triggers the bank 1 secure mass erase (all bank 1 user pages) when set."]
+pub type MER1_R = crate::BitReader;
+#[doc = "Field `MER1` writer - Secure bank 1 mass erase This bit triggers the bank 1 secure mass erase (all bank 1 user pages) when set."]
+pub type MER1_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PNB` reader - Secure page number selection These bits select the page to erase: ..."]
+pub type PNB_R = crate::FieldReader;
+#[doc = "Field `PNB` writer - Secure page number selection These bits select the page to erase: ..."]
+pub type PNB_W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+#[doc = "Field `BKER` reader - Secure bank selection for page erase"]
+pub type BKER_R = crate::BitReader;
+#[doc = "Field `BKER` writer - Secure bank selection for page erase"]
+pub type BKER_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `BWR` reader - Secure burst write programming mode When set, this bit selects the burst write programming mode."]
+pub type BWR_R = crate::BitReader;
+#[doc = "Field `BWR` writer - Secure burst write programming mode When set, this bit selects the burst write programming mode."]
+pub type BWR_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `MER2` reader - Secure bank 2 mass erase This bit triggers the bank 2 secure mass erase (all bank 2 user pages) when set."]
+pub type MER2_R = crate::BitReader;
+#[doc = "Field `MER2` writer - Secure bank 2 mass erase This bit triggers the bank 2 secure mass erase (all bank 2 user pages) when set."]
+pub type MER2_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `STRT` reader - Secure start This bit triggers a secure erase operation when set. If MER1, MER2 and PER bits are reset and the STRT bit is set, the PGSERR in the FLASH_SECSR is set (this condition is forbidden). This bit is set only by software and is cleared when the BSY bit is cleared in FLASH_SECSR."]
+pub type STRT_R = crate::BitReader;
+#[doc = "Field `STRT` writer - Secure start This bit triggers a secure erase operation when set. If MER1, MER2 and PER bits are reset and the STRT bit is set, the PGSERR in the FLASH_SECSR is set (this condition is forbidden). This bit is set only by software and is cleared when the BSY bit is cleared in FLASH_SECSR."]
+pub type STRT_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `EOPIE` reader - Secure End of operation interrupt enable This bit enables the interrupt generation when the EOP bit in the FLASH_SECSR is set to 1."]
+pub type EOPIE_R = crate::BitReader;
+#[doc = "Field `EOPIE` writer - Secure End of operation interrupt enable This bit enables the interrupt generation when the EOP bit in the FLASH_SECSR is set to 1."]
+pub type EOPIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ERRIE` reader - Secure error interrupt enable"]
+pub type ERRIE_R = crate::BitReader;
+#[doc = "Field `ERRIE` writer - Secure error interrupt enable"]
+pub type ERRIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RDERRIE` reader - Secure PCROP read error interrupt enable"]
+pub type RDERRIE_R = crate::BitReader;
+#[doc = "Field `RDERRIE` writer - Secure PCROP read error interrupt enable"]
+pub type RDERRIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `INV` reader - Flash memory security state invert This bit inverts the Flash memory security state."]
+pub type INV_R = crate::BitReader;
+#[doc = "Field `INV` writer - Flash memory security state invert This bit inverts the Flash memory security state."]
+pub type INV_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LOCK` reader - Secure lock This bit is set only. When set, the FLASH_SECCR register is locked. It is cleared by hardware after detecting the unlock sequence in FLASH_SECKEYR register. In case of an unsuccessful unlock operation, this bit remains set until the next system reset."]
+pub type LOCK_R = crate::BitReader;
+#[doc = "Field `LOCK` writer - Secure lock This bit is set only. When set, the FLASH_SECCR register is locked. It is cleared by hardware after detecting the unlock sequence in FLASH_SECKEYR register. In case of an unsuccessful unlock operation, this bit remains set until the next system reset."]
+pub type LOCK_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl R {
+    #[doc = "Bit 0 - Secure programming"]
+    #[inline(always)]
+    pub fn pg(&self) -> PG_R {
+        PG_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bit 1 - Secure page erase"]
+    #[inline(always)]
+    pub fn per(&self) -> PER_R {
+        PER_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    #[doc = "Bit 2 - Secure bank 1 mass erase This bit triggers the bank 1 secure mass erase (all bank 1 user pages) when set."]
+    #[inline(always)]
+    pub fn mer1(&self) -> MER1_R {
+        MER1_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bits 3:9 - Secure page number selection These bits select the page to erase: ..."]
+    #[inline(always)]
+    pub fn pnb(&self) -> PNB_R {
+        PNB_R::new(((self.bits >> 3) & 0x7f) as u8)
+    }
+    #[doc = "Bit 11 - Secure bank selection for page erase"]
+    #[inline(always)]
+    pub fn bker(&self) -> BKER_R {
+        BKER_R::new(((self.bits >> 11) & 1) != 0)
+    }
+    #[doc = "Bit 14 - Secure burst write programming mode When set, this bit selects the burst write programming mode."]
+    #[inline(always)]
+    pub fn bwr(&self) -> BWR_R {
+        BWR_R::new(((self.bits >> 14) & 1) != 0)
+    }
+    #[doc = "Bit 15 - Secure bank 2 mass erase This bit triggers the bank 2 secure mass erase (all bank 2 user pages) when set."]
+    #[inline(always)]
+    pub fn mer2(&self) -> MER2_R {
+        MER2_R::new(((self.bits >> 15) & 1) != 0)
+    }
+    #[doc = "Bit 16 - Secure start This bit triggers a secure erase operation when set. If MER1, MER2 and PER bits are reset and the STRT bit is set, the PGSERR in the FLASH_SECSR is set (this condition is forbidden). This bit is set only by software and is cleared when the BSY bit is cleared in FLASH_SECSR."]
+    #[inline(always)]
+    pub fn strt(&self) -> STRT_R {
+        STRT_R::new(((self.bits >> 16) & 1) != 0)
+    }
+    #[doc = "Bit 24 - Secure End of operation interrupt enable This bit enables the interrupt generation when the EOP bit in the FLASH_SECSR is set to 1."]
+    #[inline(always)]
+    pub fn eopie(&self) -> EOPIE_R {
+        EOPIE_R::new(((self.bits >> 24) & 1) != 0)
+    }
+    #[doc = "Bit 25 - Secure error interrupt enable"]
+    #[inline(always)]
+    pub fn errie(&self) -> ERRIE_R {
+        ERRIE_R::new(((self.bits >> 25) & 1) != 0)
+    }
+    #[doc = "Bit 26 - Secure PCROP read error interrupt enable"]
+    #[inline(always)]
+    pub fn rderrie(&self) -> RDERRIE_R {
+        RDERRIE_R::new(((self.bits >> 26) & 1) != 0)
+    }
+    #[doc = "Bit 29 - Flash memory security state invert This bit inverts the Flash memory security state."]
+    #[inline(always)]
+    pub fn inv(&self) -> INV_R {
+        INV_R::new(((self.bits >> 29) & 1) != 0)
+    }
+    #[doc = "Bit 31 - Secure lock This bit is set only. When set, the FLASH_SECCR register is locked. It is cleared by hardware after detecting the unlock sequence in FLASH_SECKEYR register. In case of an unsuccessful unlock operation, this bit remains set until the next system reset."]
+    #[inline(always)]
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - Secure programming"]
+    #[inline(always)]
+    #[must_use]
+    pub fn pg(&mut self) -> PG_W<FLASH_SECCRrs> {
+        PG_W::new(self, 0)
+    }
+    #[doc = "Bit 1 - Secure page erase"]
+    #[inline(always)]
+    #[must_use]
+    pub fn per(&mut self) -> PER_W<FLASH_SECCRrs> {
+        PER_W::new(self, 1)
+    }
+    #[doc = "Bit 2 - Secure bank 1 mass erase This bit triggers the bank 1 secure mass erase (all bank 1 user pages) when set."]
+    #[inline(always)]
+    #[must_use]
+    pub fn mer1(&mut self) -> MER1_W<FLASH_SECCRrs> {
+        MER1_W::new(self, 2)
+    }
+    #[doc = "Bits 3:9 - Secure page number selection These bits select the page to erase: ..."]
+    #[inline(always)]
+    #[must_use]
+    pub fn pnb(&mut self) -> PNB_W<FLASH_SECCRrs> {
+        PNB_W::new(self, 3)
+    }
+    #[doc = "Bit 11 - Secure bank selection for page erase"]
+    #[inline(always)]
+    #[must_use]
+    pub fn bker(&mut self) -> BKER_W<FLASH_SECCRrs> {
+        BKER_W::new(self, 11)
+    }
+    #[doc = "Bit 14 - Secure burst write programming mode When set, this bit selects the burst write programming mode."]
+    #[inline(always)]
+    #[must_use]
+    pub fn bwr(&mut self) -> BWR_W<FLASH_SECCRrs> {
+        BWR_W::new(self, 14)
+    }
+    #[doc = "Bit 15 - Secure bank 2 mass erase This bit triggers the bank 2 secure mass erase (all bank 2 user pages) when set."]
+    #[inline(always)]
+    #[must_use]
+    pub fn mer2(&mut self) -> MER2_W<FLASH_SECCRrs> {
+        MER2_W::new(self, 15)
+    }
+    #[doc = "Bit 16 - Secure start This bit triggers a secure erase operation when set. If MER1, MER2 and PER bits are reset and the STRT bit is set, the PGSERR in the FLASH_SECSR is set (this condition is forbidden). This bit is set only by software and is cleared when the BSY bit is cleared in FLASH_SECSR."]
+    #[inline(always)]
+    #[must_use]
+    pub fn strt(&mut self) -> STRT_W<FLASH_SECCRrs> {
+        STRT_W::new(self, 16)
+    }
+    #[doc = "Bit 24 - Secure End of operation interrupt enable This bit enables the interrupt generation when the EOP bit in the FLASH_SECSR is set to 1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn eopie(&mut self) -> EOPIE_W<FLASH_SECCRrs> {
+        EOPIE_W::new(self, 24)
+    }
+    #[doc = "Bit 25 - Secure error interrupt enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn errie(&mut self) -> ERRIE_W<FLASH_SECCRrs> {
+        ERRIE_W::new(self, 25)
+    }
+    #[doc = "Bit 26 - Secure PCROP read error interrupt enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn rderrie(&mut self) -> RDERRIE_W<FLASH_SECCRrs> {
+        RDERRIE_W::new(self, 26)
+    }
+    #[doc = "Bit 29 - Flash memory security state invert This bit inverts the Flash memory security state."]
+    #[inline(always)]
+    #[must_use]
+    pub fn inv(&mut self) -> INV_W<FLASH_SECCRrs> {
+        INV_W::new(self, 29)
+    }
+    #[doc = "Bit 31 - Secure lock This bit is set only. When set, the FLASH_SECCR register is locked. It is cleared by hardware after detecting the unlock sequence in FLASH_SECKEYR register. In case of an unsuccessful unlock operation, this bit remains set until the next system reset."]
+    #[inline(always)]
+    #[must_use]
+    pub fn lock(&mut self) -> LOCK_W<FLASH_SECCRrs> {
+        LOCK_W::new(self, 31)
+    }
+}
+#[doc = "FLASH secure control register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_seccr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_seccr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FLASH_SECCRrs;
+impl crate::RegisterSpec for FLASH_SECCRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`flash_seccr::R`](R) reader structure"]
+impl crate::Readable for FLASH_SECCRrs {}
+#[doc = "`write(|w| ..)` method takes [`flash_seccr::W`](W) writer structure"]
+impl crate::Writable for FLASH_SECCRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets FLASH_SECCR to value 0x8000_0000"]
+impl crate::Resettable for FLASH_SECCRrs {
+    const RESET_VALUE: u32 = 0x8000_0000;
+}

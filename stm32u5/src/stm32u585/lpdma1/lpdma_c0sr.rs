@@ -1,0 +1,73 @@
+#[doc = "Register `LPDMA_C0SR` reader"]
+pub type R = crate::R<LPDMA_C0SRrs>;
+#[doc = "Field `IDLEF` reader - idle flag This idle flag is de-asserted by hardware when the channel is enabled (LPDMA_CxCR.EN = 1) with a valid channel configuration (no USEF to be immediately reported). This idle flag is asserted after hard reset or by hardware when the channel is back in idle state (in suspended or disabled state)."]
+pub type IDLEF_R = crate::BitReader;
+#[doc = "Field `TCF` reader - transfer complete flag A transfer complete event is a block transfer complete or a LLI transfer complete including the upload of the next LLI if any, or the full linked-list completion, depending on the transfer complete event mode LPDMA_CxTR2.TCEM\\[1:0\\]."]
+pub type TCF_R = crate::BitReader;
+#[doc = "Field `HTF` reader - half transfer flag An half transfer event is an half block transfer that occurs when half of the bytes of the source block size (rounded-up integer of LPDMA_CxBR1.BNDT\\[15:0\\]
+/ 2) has been transferred to the destination."]
+pub type HTF_R = crate::BitReader;
+#[doc = "Field `DTEF` reader - data transfer error flag"]
+pub type DTEF_R = crate::BitReader;
+#[doc = "Field `ULEF` reader - update link transfer error flag"]
+pub type ULEF_R = crate::BitReader;
+#[doc = "Field `USEF` reader - user setting error flag"]
+pub type USEF_R = crate::BitReader;
+#[doc = "Field `SUSPF` reader - completed suspension flag"]
+pub type SUSPF_R = crate::BitReader;
+#[doc = "Field `TOF` reader - trigger overrun flag clear"]
+pub type TOF_R = crate::BitReader;
+impl R {
+    #[doc = "Bit 0 - idle flag This idle flag is de-asserted by hardware when the channel is enabled (LPDMA_CxCR.EN = 1) with a valid channel configuration (no USEF to be immediately reported). This idle flag is asserted after hard reset or by hardware when the channel is back in idle state (in suspended or disabled state)."]
+    #[inline(always)]
+    pub fn idlef(&self) -> IDLEF_R {
+        IDLEF_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bit 8 - transfer complete flag A transfer complete event is a block transfer complete or a LLI transfer complete including the upload of the next LLI if any, or the full linked-list completion, depending on the transfer complete event mode LPDMA_CxTR2.TCEM\\[1:0\\]."]
+    #[inline(always)]
+    pub fn tcf(&self) -> TCF_R {
+        TCF_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    #[doc = "Bit 9 - half transfer flag An half transfer event is an half block transfer that occurs when half of the bytes of the source block size (rounded-up integer of LPDMA_CxBR1.BNDT\\[15:0\\]
+/ 2) has been transferred to the destination."]
+    #[inline(always)]
+    pub fn htf(&self) -> HTF_R {
+        HTF_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bit 10 - data transfer error flag"]
+    #[inline(always)]
+    pub fn dtef(&self) -> DTEF_R {
+        DTEF_R::new(((self.bits >> 10) & 1) != 0)
+    }
+    #[doc = "Bit 11 - update link transfer error flag"]
+    #[inline(always)]
+    pub fn ulef(&self) -> ULEF_R {
+        ULEF_R::new(((self.bits >> 11) & 1) != 0)
+    }
+    #[doc = "Bit 12 - user setting error flag"]
+    #[inline(always)]
+    pub fn usef(&self) -> USEF_R {
+        USEF_R::new(((self.bits >> 12) & 1) != 0)
+    }
+    #[doc = "Bit 13 - completed suspension flag"]
+    #[inline(always)]
+    pub fn suspf(&self) -> SUSPF_R {
+        SUSPF_R::new(((self.bits >> 13) & 1) != 0)
+    }
+    #[doc = "Bit 14 - trigger overrun flag clear"]
+    #[inline(always)]
+    pub fn tof(&self) -> TOF_R {
+        TOF_R::new(((self.bits >> 14) & 1) != 0)
+    }
+}
+#[doc = "LPDMA channel 0 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`lpdma_c0sr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct LPDMA_C0SRrs;
+impl crate::RegisterSpec for LPDMA_C0SRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`lpdma_c0sr::R`](R) reader structure"]
+impl crate::Readable for LPDMA_C0SRrs {}
+#[doc = "`reset()` method sets LPDMA_C0SR to value 0x01"]
+impl crate::Resettable for LPDMA_C0SRrs {
+    const RESET_VALUE: u32 = 0x01;
+}

@@ -1,0 +1,85 @@
+#[doc = "Register `OCOLR_ARGB1555` reader"]
+pub type R = crate::R<OCOLR_ARGB1555rs>;
+#[doc = "Register `OCOLR_ARGB1555` writer"]
+pub type W = crate::W<OCOLR_ARGB1555rs>;
+#[doc = "Field `BLUE` reader - Blue value in ARGB1555 mode"]
+pub type BLUE_R = crate::FieldReader;
+#[doc = "Field `BLUE` writer - Blue value in ARGB1555 mode"]
+pub type BLUE_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+#[doc = "Field `GREEN` reader - Green value in ARGB1555 mode"]
+pub type GREEN_R = crate::FieldReader;
+#[doc = "Field `GREEN` writer - Green value in ARGB1555 mode"]
+pub type GREEN_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+#[doc = "Field `RED` reader - Red value in ARGB1555 mode"]
+pub type RED_R = crate::FieldReader;
+#[doc = "Field `RED` writer - Red value in ARGB1555 mode"]
+pub type RED_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+#[doc = "Field `A` reader - Alpha channel value in ARGB1555 mode"]
+pub type A_R = crate::BitReader;
+#[doc = "Field `A` writer - Alpha channel value in ARGB1555 mode"]
+pub type A_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl R {
+    #[doc = "Bits 0:4 - Blue value in ARGB1555 mode"]
+    #[inline(always)]
+    pub fn blue(&self) -> BLUE_R {
+        BLUE_R::new((self.bits & 0x1f) as u8)
+    }
+    #[doc = "Bits 5:9 - Green value in ARGB1555 mode"]
+    #[inline(always)]
+    pub fn green(&self) -> GREEN_R {
+        GREEN_R::new(((self.bits >> 5) & 0x1f) as u8)
+    }
+    #[doc = "Bits 10:14 - Red value in ARGB1555 mode"]
+    #[inline(always)]
+    pub fn red(&self) -> RED_R {
+        RED_R::new(((self.bits >> 10) & 0x1f) as u8)
+    }
+    #[doc = "Bit 15 - Alpha channel value in ARGB1555 mode"]
+    #[inline(always)]
+    pub fn a(&self) -> A_R {
+        A_R::new(((self.bits >> 15) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bits 0:4 - Blue value in ARGB1555 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn blue(&mut self) -> BLUE_W<OCOLR_ARGB1555rs> {
+        BLUE_W::new(self, 0)
+    }
+    #[doc = "Bits 5:9 - Green value in ARGB1555 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn green(&mut self) -> GREEN_W<OCOLR_ARGB1555rs> {
+        GREEN_W::new(self, 5)
+    }
+    #[doc = "Bits 10:14 - Red value in ARGB1555 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn red(&mut self) -> RED_W<OCOLR_ARGB1555rs> {
+        RED_W::new(self, 10)
+    }
+    #[doc = "Bit 15 - Alpha channel value in ARGB1555 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn a(&mut self) -> A_W<OCOLR_ARGB1555rs> {
+        A_W::new(self, 15)
+    }
+}
+#[doc = "output color register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ocolr_argb1555::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ocolr_argb1555::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct OCOLR_ARGB1555rs;
+impl crate::RegisterSpec for OCOLR_ARGB1555rs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`ocolr_argb1555::R`](R) reader structure"]
+impl crate::Readable for OCOLR_ARGB1555rs {}
+#[doc = "`write(|w| ..)` method takes [`ocolr_argb1555::W`](W) writer structure"]
+impl crate::Writable for OCOLR_ARGB1555rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets OCOLR_ARGB1555 to value 0"]
+impl crate::Resettable for OCOLR_ARGB1555rs {
+    const RESET_VALUE: u32 = 0;
+}

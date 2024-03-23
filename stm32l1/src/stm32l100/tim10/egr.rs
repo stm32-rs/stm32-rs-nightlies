@@ -1,0 +1,117 @@
+#[doc = "Register `EGR` reader"]
+pub type R = crate::R<EGRrs>;
+#[doc = "Register `EGR` writer"]
+pub type W = crate::W<EGRrs>;
+#[doc = "Update generation\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum UG {
+    #[doc = "1: Re-initializes the timer counter and generates an update of the registers."]
+    Update = 1,
+}
+impl From<UG> for bool {
+    #[inline(always)]
+    fn from(variant: UG) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `UG` reader - Update generation"]
+pub type UG_R = crate::BitReader<UG>;
+impl UG_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<UG> {
+        match self.bits {
+            true => Some(UG::Update),
+            _ => None,
+        }
+    }
+    #[doc = "Re-initializes the timer counter and generates an update of the registers."]
+    #[inline(always)]
+    pub fn is_update(&self) -> bool {
+        *self == UG::Update
+    }
+}
+#[doc = "Field `UG` writer - Update generation"]
+pub type UG_W<'a, REG> = crate::BitWriter<'a, REG, UG>;
+impl<'a, REG> UG_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Re-initializes the timer counter and generates an update of the registers."]
+    #[inline(always)]
+    pub fn update(self) -> &'a mut crate::W<REG> {
+        self.variant(UG::Update)
+    }
+}
+#[doc = "Field `CCG(1-1)` reader - Capture/compare %s generation"]
+pub type CCG_R = crate::BitReader;
+#[doc = "Field `CCG(1-1)` writer - Capture/compare %s generation"]
+pub type CCG_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl R {
+    #[doc = "Bit 0 - Update generation"]
+    #[inline(always)]
+    pub fn ug(&self) -> UG_R {
+        UG_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Capture/compare (1-1) generation"]
+    #[doc = ""]
+    #[doc = "NOTE: `n` is number of field in register. `n == 0` corresponds to `CC1G` field"]
+    #[inline(always)]
+    pub fn ccg(&self, n: u8) -> CCG_R {
+        #[allow(clippy::no_effect)]
+        [(); 1][n as usize];
+        CCG_R::new(((self.bits >> (n * 0 + 1)) & 1) != 0)
+    }
+    #[doc = "Iterator for array of:"]
+    #[doc = "Capture/compare (1-1) generation"]
+    #[inline(always)]
+    pub fn ccg_iter(&self) -> impl Iterator<Item = CCG_R> + '_ {
+        (0..1).map(move |n| CCG_R::new(((self.bits >> (n * 0 + 1)) & 1) != 0))
+    }
+    #[doc = "Bit 1 - Capture/compare 1 generation"]
+    #[inline(always)]
+    pub fn cc1g(&self) -> CCG_R {
+        CCG_R::new(((self.bits >> 1) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - Update generation"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ug(&mut self) -> UG_W<EGRrs> {
+        UG_W::new(self, 0)
+    }
+    #[doc = "Capture/compare (1-1) generation"]
+    #[doc = ""]
+    #[doc = "NOTE: `n` is number of field in register. `n == 0` corresponds to `CC1G` field"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ccg(&mut self, n: u8) -> CCG_W<EGRrs> {
+        #[allow(clippy::no_effect)]
+        [(); 1][n as usize];
+        CCG_W::new(self, n * 0 + 1)
+    }
+    #[doc = "Bit 1 - Capture/compare 1 generation"]
+    #[inline(always)]
+    #[must_use]
+    pub fn cc1g(&mut self) -> CCG_W<EGRrs> {
+        CCG_W::new(self, 1)
+    }
+}
+#[doc = "event generation register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`egr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`egr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct EGRrs;
+impl crate::RegisterSpec for EGRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`egr::R`](R) reader structure"]
+impl crate::Readable for EGRrs {}
+#[doc = "`write(|w| ..)` method takes [`egr::W`](W) writer structure"]
+impl crate::Writable for EGRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets EGR to value 0"]
+impl crate::Resettable for EGRrs {
+    const RESET_VALUE: u32 = 0;
+}

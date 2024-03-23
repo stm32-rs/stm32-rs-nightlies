@@ -1,0 +1,100 @@
+#[doc = "Register `TIMx_CR2` reader"]
+pub type R = crate::R<TIMX_CR2rs>;
+#[doc = "Register `TIMx_CR2` writer"]
+pub type W = crate::W<TIMX_CR2rs>;
+#[doc = "Field `CCPC` reader - CCPC"]
+pub type CCPC_R = crate::BitReader;
+#[doc = "Field `CCPC` writer - CCPC"]
+pub type CCPC_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CCUS` reader - CCUS"]
+pub type CCUS_R = crate::BitReader;
+#[doc = "Field `CCUS` writer - CCUS"]
+pub type CCUS_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CCDS` reader - CCDS"]
+pub type CCDS_R = crate::BitReader;
+#[doc = "Field `CCDS` writer - CCDS"]
+pub type CCDS_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `OIS1` reader - OIS1"]
+pub type OIS1_R = crate::BitReader;
+#[doc = "Field `OIS1` writer - OIS1"]
+pub type OIS1_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `OIS1N` reader - OIS1N"]
+pub type OIS1N_R = crate::BitReader;
+#[doc = "Field `OIS1N` writer - OIS1N"]
+pub type OIS1N_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl R {
+    #[doc = "Bit 0 - CCPC"]
+    #[inline(always)]
+    pub fn ccpc(&self) -> CCPC_R {
+        CCPC_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bit 2 - CCUS"]
+    #[inline(always)]
+    pub fn ccus(&self) -> CCUS_R {
+        CCUS_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - CCDS"]
+    #[inline(always)]
+    pub fn ccds(&self) -> CCDS_R {
+        CCDS_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bit 8 - OIS1"]
+    #[inline(always)]
+    pub fn ois1(&self) -> OIS1_R {
+        OIS1_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    #[doc = "Bit 9 - OIS1N"]
+    #[inline(always)]
+    pub fn ois1n(&self) -> OIS1N_R {
+        OIS1N_R::new(((self.bits >> 9) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - CCPC"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ccpc(&mut self) -> CCPC_W<TIMX_CR2rs> {
+        CCPC_W::new(self, 0)
+    }
+    #[doc = "Bit 2 - CCUS"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ccus(&mut self) -> CCUS_W<TIMX_CR2rs> {
+        CCUS_W::new(self, 2)
+    }
+    #[doc = "Bit 3 - CCDS"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ccds(&mut self) -> CCDS_W<TIMX_CR2rs> {
+        CCDS_W::new(self, 3)
+    }
+    #[doc = "Bit 8 - OIS1"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ois1(&mut self) -> OIS1_W<TIMX_CR2rs> {
+        OIS1_W::new(self, 8)
+    }
+    #[doc = "Bit 9 - OIS1N"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ois1n(&mut self) -> OIS1N_W<TIMX_CR2rs> {
+        OIS1N_W::new(self, 9)
+    }
+}
+#[doc = "TIM16/TIM17 control register 2\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`timx_cr2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`timx_cr2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TIMX_CR2rs;
+impl crate::RegisterSpec for TIMX_CR2rs {
+    type Ux = u16;
+}
+#[doc = "`read()` method returns [`timx_cr2::R`](R) reader structure"]
+impl crate::Readable for TIMX_CR2rs {}
+#[doc = "`write(|w| ..)` method takes [`timx_cr2::W`](W) writer structure"]
+impl crate::Writable for TIMX_CR2rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u16 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u16 = 0;
+}
+#[doc = "`reset()` method sets TIMx_CR2 to value 0"]
+impl crate::Resettable for TIMX_CR2rs {
+    const RESET_VALUE: u16 = 0;
+}

@@ -1,0 +1,77 @@
+#[doc = "Register `AHB3RSTR` reader"]
+pub type R = crate::R<AHB3RSTRrs>;
+#[doc = "Register `AHB3RSTR` writer"]
+pub type W = crate::W<AHB3RSTRrs>;
+#[doc = "Flexible static memory controller module reset\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FSMCRST {
+    #[doc = "1: Reset the selected module"]
+    Reset = 1,
+}
+impl From<FSMCRST> for bool {
+    #[inline(always)]
+    fn from(variant: FSMCRST) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `FSMCRST` reader - Flexible static memory controller module reset"]
+pub type FSMCRST_R = crate::BitReader<FSMCRST>;
+impl FSMCRST_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<FSMCRST> {
+        match self.bits {
+            true => Some(FSMCRST::Reset),
+            _ => None,
+        }
+    }
+    #[doc = "Reset the selected module"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == FSMCRST::Reset
+    }
+}
+#[doc = "Field `FSMCRST` writer - Flexible static memory controller module reset"]
+pub type FSMCRST_W<'a, REG> = crate::BitWriter<'a, REG, FSMCRST>;
+impl<'a, REG> FSMCRST_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Reset the selected module"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(FSMCRST::Reset)
+    }
+}
+impl R {
+    #[doc = "Bit 0 - Flexible static memory controller module reset"]
+    #[inline(always)]
+    pub fn fsmcrst(&self) -> FSMCRST_R {
+        FSMCRST_R::new((self.bits & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - Flexible static memory controller module reset"]
+    #[inline(always)]
+    #[must_use]
+    pub fn fsmcrst(&mut self) -> FSMCRST_W<AHB3RSTRrs> {
+        FSMCRST_W::new(self, 0)
+    }
+}
+#[doc = "AHB3 peripheral reset register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ahb3rstr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ahb3rstr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AHB3RSTRrs;
+impl crate::RegisterSpec for AHB3RSTRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`ahb3rstr::R`](R) reader structure"]
+impl crate::Readable for AHB3RSTRrs {}
+#[doc = "`write(|w| ..)` method takes [`ahb3rstr::W`](W) writer structure"]
+impl crate::Writable for AHB3RSTRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets AHB3RSTR to value 0"]
+impl crate::Resettable for AHB3RSTRrs {
+    const RESET_VALUE: u32 = 0;
+}

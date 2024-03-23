@@ -1,0 +1,85 @@
+#[doc = "Register `OCOLR_ARGB4444` reader"]
+pub type R = crate::R<OCOLR_ARGB4444rs>;
+#[doc = "Register `OCOLR_ARGB4444` writer"]
+pub type W = crate::W<OCOLR_ARGB4444rs>;
+#[doc = "Field `BLUE` reader - Blue value in ARGB4444 mode"]
+pub type BLUE_R = crate::FieldReader;
+#[doc = "Field `BLUE` writer - Blue value in ARGB4444 mode"]
+pub type BLUE_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `GREEN` reader - Green value in ARGB4444 mode"]
+pub type GREEN_R = crate::FieldReader;
+#[doc = "Field `GREEN` writer - Green value in ARGB4444 mode"]
+pub type GREEN_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `RED` reader - Red value in ARGB4444 mode"]
+pub type RED_R = crate::FieldReader;
+#[doc = "Field `RED` writer - Red value in ARGB4444 mode"]
+pub type RED_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+#[doc = "Field `ALPHA` reader - Alpha channel value in ARGB4444"]
+pub type ALPHA_R = crate::FieldReader;
+#[doc = "Field `ALPHA` writer - Alpha channel value in ARGB4444"]
+pub type ALPHA_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+impl R {
+    #[doc = "Bits 0:3 - Blue value in ARGB4444 mode"]
+    #[inline(always)]
+    pub fn blue(&self) -> BLUE_R {
+        BLUE_R::new((self.bits & 0x0f) as u8)
+    }
+    #[doc = "Bits 4:7 - Green value in ARGB4444 mode"]
+    #[inline(always)]
+    pub fn green(&self) -> GREEN_R {
+        GREEN_R::new(((self.bits >> 4) & 0x0f) as u8)
+    }
+    #[doc = "Bits 8:11 - Red value in ARGB4444 mode"]
+    #[inline(always)]
+    pub fn red(&self) -> RED_R {
+        RED_R::new(((self.bits >> 8) & 0x0f) as u8)
+    }
+    #[doc = "Bits 12:15 - Alpha channel value in ARGB4444"]
+    #[inline(always)]
+    pub fn alpha(&self) -> ALPHA_R {
+        ALPHA_R::new(((self.bits >> 12) & 0x0f) as u8)
+    }
+}
+impl W {
+    #[doc = "Bits 0:3 - Blue value in ARGB4444 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn blue(&mut self) -> BLUE_W<OCOLR_ARGB4444rs> {
+        BLUE_W::new(self, 0)
+    }
+    #[doc = "Bits 4:7 - Green value in ARGB4444 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn green(&mut self) -> GREEN_W<OCOLR_ARGB4444rs> {
+        GREEN_W::new(self, 4)
+    }
+    #[doc = "Bits 8:11 - Red value in ARGB4444 mode"]
+    #[inline(always)]
+    #[must_use]
+    pub fn red(&mut self) -> RED_W<OCOLR_ARGB4444rs> {
+        RED_W::new(self, 8)
+    }
+    #[doc = "Bits 12:15 - Alpha channel value in ARGB4444"]
+    #[inline(always)]
+    #[must_use]
+    pub fn alpha(&mut self) -> ALPHA_W<OCOLR_ARGB4444rs> {
+        ALPHA_W::new(self, 12)
+    }
+}
+#[doc = "output color register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ocolr_argb4444::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ocolr_argb4444::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct OCOLR_ARGB4444rs;
+impl crate::RegisterSpec for OCOLR_ARGB4444rs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`ocolr_argb4444::R`](R) reader structure"]
+impl crate::Readable for OCOLR_ARGB4444rs {}
+#[doc = "`write(|w| ..)` method takes [`ocolr_argb4444::W`](W) writer structure"]
+impl crate::Writable for OCOLR_ARGB4444rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets OCOLR_ARGB4444 to value 0"]
+impl crate::Resettable for OCOLR_ARGB4444rs {
+    const RESET_VALUE: u32 = 0;
+}

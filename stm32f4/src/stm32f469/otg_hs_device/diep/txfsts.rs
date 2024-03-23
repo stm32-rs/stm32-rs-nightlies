@@ -1,0 +1,22 @@
+#[doc = "Register `TXFSTS` reader"]
+pub type R = crate::R<TXFSTSrs>;
+#[doc = "Field `INEPTFSAV` reader - IN endpoint TxFIFO space avail"]
+pub type INEPTFSAV_R = crate::FieldReader<u16>;
+impl R {
+    #[doc = "Bits 0:15 - IN endpoint TxFIFO space avail"]
+    #[inline(always)]
+    pub fn ineptfsav(&self) -> INEPTFSAV_R {
+        INEPTFSAV_R::new((self.bits & 0xffff) as u16)
+    }
+}
+#[doc = "OTG_HS device IN endpoint transmit FIFO status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`txfsts::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TXFSTSrs;
+impl crate::RegisterSpec for TXFSTSrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`txfsts::R`](R) reader structure"]
+impl crate::Readable for TXFSTSrs {}
+#[doc = "`reset()` method sets TXFSTS to value 0"]
+impl crate::Resettable for TXFSTSrs {
+    const RESET_VALUE: u32 = 0;
+}

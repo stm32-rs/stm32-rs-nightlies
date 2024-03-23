@@ -1,0 +1,122 @@
+#[doc = "Register `ICR` reader"]
+pub type R = crate::R<ICRrs>;
+#[doc = "Register `ICR` writer"]
+pub type W = crate::W<ICRrs>;
+#[doc = "SYNC event OK clear flag Writing 1 to this bit clears the SYNCOKF flag in the CRS_ISR register.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SYNCOKC {
+    #[doc = "1: Clear flag"]
+    Clear = 1,
+}
+impl From<SYNCOKC> for bool {
+    #[inline(always)]
+    fn from(variant: SYNCOKC) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `SYNCOKC` reader - SYNC event OK clear flag Writing 1 to this bit clears the SYNCOKF flag in the CRS_ISR register."]
+pub type SYNCOKC_R = crate::BitReader<SYNCOKC>;
+impl SYNCOKC_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<SYNCOKC> {
+        match self.bits {
+            true => Some(SYNCOKC::Clear),
+            _ => None,
+        }
+    }
+    #[doc = "Clear flag"]
+    #[inline(always)]
+    pub fn is_clear(&self) -> bool {
+        *self == SYNCOKC::Clear
+    }
+}
+#[doc = "Field `SYNCOKC` writer - SYNC event OK clear flag Writing 1 to this bit clears the SYNCOKF flag in the CRS_ISR register."]
+pub type SYNCOKC_W<'a, REG> = crate::BitWriter<'a, REG, SYNCOKC>;
+impl<'a, REG> SYNCOKC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Clear flag"]
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(SYNCOKC::Clear)
+    }
+}
+#[doc = "Field `SYNCWARNC` reader - SYNC warning clear flag Writing 1 to this bit clears the SYNCWARNF flag in the CRS_ISR register."]
+pub use SYNCOKC_R as SYNCWARNC_R;
+#[doc = "Field `ERRC` reader - Error clear flag Writing 1 to this bit clears TRIMOVF, SYNCMISS and SYNCERR bits and consequently also the ERRF flag in the CRS_ISR register."]
+pub use SYNCOKC_R as ERRC_R;
+#[doc = "Field `ESYNCC` reader - Expected SYNC clear flag Writing 1 to this bit clears the ESYNCF flag in the CRS_ISR register."]
+pub use SYNCOKC_R as ESYNCC_R;
+#[doc = "Field `SYNCWARNC` writer - SYNC warning clear flag Writing 1 to this bit clears the SYNCWARNF flag in the CRS_ISR register."]
+pub use SYNCOKC_W as SYNCWARNC_W;
+#[doc = "Field `ERRC` writer - Error clear flag Writing 1 to this bit clears TRIMOVF, SYNCMISS and SYNCERR bits and consequently also the ERRF flag in the CRS_ISR register."]
+pub use SYNCOKC_W as ERRC_W;
+#[doc = "Field `ESYNCC` writer - Expected SYNC clear flag Writing 1 to this bit clears the ESYNCF flag in the CRS_ISR register."]
+pub use SYNCOKC_W as ESYNCC_W;
+impl R {
+    #[doc = "Bit 0 - SYNC event OK clear flag Writing 1 to this bit clears the SYNCOKF flag in the CRS_ISR register."]
+    #[inline(always)]
+    pub fn syncokc(&self) -> SYNCOKC_R {
+        SYNCOKC_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bit 1 - SYNC warning clear flag Writing 1 to this bit clears the SYNCWARNF flag in the CRS_ISR register."]
+    #[inline(always)]
+    pub fn syncwarnc(&self) -> SYNCWARNC_R {
+        SYNCWARNC_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    #[doc = "Bit 2 - Error clear flag Writing 1 to this bit clears TRIMOVF, SYNCMISS and SYNCERR bits and consequently also the ERRF flag in the CRS_ISR register."]
+    #[inline(always)]
+    pub fn errc(&self) -> ERRC_R {
+        ERRC_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Expected SYNC clear flag Writing 1 to this bit clears the ESYNCF flag in the CRS_ISR register."]
+    #[inline(always)]
+    pub fn esyncc(&self) -> ESYNCC_R {
+        ESYNCC_R::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - SYNC event OK clear flag Writing 1 to this bit clears the SYNCOKF flag in the CRS_ISR register."]
+    #[inline(always)]
+    #[must_use]
+    pub fn syncokc(&mut self) -> SYNCOKC_W<ICRrs> {
+        SYNCOKC_W::new(self, 0)
+    }
+    #[doc = "Bit 1 - SYNC warning clear flag Writing 1 to this bit clears the SYNCWARNF flag in the CRS_ISR register."]
+    #[inline(always)]
+    #[must_use]
+    pub fn syncwarnc(&mut self) -> SYNCWARNC_W<ICRrs> {
+        SYNCWARNC_W::new(self, 1)
+    }
+    #[doc = "Bit 2 - Error clear flag Writing 1 to this bit clears TRIMOVF, SYNCMISS and SYNCERR bits and consequently also the ERRF flag in the CRS_ISR register."]
+    #[inline(always)]
+    #[must_use]
+    pub fn errc(&mut self) -> ERRC_W<ICRrs> {
+        ERRC_W::new(self, 2)
+    }
+    #[doc = "Bit 3 - Expected SYNC clear flag Writing 1 to this bit clears the ESYNCF flag in the CRS_ISR register."]
+    #[inline(always)]
+    #[must_use]
+    pub fn esyncc(&mut self) -> ESYNCC_W<ICRrs> {
+        ESYNCC_W::new(self, 3)
+    }
+}
+#[doc = "CRS interrupt flag clear register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`icr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`icr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ICRrs;
+impl crate::RegisterSpec for ICRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`icr::R`](R) reader structure"]
+impl crate::Readable for ICRrs {}
+#[doc = "`write(|w| ..)` method takes [`icr::W`](W) writer structure"]
+impl crate::Writable for ICRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets ICR to value 0"]
+impl crate::Resettable for ICRrs {
+    const RESET_VALUE: u32 = 0;
+}

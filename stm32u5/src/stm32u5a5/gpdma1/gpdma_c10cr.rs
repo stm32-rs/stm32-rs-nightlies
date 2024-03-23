@@ -1,0 +1,205 @@
+#[doc = "Register `GPDMA_C10CR` reader"]
+pub type R = crate::R<GPDMA_C10CRrs>;
+#[doc = "Register `GPDMA_C10CR` writer"]
+pub type W = crate::W<GPDMA_C10CRrs>;
+#[doc = "Field `EN` reader - enable - 0: write: ignored, read: channel disabled - 1: write: enable channel, read: channel enabled Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 0. Else: * this bit is de-asserted by hardware when there is a transfer error (master bus error or user setting error) or when there is a channel transfer complete (channel ready to be configured, e.g. if LSM=1 at the end of a single execution of the LLI). * Else, this bit can be asserted by software. Writing 0 into this EN bit is ignored."]
+pub type EN_R = crate::BitReader;
+#[doc = "Field `EN` writer - enable - 0: write: ignored, read: channel disabled - 1: write: enable channel, read: channel enabled Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 0. Else: * this bit is de-asserted by hardware when there is a transfer error (master bus error or user setting error) or when there is a channel transfer complete (channel ready to be configured, e.g. if LSM=1 at the end of a single execution of the LLI). * Else, this bit can be asserted by software. Writing 0 into this EN bit is ignored."]
+pub type EN_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RESET` reader - reset - 0: no channel reset - 1: channel reset This bit is write only. Writing 0 has no impact. Writing 1 implies/will imply the reset of the FIFO, the reset of the channel internal state, and the reset of the SUSP and EN bits, whatever is written in respectively bit 2 and bit 0. The reset is/will be effective when the channel is in state i.e. either i) the active channel is in suspended state (i.e. GPDMA_CxSR.SUSPF=1 and GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=1) or ii) the channel is in disabled state (i.e. GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=0). After writing a RESET, if the user wants to continue using this channel, the user should explicitly reconfigure the channel including the hardware-modified configuration registers GPDMA_CxBR1, GPDMA_CxSAR and GPDMA_CxDAR, before enabling again the channel. Following the programming sequence in Figure 4: DMA channel abort and restart sequence."]
+pub type RESET_R = crate::BitReader;
+#[doc = "Field `RESET` writer - reset - 0: no channel reset - 1: channel reset This bit is write only. Writing 0 has no impact. Writing 1 implies/will imply the reset of the FIFO, the reset of the channel internal state, and the reset of the SUSP and EN bits, whatever is written in respectively bit 2 and bit 0. The reset is/will be effective when the channel is in state i.e. either i) the active channel is in suspended state (i.e. GPDMA_CxSR.SUSPF=1 and GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=1) or ii) the channel is in disabled state (i.e. GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=0). After writing a RESET, if the user wants to continue using this channel, the user should explicitly reconfigure the channel including the hardware-modified configuration registers GPDMA_CxBR1, GPDMA_CxSAR and GPDMA_CxDAR, before enabling again the channel. Following the programming sequence in Figure 4: DMA channel abort and restart sequence."]
+pub type RESET_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SUSP` reader - suspend - 0: write: resume channel, read: channel not suspended - 1: write: suspend channel, read: channel suspended Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 2. Else: Software must write 1 in order to suspend an active channel i.e. a channel with an on-going DMA transfer over its master ports. Software must write 0 in order to resume a suspended channel, following the programming sequence in Figure 3: DMA channel suspend and resume sequence."]
+pub type SUSP_R = crate::BitReader;
+#[doc = "Field `SUSP` writer - suspend - 0: write: resume channel, read: channel not suspended - 1: write: suspend channel, read: channel suspended Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 2. Else: Software must write 1 in order to suspend an active channel i.e. a channel with an on-going DMA transfer over its master ports. Software must write 0 in order to resume a suspended channel, following the programming sequence in Figure 3: DMA channel suspend and resume sequence."]
+pub type SUSP_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `TCIE` reader - transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type TCIE_R = crate::BitReader;
+#[doc = "Field `TCIE` writer - transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type TCIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `HTIE` reader - half transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type HTIE_R = crate::BitReader;
+#[doc = "Field `HTIE` writer - half transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type HTIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DTEIE` reader - data transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type DTEIE_R = crate::BitReader;
+#[doc = "Field `DTEIE` writer - data transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type DTEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ULEIE` reader - update link transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type ULEIE_R = crate::BitReader;
+#[doc = "Field `ULEIE` writer - update link transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type ULEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `USEIE` reader - user setting error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type USEIE_R = crate::BitReader;
+#[doc = "Field `USEIE` writer - user setting error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type USEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `SUSPIE` reader - completed suspension interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type SUSPIE_R = crate::BitReader;
+#[doc = "Field `SUSPIE` writer - completed suspension interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+pub type SUSPIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LSM` reader - Link Step mode:- 0: channel is executed for the full linked-list, and completed at the end (if any) of the last LLI i.e. when GPDMA_CxLLR=0: the 16 low significant bits of the link address are null (LA\\[15:0\\]=0) and all the update bits are null i.e. UT1=UB1=UT2=USA=UDA=UB2 =UT3=ULL=0. Then GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0.- 1: channel is executed once for the current LLI:* First the (possibly 2D/repeated) block transfer is executed as defined by the current internal register file until that (GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0).* Secondly the next linked-list data structure is conditionally uploaded from memory as defined by GPDMA_CxLLR register. Then channel execution is completed.Note: This bit must be written when EN=0. This bit is read-only when EN=1."]
+pub type LSM_R = crate::BitReader;
+#[doc = "Field `LSM` writer - Link Step mode:- 0: channel is executed for the full linked-list, and completed at the end (if any) of the last LLI i.e. when GPDMA_CxLLR=0: the 16 low significant bits of the link address are null (LA\\[15:0\\]=0) and all the update bits are null i.e. UT1=UB1=UT2=USA=UDA=UB2 =UT3=ULL=0. Then GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0.- 1: channel is executed once for the current LLI:* First the (possibly 2D/repeated) block transfer is executed as defined by the current internal register file until that (GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0).* Secondly the next linked-list data structure is conditionally uploaded from memory as defined by GPDMA_CxLLR register. Then channel execution is completed.Note: This bit must be written when EN=0. This bit is read-only when EN=1."]
+pub type LSM_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LAP` reader - linked-list allocated portAllocate the master port for the update of the DMA linked-list registers from the memory.- 0: port 0 (AHB) is allocated for the update of the DMA linked-list channel x registers- 1: port 1 (AHB) is allocated for the update of the DMA linked-list channel x registersNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+pub type LAP_R = crate::BitReader;
+#[doc = "Field `LAP` writer - linked-list allocated portAllocate the master port for the update of the DMA linked-list registers from the memory.- 0: port 0 (AHB) is allocated for the update of the DMA linked-list channel x registers- 1: port 1 (AHB) is allocated for the update of the DMA linked-list channel x registersNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+pub type LAP_W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PRIO` reader - priority level of the DMA transfer of the channel x vs others- 00: low priority, low weight- 01: low priority, mid weight- 10: low priority, high weight- 11: high priorityNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+pub type PRIO_R = crate::FieldReader;
+#[doc = "Field `PRIO` writer - priority level of the DMA transfer of the channel x vs others- 00: low priority, low weight- 01: low priority, mid weight- 10: low priority, high weight- 11: high priorityNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+pub type PRIO_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+impl R {
+    #[doc = "Bit 0 - enable - 0: write: ignored, read: channel disabled - 1: write: enable channel, read: channel enabled Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 0. Else: * this bit is de-asserted by hardware when there is a transfer error (master bus error or user setting error) or when there is a channel transfer complete (channel ready to be configured, e.g. if LSM=1 at the end of a single execution of the LLI). * Else, this bit can be asserted by software. Writing 0 into this EN bit is ignored."]
+    #[inline(always)]
+    pub fn en(&self) -> EN_R {
+        EN_R::new((self.bits & 1) != 0)
+    }
+    #[doc = "Bit 1 - reset - 0: no channel reset - 1: channel reset This bit is write only. Writing 0 has no impact. Writing 1 implies/will imply the reset of the FIFO, the reset of the channel internal state, and the reset of the SUSP and EN bits, whatever is written in respectively bit 2 and bit 0. The reset is/will be effective when the channel is in state i.e. either i) the active channel is in suspended state (i.e. GPDMA_CxSR.SUSPF=1 and GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=1) or ii) the channel is in disabled state (i.e. GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=0). After writing a RESET, if the user wants to continue using this channel, the user should explicitly reconfigure the channel including the hardware-modified configuration registers GPDMA_CxBR1, GPDMA_CxSAR and GPDMA_CxDAR, before enabling again the channel. Following the programming sequence in Figure 4: DMA channel abort and restart sequence."]
+    #[inline(always)]
+    pub fn reset(&self) -> RESET_R {
+        RESET_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    #[doc = "Bit 2 - suspend - 0: write: resume channel, read: channel not suspended - 1: write: suspend channel, read: channel suspended Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 2. Else: Software must write 1 in order to suspend an active channel i.e. a channel with an on-going DMA transfer over its master ports. Software must write 0 in order to resume a suspended channel, following the programming sequence in Figure 3: DMA channel suspend and resume sequence."]
+    #[inline(always)]
+    pub fn susp(&self) -> SUSP_R {
+        SUSP_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 8 - transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    pub fn tcie(&self) -> TCIE_R {
+        TCIE_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    #[doc = "Bit 9 - half transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    pub fn htie(&self) -> HTIE_R {
+        HTIE_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bit 10 - data transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    pub fn dteie(&self) -> DTEIE_R {
+        DTEIE_R::new(((self.bits >> 10) & 1) != 0)
+    }
+    #[doc = "Bit 11 - update link transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    pub fn uleie(&self) -> ULEIE_R {
+        ULEIE_R::new(((self.bits >> 11) & 1) != 0)
+    }
+    #[doc = "Bit 12 - user setting error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    pub fn useie(&self) -> USEIE_R {
+        USEIE_R::new(((self.bits >> 12) & 1) != 0)
+    }
+    #[doc = "Bit 13 - completed suspension interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    pub fn suspie(&self) -> SUSPIE_R {
+        SUSPIE_R::new(((self.bits >> 13) & 1) != 0)
+    }
+    #[doc = "Bit 16 - Link Step mode:- 0: channel is executed for the full linked-list, and completed at the end (if any) of the last LLI i.e. when GPDMA_CxLLR=0: the 16 low significant bits of the link address are null (LA\\[15:0\\]=0) and all the update bits are null i.e. UT1=UB1=UT2=USA=UDA=UB2 =UT3=ULL=0. Then GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0.- 1: channel is executed once for the current LLI:* First the (possibly 2D/repeated) block transfer is executed as defined by the current internal register file until that (GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0).* Secondly the next linked-list data structure is conditionally uploaded from memory as defined by GPDMA_CxLLR register. Then channel execution is completed.Note: This bit must be written when EN=0. This bit is read-only when EN=1."]
+    #[inline(always)]
+    pub fn lsm(&self) -> LSM_R {
+        LSM_R::new(((self.bits >> 16) & 1) != 0)
+    }
+    #[doc = "Bit 17 - linked-list allocated portAllocate the master port for the update of the DMA linked-list registers from the memory.- 0: port 0 (AHB) is allocated for the update of the DMA linked-list channel x registers- 1: port 1 (AHB) is allocated for the update of the DMA linked-list channel x registersNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+    #[inline(always)]
+    pub fn lap(&self) -> LAP_R {
+        LAP_R::new(((self.bits >> 17) & 1) != 0)
+    }
+    #[doc = "Bits 22:23 - priority level of the DMA transfer of the channel x vs others- 00: low priority, low weight- 01: low priority, mid weight- 10: low priority, high weight- 11: high priorityNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+    #[inline(always)]
+    pub fn prio(&self) -> PRIO_R {
+        PRIO_R::new(((self.bits >> 22) & 3) as u8)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - enable - 0: write: ignored, read: channel disabled - 1: write: enable channel, read: channel enabled Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 0. Else: * this bit is de-asserted by hardware when there is a transfer error (master bus error or user setting error) or when there is a channel transfer complete (channel ready to be configured, e.g. if LSM=1 at the end of a single execution of the LLI). * Else, this bit can be asserted by software. Writing 0 into this EN bit is ignored."]
+    #[inline(always)]
+    #[must_use]
+    pub fn en(&mut self) -> EN_W<GPDMA_C10CRrs> {
+        EN_W::new(self, 0)
+    }
+    #[doc = "Bit 1 - reset - 0: no channel reset - 1: channel reset This bit is write only. Writing 0 has no impact. Writing 1 implies/will imply the reset of the FIFO, the reset of the channel internal state, and the reset of the SUSP and EN bits, whatever is written in respectively bit 2 and bit 0. The reset is/will be effective when the channel is in state i.e. either i) the active channel is in suspended state (i.e. GPDMA_CxSR.SUSPF=1 and GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=1) or ii) the channel is in disabled state (i.e. GPDMA_CxSR.IDLEF=1 and GPDMA_CxCR.EN=0). After writing a RESET, if the user wants to continue using this channel, the user should explicitly reconfigure the channel including the hardware-modified configuration registers GPDMA_CxBR1, GPDMA_CxSAR and GPDMA_CxDAR, before enabling again the channel. Following the programming sequence in Figure 4: DMA channel abort and restart sequence."]
+    #[inline(always)]
+    #[must_use]
+    pub fn reset(&mut self) -> RESET_W<GPDMA_C10CRrs> {
+        RESET_W::new(self, 1)
+    }
+    #[doc = "Bit 2 - suspend - 0: write: resume channel, read: channel not suspended - 1: write: suspend channel, read: channel suspended Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 2. Else: Software must write 1 in order to suspend an active channel i.e. a channel with an on-going DMA transfer over its master ports. Software must write 0 in order to resume a suspended channel, following the programming sequence in Figure 3: DMA channel suspend and resume sequence."]
+    #[inline(always)]
+    #[must_use]
+    pub fn susp(&mut self) -> SUSP_W<GPDMA_C10CRrs> {
+        SUSP_W::new(self, 2)
+    }
+    #[doc = "Bit 8 - transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn tcie(&mut self) -> TCIE_W<GPDMA_C10CRrs> {
+        TCIE_W::new(self, 8)
+    }
+    #[doc = "Bit 9 - half transfer complete interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn htie(&mut self) -> HTIE_W<GPDMA_C10CRrs> {
+        HTIE_W::new(self, 9)
+    }
+    #[doc = "Bit 10 - data transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dteie(&mut self) -> DTEIE_W<GPDMA_C10CRrs> {
+        DTEIE_W::new(self, 10)
+    }
+    #[doc = "Bit 11 - update link transfer error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn uleie(&mut self) -> ULEIE_W<GPDMA_C10CRrs> {
+        ULEIE_W::new(self, 11)
+    }
+    #[doc = "Bit 12 - user setting error interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn useie(&mut self) -> USEIE_W<GPDMA_C10CRrs> {
+        USEIE_W::new(self, 12)
+    }
+    #[doc = "Bit 13 - completed suspension interrupt enable - 0: interrupt disabled - 1: interrupt enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn suspie(&mut self) -> SUSPIE_W<GPDMA_C10CRrs> {
+        SUSPIE_W::new(self, 13)
+    }
+    #[doc = "Bit 16 - Link Step mode:- 0: channel is executed for the full linked-list, and completed at the end (if any) of the last LLI i.e. when GPDMA_CxLLR=0: the 16 low significant bits of the link address are null (LA\\[15:0\\]=0) and all the update bits are null i.e. UT1=UB1=UT2=USA=UDA=UB2 =UT3=ULL=0. Then GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0.- 1: channel is executed once for the current LLI:* First the (possibly 2D/repeated) block transfer is executed as defined by the current internal register file until that (GPDMA_CxBR1.BRC\\[10:0\\]=0 and GPDMA_CxBR1.BNDT\\[15:0\\]=0).* Secondly the next linked-list data structure is conditionally uploaded from memory as defined by GPDMA_CxLLR register. Then channel execution is completed.Note: This bit must be written when EN=0. This bit is read-only when EN=1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn lsm(&mut self) -> LSM_W<GPDMA_C10CRrs> {
+        LSM_W::new(self, 16)
+    }
+    #[doc = "Bit 17 - linked-list allocated portAllocate the master port for the update of the DMA linked-list registers from the memory.- 0: port 0 (AHB) is allocated for the update of the DMA linked-list channel x registers- 1: port 1 (AHB) is allocated for the update of the DMA linked-list channel x registersNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn lap(&mut self) -> LAP_W<GPDMA_C10CRrs> {
+        LAP_W::new(self, 17)
+    }
+    #[doc = "Bits 22:23 - priority level of the DMA transfer of the channel x vs others- 00: low priority, low weight- 01: low priority, mid weight- 10: low priority, high weight- 11: high priorityNote: This bit must be written when EN=0. This bit is read-only when EN=1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn prio(&mut self) -> PRIO_W<GPDMA_C10CRrs> {
+        PRIO_W::new(self, 22)
+    }
+}
+#[doc = "channel x control register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gpdma_c10cr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gpdma_c10cr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct GPDMA_C10CRrs;
+impl crate::RegisterSpec for GPDMA_C10CRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`gpdma_c10cr::R`](R) reader structure"]
+impl crate::Readable for GPDMA_C10CRrs {}
+#[doc = "`write(|w| ..)` method takes [`gpdma_c10cr::W`](W) writer structure"]
+impl crate::Writable for GPDMA_C10CRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets GPDMA_C10CR to value 0"]
+impl crate::Resettable for GPDMA_C10CRrs {
+    const RESET_VALUE: u32 = 0;
+}

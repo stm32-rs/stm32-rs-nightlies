@@ -1,0 +1,27 @@
+#[doc = "Register `SWTRIGR` writer"]
+pub type W = crate::W<SWTRIGRrs>;
+#[doc = "Field `SWTRIG1` writer - DAC channel1 software trigger"]
+pub type SWTRIG1_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl W {
+    #[doc = "Bit 0 - DAC channel1 software trigger"]
+    #[inline(always)]
+    #[must_use]
+    pub fn swtrig1(&mut self) -> SWTRIG1_W<SWTRIGRrs> {
+        SWTRIG1_W::new(self, 0)
+    }
+}
+#[doc = "software trigger register\n\nYou can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`swtrigr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SWTRIGRrs;
+impl crate::RegisterSpec for SWTRIGRrs {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`swtrigr::W`](W) writer structure"]
+impl crate::Writable for SWTRIGRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets SWTRIGR to value 0"]
+impl crate::Resettable for SWTRIGRrs {
+    const RESET_VALUE: u32 = 0;
+}

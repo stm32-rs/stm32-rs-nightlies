@@ -1,0 +1,31 @@
+#[doc = "Register `M2FECR` reader"]
+pub type R = crate::R<M2FECRrs>;
+#[doc = "Register `M2FECR` writer"]
+pub type W = crate::W<M2FECRrs>;
+#[doc = "Field `FEC` reader - ECC failing code"]
+pub type FEC_R = crate::FieldReader<u32>;
+impl R {
+    #[doc = "Bits 0:31 - ECC failing code"]
+    #[inline(always)]
+    pub fn fec(&self) -> FEC_R {
+        FEC_R::new(self.bits)
+    }
+}
+impl W {}
+#[doc = "RAMECC monitor 2 failing error code register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`m2fecr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`m2fecr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct M2FECRrs;
+impl crate::RegisterSpec for M2FECRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`m2fecr::R`](R) reader structure"]
+impl crate::Readable for M2FECRrs {}
+#[doc = "`write(|w| ..)` method takes [`m2fecr::W`](W) writer structure"]
+impl crate::Writable for M2FECRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets M2FECR to value 0"]
+impl crate::Resettable for M2FECRrs {
+    const RESET_VALUE: u32 = 0;
+}

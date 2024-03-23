@@ -1,0 +1,391 @@
+#[doc = "Register `ALRM%sR` reader"]
+pub type R = crate::R<ALRMRrs>;
+#[doc = "Register `ALRM%sR` writer"]
+pub type W = crate::W<ALRMRrs>;
+#[doc = "Field `SU` reader - Second units in BCD format"]
+pub type SU_R = crate::FieldReader;
+#[doc = "Field `SU` writer - Second units in BCD format"]
+pub type SU_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 4>;
+#[doc = "Field `ST` reader - Second tens in BCD format"]
+pub type ST_R = crate::FieldReader;
+#[doc = "Field `ST` writer - Second tens in BCD format"]
+pub type ST_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 3>;
+#[doc = "Alarm seconds mask\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MSK1 {
+    #[doc = "0: Alarm set if the date/day match"]
+    Mask = 0,
+    #[doc = "1: Date/day don’t care in Alarm comparison"]
+    NotMask = 1,
+}
+impl From<MSK1> for bool {
+    #[inline(always)]
+    fn from(variant: MSK1) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `MSK1` reader - Alarm seconds mask"]
+pub type MSK1_R = crate::BitReader<MSK1>;
+impl MSK1_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> MSK1 {
+        match self.bits {
+            false => MSK1::Mask,
+            true => MSK1::NotMask,
+        }
+    }
+    #[doc = "Alarm set if the date/day match"]
+    #[inline(always)]
+    pub fn is_mask(&self) -> bool {
+        *self == MSK1::Mask
+    }
+    #[doc = "Date/day don’t care in Alarm comparison"]
+    #[inline(always)]
+    pub fn is_not_mask(&self) -> bool {
+        *self == MSK1::NotMask
+    }
+}
+#[doc = "Field `MSK1` writer - Alarm seconds mask"]
+pub type MSK1_W<'a, REG> = crate::BitWriter<'a, REG, MSK1>;
+impl<'a, REG> MSK1_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "Alarm set if the date/day match"]
+    #[inline(always)]
+    pub fn mask(self) -> &'a mut crate::W<REG> {
+        self.variant(MSK1::Mask)
+    }
+    #[doc = "Date/day don’t care in Alarm comparison"]
+    #[inline(always)]
+    pub fn not_mask(self) -> &'a mut crate::W<REG> {
+        self.variant(MSK1::NotMask)
+    }
+}
+#[doc = "Field `MNU` reader - Minute units in BCD format"]
+pub type MNU_R = crate::FieldReader;
+#[doc = "Field `MNU` writer - Minute units in BCD format"]
+pub type MNU_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 4>;
+#[doc = "Field `MNT` reader - Minute tens in BCD format"]
+pub type MNT_R = crate::FieldReader;
+#[doc = "Field `MNT` writer - Minute tens in BCD format"]
+pub type MNT_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 3>;
+#[doc = "Field `MSK2` reader - Alarm minutes mask"]
+pub use MSK1_R as MSK2_R;
+#[doc = "Field `MSK2` writer - Alarm minutes mask"]
+pub use MSK1_W as MSK2_W;
+#[doc = "Field `HU` reader - Hour units in BCD format"]
+pub type HU_R = crate::FieldReader;
+#[doc = "Field `HU` writer - Hour units in BCD format"]
+pub type HU_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 4>;
+#[doc = "Field `HT` reader - Hour tens in BCD format"]
+pub type HT_R = crate::FieldReader;
+#[doc = "Field `HT` writer - Hour tens in BCD format"]
+pub type HT_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 2>;
+#[doc = "AM/PM notation\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PM {
+    #[doc = "0: AM or 24-hour format"]
+    Am = 0,
+    #[doc = "1: PM"]
+    Pm = 1,
+}
+impl From<PM> for bool {
+    #[inline(always)]
+    fn from(variant: PM) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `PM` reader - AM/PM notation"]
+pub type PM_R = crate::BitReader<PM>;
+impl PM_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> PM {
+        match self.bits {
+            false => PM::Am,
+            true => PM::Pm,
+        }
+    }
+    #[doc = "AM or 24-hour format"]
+    #[inline(always)]
+    pub fn is_am(&self) -> bool {
+        *self == PM::Am
+    }
+    #[doc = "PM"]
+    #[inline(always)]
+    pub fn is_pm(&self) -> bool {
+        *self == PM::Pm
+    }
+}
+#[doc = "Field `PM` writer - AM/PM notation"]
+pub type PM_W<'a, REG> = crate::BitWriter<'a, REG, PM>;
+impl<'a, REG> PM_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "AM or 24-hour format"]
+    #[inline(always)]
+    pub fn am(self) -> &'a mut crate::W<REG> {
+        self.variant(PM::Am)
+    }
+    #[doc = "PM"]
+    #[inline(always)]
+    pub fn pm(self) -> &'a mut crate::W<REG> {
+        self.variant(PM::Pm)
+    }
+}
+#[doc = "Field `MSK3` reader - Alarm hours mask"]
+pub use MSK1_R as MSK3_R;
+#[doc = "Field `MSK3` writer - Alarm hours mask"]
+pub use MSK1_W as MSK3_W;
+#[doc = "Field `DU` reader - Date units or day in BCD format"]
+pub type DU_R = crate::FieldReader;
+#[doc = "Field `DU` writer - Date units or day in BCD format"]
+pub type DU_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 4>;
+#[doc = "Field `DT` reader - Date tens in BCD format"]
+pub type DT_R = crate::FieldReader;
+#[doc = "Field `DT` writer - Date tens in BCD format"]
+pub type DT_W<'a, REG> = crate::FieldWriterSafe<'a, REG, 2>;
+#[doc = "Week day selection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum WDSEL {
+    #[doc = "0: DU\\[3:0\\]
+represents the date units"]
+    DateUnits = 0,
+    #[doc = "1: DU\\[3:0\\]
+represents the week day. DT\\[1:0\\]
+is don’t care."]
+    WeekDay = 1,
+}
+impl From<WDSEL> for bool {
+    #[inline(always)]
+    fn from(variant: WDSEL) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `WDSEL` reader - Week day selection"]
+pub type WDSEL_R = crate::BitReader<WDSEL>;
+impl WDSEL_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> WDSEL {
+        match self.bits {
+            false => WDSEL::DateUnits,
+            true => WDSEL::WeekDay,
+        }
+    }
+    #[doc = "DU\\[3:0\\]
+represents the date units"]
+    #[inline(always)]
+    pub fn is_date_units(&self) -> bool {
+        *self == WDSEL::DateUnits
+    }
+    #[doc = "DU\\[3:0\\]
+represents the week day. DT\\[1:0\\]
+is don’t care."]
+    #[inline(always)]
+    pub fn is_week_day(&self) -> bool {
+        *self == WDSEL::WeekDay
+    }
+}
+#[doc = "Field `WDSEL` writer - Week day selection"]
+pub type WDSEL_W<'a, REG> = crate::BitWriter<'a, REG, WDSEL>;
+impl<'a, REG> WDSEL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "DU\\[3:0\\]
+represents the date units"]
+    #[inline(always)]
+    pub fn date_units(self) -> &'a mut crate::W<REG> {
+        self.variant(WDSEL::DateUnits)
+    }
+    #[doc = "DU\\[3:0\\]
+represents the week day. DT\\[1:0\\]
+is don’t care."]
+    #[inline(always)]
+    pub fn week_day(self) -> &'a mut crate::W<REG> {
+        self.variant(WDSEL::WeekDay)
+    }
+}
+#[doc = "Field `MSK4` reader - Alarm date mask"]
+pub use MSK1_R as MSK4_R;
+#[doc = "Field `MSK4` writer - Alarm date mask"]
+pub use MSK1_W as MSK4_W;
+impl R {
+    #[doc = "Bits 0:3 - Second units in BCD format"]
+    #[inline(always)]
+    pub fn su(&self) -> SU_R {
+        SU_R::new((self.bits & 0x0f) as u8)
+    }
+    #[doc = "Bits 4:6 - Second tens in BCD format"]
+    #[inline(always)]
+    pub fn st(&self) -> ST_R {
+        ST_R::new(((self.bits >> 4) & 7) as u8)
+    }
+    #[doc = "Bit 7 - Alarm seconds mask"]
+    #[inline(always)]
+    pub fn msk1(&self) -> MSK1_R {
+        MSK1_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    #[doc = "Bits 8:11 - Minute units in BCD format"]
+    #[inline(always)]
+    pub fn mnu(&self) -> MNU_R {
+        MNU_R::new(((self.bits >> 8) & 0x0f) as u8)
+    }
+    #[doc = "Bits 12:14 - Minute tens in BCD format"]
+    #[inline(always)]
+    pub fn mnt(&self) -> MNT_R {
+        MNT_R::new(((self.bits >> 12) & 7) as u8)
+    }
+    #[doc = "Bit 15 - Alarm minutes mask"]
+    #[inline(always)]
+    pub fn msk2(&self) -> MSK2_R {
+        MSK2_R::new(((self.bits >> 15) & 1) != 0)
+    }
+    #[doc = "Bits 16:19 - Hour units in BCD format"]
+    #[inline(always)]
+    pub fn hu(&self) -> HU_R {
+        HU_R::new(((self.bits >> 16) & 0x0f) as u8)
+    }
+    #[doc = "Bits 20:21 - Hour tens in BCD format"]
+    #[inline(always)]
+    pub fn ht(&self) -> HT_R {
+        HT_R::new(((self.bits >> 20) & 3) as u8)
+    }
+    #[doc = "Bit 22 - AM/PM notation"]
+    #[inline(always)]
+    pub fn pm(&self) -> PM_R {
+        PM_R::new(((self.bits >> 22) & 1) != 0)
+    }
+    #[doc = "Bit 23 - Alarm hours mask"]
+    #[inline(always)]
+    pub fn msk3(&self) -> MSK3_R {
+        MSK3_R::new(((self.bits >> 23) & 1) != 0)
+    }
+    #[doc = "Bits 24:27 - Date units or day in BCD format"]
+    #[inline(always)]
+    pub fn du(&self) -> DU_R {
+        DU_R::new(((self.bits >> 24) & 0x0f) as u8)
+    }
+    #[doc = "Bits 28:29 - Date tens in BCD format"]
+    #[inline(always)]
+    pub fn dt(&self) -> DT_R {
+        DT_R::new(((self.bits >> 28) & 3) as u8)
+    }
+    #[doc = "Bit 30 - Week day selection"]
+    #[inline(always)]
+    pub fn wdsel(&self) -> WDSEL_R {
+        WDSEL_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 31 - Alarm date mask"]
+    #[inline(always)]
+    pub fn msk4(&self) -> MSK4_R {
+        MSK4_R::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bits 0:3 - Second units in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn su(&mut self) -> SU_W<ALRMRrs> {
+        SU_W::new(self, 0)
+    }
+    #[doc = "Bits 4:6 - Second tens in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn st(&mut self) -> ST_W<ALRMRrs> {
+        ST_W::new(self, 4)
+    }
+    #[doc = "Bit 7 - Alarm seconds mask"]
+    #[inline(always)]
+    #[must_use]
+    pub fn msk1(&mut self) -> MSK1_W<ALRMRrs> {
+        MSK1_W::new(self, 7)
+    }
+    #[doc = "Bits 8:11 - Minute units in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn mnu(&mut self) -> MNU_W<ALRMRrs> {
+        MNU_W::new(self, 8)
+    }
+    #[doc = "Bits 12:14 - Minute tens in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn mnt(&mut self) -> MNT_W<ALRMRrs> {
+        MNT_W::new(self, 12)
+    }
+    #[doc = "Bit 15 - Alarm minutes mask"]
+    #[inline(always)]
+    #[must_use]
+    pub fn msk2(&mut self) -> MSK2_W<ALRMRrs> {
+        MSK2_W::new(self, 15)
+    }
+    #[doc = "Bits 16:19 - Hour units in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn hu(&mut self) -> HU_W<ALRMRrs> {
+        HU_W::new(self, 16)
+    }
+    #[doc = "Bits 20:21 - Hour tens in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn ht(&mut self) -> HT_W<ALRMRrs> {
+        HT_W::new(self, 20)
+    }
+    #[doc = "Bit 22 - AM/PM notation"]
+    #[inline(always)]
+    #[must_use]
+    pub fn pm(&mut self) -> PM_W<ALRMRrs> {
+        PM_W::new(self, 22)
+    }
+    #[doc = "Bit 23 - Alarm hours mask"]
+    #[inline(always)]
+    #[must_use]
+    pub fn msk3(&mut self) -> MSK3_W<ALRMRrs> {
+        MSK3_W::new(self, 23)
+    }
+    #[doc = "Bits 24:27 - Date units or day in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn du(&mut self) -> DU_W<ALRMRrs> {
+        DU_W::new(self, 24)
+    }
+    #[doc = "Bits 28:29 - Date tens in BCD format"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dt(&mut self) -> DT_W<ALRMRrs> {
+        DT_W::new(self, 28)
+    }
+    #[doc = "Bit 30 - Week day selection"]
+    #[inline(always)]
+    #[must_use]
+    pub fn wdsel(&mut self) -> WDSEL_W<ALRMRrs> {
+        WDSEL_W::new(self, 30)
+    }
+    #[doc = "Bit 31 - Alarm date mask"]
+    #[inline(always)]
+    #[must_use]
+    pub fn msk4(&mut self) -> MSK4_W<ALRMRrs> {
+        MSK4_W::new(self, 31)
+    }
+}
+#[doc = "Alarm %s register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`alrmr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`alrmr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ALRMRrs;
+impl crate::RegisterSpec for ALRMRrs {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`alrmr::R`](R) reader structure"]
+impl crate::Readable for ALRMRrs {}
+#[doc = "`write(|w| ..)` method takes [`alrmr::W`](W) writer structure"]
+impl crate::Writable for ALRMRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+#[doc = "`reset()` method sets ALRM%sR to value 0"]
+impl crate::Resettable for ALRMRrs {
+    const RESET_VALUE: u32 = 0;
+}
