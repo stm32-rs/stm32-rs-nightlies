@@ -1,0 +1,51 @@
+///Register `TZC_REGION_BASE_LOW8` reader
+pub type R = crate::R<TZC_REGION_BASE_LOW8rs>;
+///Register `TZC_REGION_BASE_LOW8` writer
+pub type W = crate::W<TZC_REGION_BASE_LOW8rs>;
+///Field `BASE_ADDRESS_LOW` reader - BASE_ADDRESS_LOW
+pub type BASE_ADDRESS_LOW_R = crate::FieldReader<u32>;
+///Field `BASE_ADDRESS_LOW` writer - BASE_ADDRESS_LOW
+pub type BASE_ADDRESS_LOW_W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
+impl R {
+    ///Bits 12:31 - BASE_ADDRESS_LOW
+    #[inline(always)]
+    pub fn base_address_low(&self) -> BASE_ADDRESS_LOW_R {
+        BASE_ADDRESS_LOW_R::new((self.bits >> 12) & 0x000f_ffff)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("TZC_REGION_BASE_LOW8")
+            .field("base_address_low", &self.base_address_low())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 12:31 - BASE_ADDRESS_LOW
+    #[inline(always)]
+    #[must_use]
+    pub fn base_address_low(&mut self) -> BASE_ADDRESS_LOW_W<TZC_REGION_BASE_LOW8rs> {
+        BASE_ADDRESS_LOW_W::new(self, 12)
+    }
+}
+/**Base address low for regions 1 to 8.
+
+You can [`read`](crate::Reg::read) this register and get [`tzc_region_base_low8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`tzc_region_base_low8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP153.html#TZC:TZC_REGION_BASE_LOW8)*/
+pub struct TZC_REGION_BASE_LOW8rs;
+impl crate::RegisterSpec for TZC_REGION_BASE_LOW8rs {
+    type Ux = u32;
+}
+///`read()` method returns [`tzc_region_base_low8::R`](R) reader structure
+impl crate::Readable for TZC_REGION_BASE_LOW8rs {}
+///`write(|w| ..)` method takes [`tzc_region_base_low8::W`](W) writer structure
+impl crate::Writable for TZC_REGION_BASE_LOW8rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets TZC_REGION_BASE_LOW8 to value 0
+impl crate::Resettable for TZC_REGION_BASE_LOW8rs {
+    const RESET_VALUE: u32 = 0;
+}

@@ -1,0 +1,36 @@
+///Register `FLASH_PDKEY1R` writer
+pub type W = crate::W<FLASH_PDKEY1Rrs>;
+///Field `PDKEY1` writer - Bank 1 power-down key The following values must be written consecutively to unlock the PDREQ1 bit in FLASH_ACR: PDKEY1_1: 0x0415 2637 PDKEY1_2: 0xFAFB FCFD
+pub type PDKEY1_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl core::fmt::Debug for crate::generic::Reg<FLASH_PDKEY1Rrs> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
+impl W {
+    ///Bits 0:31 - Bank 1 power-down key The following values must be written consecutively to unlock the PDREQ1 bit in FLASH_ACR: PDKEY1_1: 0x0415 2637 PDKEY1_2: 0xFAFB FCFD
+    #[inline(always)]
+    #[must_use]
+    pub fn pdkey1(&mut self) -> PDKEY1_W<FLASH_PDKEY1Rrs> {
+        PDKEY1_W::new(self, 0)
+    }
+}
+/**FLASH bank 1 power-down key register
+
+You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flash_pdkey1r::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32U5A5.html#FLASH:FLASH_PDKEY1R)*/
+pub struct FLASH_PDKEY1Rrs;
+impl crate::RegisterSpec for FLASH_PDKEY1Rrs {
+    type Ux = u32;
+}
+///`write(|w| ..)` method takes [`flash_pdkey1r::W`](W) writer structure
+impl crate::Writable for FLASH_PDKEY1Rrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets FLASH_PDKEY1R to value 0
+impl crate::Resettable for FLASH_PDKEY1Rrs {
+    const RESET_VALUE: u32 = 0;
+}

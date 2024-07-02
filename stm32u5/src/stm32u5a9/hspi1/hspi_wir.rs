@@ -1,0 +1,51 @@
+///Register `HSPI_WIR` reader
+pub type R = crate::R<HSPI_WIRrs>;
+///Register `HSPI_WIR` writer
+pub type W = crate::W<HSPI_WIRrs>;
+///Field `INSTRUCTION` reader - Instruction Instruction to be sent to the external SPI device
+pub type INSTRUCTION_R = crate::FieldReader<u32>;
+///Field `INSTRUCTION` writer - Instruction Instruction to be sent to the external SPI device
+pub type INSTRUCTION_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl R {
+    ///Bits 0:31 - Instruction Instruction to be sent to the external SPI device
+    #[inline(always)]
+    pub fn instruction(&self) -> INSTRUCTION_R {
+        INSTRUCTION_R::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("HSPI_WIR")
+            .field("instruction", &self.instruction())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:31 - Instruction Instruction to be sent to the external SPI device
+    #[inline(always)]
+    #[must_use]
+    pub fn instruction(&mut self) -> INSTRUCTION_W<HSPI_WIRrs> {
+        INSTRUCTION_W::new(self, 0)
+    }
+}
+/**HSPI write instruction register
+
+You can [`read`](crate::Reg::read) this register and get [`hspi_wir::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hspi_wir::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32U5A9.html#HSPI1:HSPI_WIR)*/
+pub struct HSPI_WIRrs;
+impl crate::RegisterSpec for HSPI_WIRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`hspi_wir::R`](R) reader structure
+impl crate::Readable for HSPI_WIRrs {}
+///`write(|w| ..)` method takes [`hspi_wir::W`](W) writer structure
+impl crate::Writable for HSPI_WIRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets HSPI_WIR to value 0
+impl crate::Resettable for HSPI_WIRrs {
+    const RESET_VALUE: u32 = 0;
+}

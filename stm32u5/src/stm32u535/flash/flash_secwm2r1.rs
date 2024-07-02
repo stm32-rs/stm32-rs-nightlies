@@ -1,0 +1,67 @@
+///Register `FLASH_SECWM2R1` reader
+pub type R = crate::R<FLASH_SECWM2R1rs>;
+///Register `FLASH_SECWM2R1` writer
+pub type W = crate::W<FLASH_SECWM2R1rs>;
+///Field `SECWM2_PSTRT` reader - Start page of second secure area This field contains the first page of the secure area in bank 2.
+pub type SECWM2_PSTRT_R = crate::FieldReader;
+///Field `SECWM2_PSTRT` writer - Start page of second secure area This field contains the first page of the secure area in bank 2.
+pub type SECWM2_PSTRT_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+///Field `SECWM2_PEND` reader - End page of second secure area This field contains the last page of the secure area in bank 2.
+pub type SECWM2_PEND_R = crate::FieldReader;
+///Field `SECWM2_PEND` writer - End page of second secure area This field contains the last page of the secure area in bank 2.
+pub type SECWM2_PEND_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+impl R {
+    ///Bits 0:7 - Start page of second secure area This field contains the first page of the secure area in bank 2.
+    #[inline(always)]
+    pub fn secwm2_pstrt(&self) -> SECWM2_PSTRT_R {
+        SECWM2_PSTRT_R::new((self.bits & 0xff) as u8)
+    }
+    ///Bits 16:23 - End page of second secure area This field contains the last page of the secure area in bank 2.
+    #[inline(always)]
+    pub fn secwm2_pend(&self) -> SECWM2_PEND_R {
+        SECWM2_PEND_R::new(((self.bits >> 16) & 0xff) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("FLASH_SECWM2R1")
+            .field("secwm2_pstrt", &self.secwm2_pstrt())
+            .field("secwm2_pend", &self.secwm2_pend())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:7 - Start page of second secure area This field contains the first page of the secure area in bank 2.
+    #[inline(always)]
+    #[must_use]
+    pub fn secwm2_pstrt(&mut self) -> SECWM2_PSTRT_W<FLASH_SECWM2R1rs> {
+        SECWM2_PSTRT_W::new(self, 0)
+    }
+    ///Bits 16:23 - End page of second secure area This field contains the last page of the secure area in bank 2.
+    #[inline(always)]
+    #[must_use]
+    pub fn secwm2_pend(&mut self) -> SECWM2_PEND_W<FLASH_SECWM2R1rs> {
+        SECWM2_PEND_W::new(self, 16)
+    }
+}
+/**FLASH secure watermark2 register 1
+
+You can [`read`](crate::Reg::read) this register and get [`flash_secwm2r1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`flash_secwm2r1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32U535.html#FLASH:FLASH_SECWM2R1)*/
+pub struct FLASH_SECWM2R1rs;
+impl crate::RegisterSpec for FLASH_SECWM2R1rs {
+    type Ux = u32;
+}
+///`read()` method returns [`flash_secwm2r1::R`](R) reader structure
+impl crate::Readable for FLASH_SECWM2R1rs {}
+///`write(|w| ..)` method takes [`flash_secwm2r1::W`](W) writer structure
+impl crate::Writable for FLASH_SECWM2R1rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets FLASH_SECWM2R1 to value 0xff00_ff00
+impl crate::Resettable for FLASH_SECWM2R1rs {
+    const RESET_VALUE: u32 = 0xff00_ff00;
+}

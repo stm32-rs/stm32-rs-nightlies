@@ -1,0 +1,51 @@
+///Register `GICV_BPR` reader
+pub type R = crate::R<GICV_BPRrs>;
+///Register `GICV_BPR` writer
+pub type W = crate::W<GICV_BPRrs>;
+///Field `BINARY_POINT` reader - BINARY_POINT
+pub type BINARY_POINT_R = crate::FieldReader;
+///Field `BINARY_POINT` writer - BINARY_POINT
+pub type BINARY_POINT_W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+impl R {
+    ///Bits 0:2 - BINARY_POINT
+    #[inline(always)]
+    pub fn binary_point(&self) -> BINARY_POINT_R {
+        BINARY_POINT_R::new((self.bits & 7) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GICV_BPR")
+            .field("binary_point", &self.binary_point())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:2 - BINARY_POINT
+    #[inline(always)]
+    #[must_use]
+    pub fn binary_point(&mut self) -> BINARY_POINT_W<GICV_BPRrs> {
+        BINARY_POINT_W::new(self, 0)
+    }
+}
+/**GICV VM binary point register
+
+You can [`read`](crate::Reg::read) this register and get [`gicv_bpr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gicv_bpr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#GICV:GICV_BPR)*/
+pub struct GICV_BPRrs;
+impl crate::RegisterSpec for GICV_BPRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`gicv_bpr::R`](R) reader structure
+impl crate::Readable for GICV_BPRrs {}
+///`write(|w| ..)` method takes [`gicv_bpr::W`](W) writer structure
+impl crate::Writable for GICV_BPRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets GICV_BPR to value 0x02
+impl crate::Resettable for GICV_BPRrs {
+    const RESET_VALUE: u32 = 0x02;
+}

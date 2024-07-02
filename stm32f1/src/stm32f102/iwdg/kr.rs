@@ -1,0 +1,81 @@
+///Register `KR` writer
+pub type W = crate::W<KRrs>;
+/**Key value
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u16)]
+pub enum KEY {
+    ///21845: Enable access to PR, RLR and WINR registers (0x5555)
+    Enable = 21845,
+    ///43690: Reset the watchdog value (0xAAAA)
+    Reset = 43690,
+    ///52428: Start the watchdog (0xCCCC)
+    Start = 52428,
+}
+impl From<KEY> for u16 {
+    #[inline(always)]
+    fn from(variant: KEY) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for KEY {
+    type Ux = u16;
+}
+impl crate::IsEnum for KEY {}
+///Field `KEY` writer - Key value
+pub type KEY_W<'a, REG> = crate::FieldWriter<'a, REG, 16, KEY>;
+impl<'a, REG> KEY_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u16>,
+{
+    ///Enable access to PR, RLR and WINR registers (0x5555)
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(KEY::Enable)
+    }
+    ///Reset the watchdog value (0xAAAA)
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(KEY::Reset)
+    }
+    ///Start the watchdog (0xCCCC)
+    #[inline(always)]
+    pub fn start(self) -> &'a mut crate::W<REG> {
+        self.variant(KEY::Start)
+    }
+}
+impl core::fmt::Debug for crate::generic::Reg<KRrs> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
+impl W {
+    ///Bits 0:15 - Key value
+    #[inline(always)]
+    #[must_use]
+    pub fn key(&mut self) -> KEY_W<KRrs> {
+        KEY_W::new(self, 0)
+    }
+}
+/**Key register (IWDG_KR)
+
+You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`kr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32F102.html#IWDG:KR)*/
+pub struct KRrs;
+impl crate::RegisterSpec for KRrs {
+    type Ux = u32;
+}
+///`write(|w| ..)` method takes [`kr::W`](W) writer structure
+impl crate::Writable for KRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets KR to value 0
+impl crate::Resettable for KRrs {
+    const RESET_VALUE: u32 = 0;
+}
