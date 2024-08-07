@@ -1,0 +1,44 @@
+///Register `TIM13_EGR` writer
+pub type W = crate::W<TIM13_EGRrs>;
+///Field `UG` writer - UG
+pub type UG_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `CC1G` writer - CC1G
+pub type CC1G_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl core::fmt::Debug for crate::generic::Reg<TIM13_EGRrs> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
+impl W {
+    ///Bit 0 - UG
+    #[inline(always)]
+    #[must_use]
+    pub fn ug(&mut self) -> UG_W<TIM13_EGRrs> {
+        UG_W::new(self, 0)
+    }
+    ///Bit 1 - CC1G
+    #[inline(always)]
+    #[must_use]
+    pub fn cc1g(&mut self) -> CC1G_W<TIM13_EGRrs> {
+        CC1G_W::new(self, 1)
+    }
+}
+/**TIM13 event generation register
+
+You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`tim13_egr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#TIM13:TIM13_EGR)*/
+pub struct TIM13_EGRrs;
+impl crate::RegisterSpec for TIM13_EGRrs {
+    type Ux = u16;
+}
+///`write(|w| ..)` method takes [`tim13_egr::W`](W) writer structure
+impl crate::Writable for TIM13_EGRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u16 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u16 = 0;
+}
+///`reset()` method sets TIM13_EGR to value 0
+impl crate::Resettable for TIM13_EGRrs {
+    const RESET_VALUE: u16 = 0;
+}

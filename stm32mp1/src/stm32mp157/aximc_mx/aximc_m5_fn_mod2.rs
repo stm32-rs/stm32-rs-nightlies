@@ -1,0 +1,51 @@
+///Register `AXIMC_M5_FN_MOD2` reader
+pub type R = crate::R<AXIMC_M5_FN_MOD2rs>;
+///Register `AXIMC_M5_FN_MOD2` writer
+pub type W = crate::W<AXIMC_M5_FN_MOD2rs>;
+///Field `BYPASS_MERGE` reader - BYPASS_MERGE
+pub type BYPASS_MERGE_R = crate::BitReader;
+///Field `BYPASS_MERGE` writer - BYPASS_MERGE
+pub type BYPASS_MERGE_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl R {
+    ///Bit 0 - BYPASS_MERGE
+    #[inline(always)]
+    pub fn bypass_merge(&self) -> BYPASS_MERGE_R {
+        BYPASS_MERGE_R::new((self.bits & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AXIMC_M5_FN_MOD2")
+            .field("bypass_merge", &self.bypass_merge())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 0 - BYPASS_MERGE
+    #[inline(always)]
+    #[must_use]
+    pub fn bypass_merge(&mut self) -> BYPASS_MERGE_W<AXIMC_M5_FN_MOD2rs> {
+        BYPASS_MERGE_W::new(self, 0)
+    }
+}
+/**AXIMC master 5 packing functionality register
+
+You can [`read`](crate::Reg::read) this register and get [`aximc_m5_fn_mod2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`aximc_m5_fn_mod2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#AXIMC_Mx:AXIMC_M5_FN_MOD2)*/
+pub struct AXIMC_M5_FN_MOD2rs;
+impl crate::RegisterSpec for AXIMC_M5_FN_MOD2rs {
+    type Ux = u32;
+}
+///`read()` method returns [`aximc_m5_fn_mod2::R`](R) reader structure
+impl crate::Readable for AXIMC_M5_FN_MOD2rs {}
+///`write(|w| ..)` method takes [`aximc_m5_fn_mod2::W`](W) writer structure
+impl crate::Writable for AXIMC_M5_FN_MOD2rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets AXIMC_M5_FN_MOD2 to value 0
+impl crate::Resettable for AXIMC_M5_FN_MOD2rs {
+    const RESET_VALUE: u32 = 0;
+}
