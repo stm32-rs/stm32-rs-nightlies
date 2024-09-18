@@ -1,0 +1,67 @@
+///Register `ADC_CALFACT` reader
+pub type R = crate::R<ADC_CALFACTrs>;
+///Register `ADC_CALFACT` writer
+pub type W = crate::W<ADC_CALFACTrs>;
+///Field `CALFACT_S` reader - CALFACT_S
+pub type CALFACT_S_R = crate::FieldReader<u16>;
+///Field `CALFACT_S` writer - CALFACT_S
+pub type CALFACT_S_W<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
+///Field `CALFACT_D` reader - CALFACT_D
+pub type CALFACT_D_R = crate::FieldReader<u16>;
+///Field `CALFACT_D` writer - CALFACT_D
+pub type CALFACT_D_W<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
+impl R {
+    ///Bits 0:10 - CALFACT_S
+    #[inline(always)]
+    pub fn calfact_s(&self) -> CALFACT_S_R {
+        CALFACT_S_R::new((self.bits & 0x07ff) as u16)
+    }
+    ///Bits 16:26 - CALFACT_D
+    #[inline(always)]
+    pub fn calfact_d(&self) -> CALFACT_D_R {
+        CALFACT_D_R::new(((self.bits >> 16) & 0x07ff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ADC_CALFACT")
+            .field("calfact_s", &self.calfact_s())
+            .field("calfact_d", &self.calfact_d())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:10 - CALFACT_S
+    #[inline(always)]
+    #[must_use]
+    pub fn calfact_s(&mut self) -> CALFACT_S_W<ADC_CALFACTrs> {
+        CALFACT_S_W::new(self, 0)
+    }
+    ///Bits 16:26 - CALFACT_D
+    #[inline(always)]
+    #[must_use]
+    pub fn calfact_d(&mut self) -> CALFACT_D_W<ADC_CALFACTrs> {
+        CALFACT_D_W::new(self, 16)
+    }
+}
+/**ADC calibration factors register
+
+You can [`read`](crate::Reg::read) this register and get [`adc_calfact::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_calfact::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#ADC:ADC_CALFACT)*/
+pub struct ADC_CALFACTrs;
+impl crate::RegisterSpec for ADC_CALFACTrs {
+    type Ux = u32;
+}
+///`read()` method returns [`adc_calfact::R`](R) reader structure
+impl crate::Readable for ADC_CALFACTrs {}
+///`write(|w| ..)` method takes [`adc_calfact::W`](W) writer structure
+impl crate::Writable for ADC_CALFACTrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets ADC_CALFACT to value 0
+impl crate::Resettable for ADC_CALFACTrs {
+    const RESET_VALUE: u32 = 0;
+}

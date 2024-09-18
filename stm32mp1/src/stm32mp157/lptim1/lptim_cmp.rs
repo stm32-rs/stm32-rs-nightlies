@@ -1,0 +1,51 @@
+///Register `LPTIM_CMP` reader
+pub type R = crate::R<LPTIM_CMPrs>;
+///Register `LPTIM_CMP` writer
+pub type W = crate::W<LPTIM_CMPrs>;
+///Field `CMP` reader - CMP
+pub type CMP_R = crate::FieldReader<u16>;
+///Field `CMP` writer - CMP
+pub type CMP_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+impl R {
+    ///Bits 0:15 - CMP
+    #[inline(always)]
+    pub fn cmp(&self) -> CMP_R {
+        CMP_R::new((self.bits & 0xffff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LPTIM_CMP")
+            .field("cmp", &self.cmp())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:15 - CMP
+    #[inline(always)]
+    #[must_use]
+    pub fn cmp(&mut self) -> CMP_W<LPTIM_CMPrs> {
+        CMP_W::new(self, 0)
+    }
+}
+/**LPTIM compare register
+
+You can [`read`](crate::Reg::read) this register and get [`lptim_cmp::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`lptim_cmp::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#LPTIM1:LPTIM_CMP)*/
+pub struct LPTIM_CMPrs;
+impl crate::RegisterSpec for LPTIM_CMPrs {
+    type Ux = u32;
+}
+///`read()` method returns [`lptim_cmp::R`](R) reader structure
+impl crate::Readable for LPTIM_CMPrs {}
+///`write(|w| ..)` method takes [`lptim_cmp::W`](W) writer structure
+impl crate::Writable for LPTIM_CMPrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets LPTIM_CMP to value 0
+impl crate::Resettable for LPTIM_CMPrs {
+    const RESET_VALUE: u32 = 0;
+}

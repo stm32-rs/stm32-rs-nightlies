@@ -1,0 +1,51 @@
+///Register `ADC_AWD3CR` reader
+pub type R = crate::R<ADC_AWD3CRrs>;
+///Register `ADC_AWD3CR` writer
+pub type W = crate::W<ADC_AWD3CRrs>;
+///Field `AWD3CH` reader - AWD3CH
+pub type AWD3CH_R = crate::FieldReader<u32>;
+///Field `AWD3CH` writer - AWD3CH
+pub type AWD3CH_W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
+impl R {
+    ///Bits 0:19 - AWD3CH
+    #[inline(always)]
+    pub fn awd3ch(&self) -> AWD3CH_R {
+        AWD3CH_R::new(self.bits & 0x000f_ffff)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("ADC_AWD3CR")
+            .field("awd3ch", &self.awd3ch())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:19 - AWD3CH
+    #[inline(always)]
+    #[must_use]
+    pub fn awd3ch(&mut self) -> AWD3CH_W<ADC_AWD3CRrs> {
+        AWD3CH_W::new(self, 0)
+    }
+}
+/**ADC analog watchdog 3 configuration register
+
+You can [`read`](crate::Reg::read) this register and get [`adc_awd3cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_awd3cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#ADC:ADC_AWD3CR)*/
+pub struct ADC_AWD3CRrs;
+impl crate::RegisterSpec for ADC_AWD3CRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`adc_awd3cr::R`](R) reader structure
+impl crate::Readable for ADC_AWD3CRrs {}
+///`write(|w| ..)` method takes [`adc_awd3cr::W`](W) writer structure
+impl crate::Writable for ADC_AWD3CRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets ADC_AWD3CR to value 0
+impl crate::Resettable for ADC_AWD3CRrs {
+    const RESET_VALUE: u32 = 0;
+}

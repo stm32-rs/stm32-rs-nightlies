@@ -1,0 +1,239 @@
+///Register `L2CR` reader
+pub type R = crate::R<L2CRrs>;
+///Register `L2CR` writer
+pub type W = crate::W<L2CRrs>;
+/**Layer Enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum LEN {
+    ///0: Layer disabled
+    Disabled = 0,
+    ///1: Layer enabled
+    Enabled = 1,
+}
+impl From<LEN> for bool {
+    #[inline(always)]
+    fn from(variant: LEN) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `LEN` reader - Layer Enable
+pub type LEN_R = crate::BitReader<LEN>;
+impl LEN_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> LEN {
+        match self.bits {
+            false => LEN::Disabled,
+            true => LEN::Enabled,
+        }
+    }
+    ///Layer disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == LEN::Disabled
+    }
+    ///Layer enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == LEN::Enabled
+    }
+}
+///Field `LEN` writer - Layer Enable
+pub type LEN_W<'a, REG> = crate::BitWriter<'a, REG, LEN>;
+impl<'a, REG> LEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Layer disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(LEN::Disabled)
+    }
+    ///Layer enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(LEN::Enabled)
+    }
+}
+/**Color Keying Enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum COLKEN {
+    ///0: Color keying disabled
+    Disabled = 0,
+    ///1: Color keying enabled
+    Enabled = 1,
+}
+impl From<COLKEN> for bool {
+    #[inline(always)]
+    fn from(variant: COLKEN) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `COLKEN` reader - Color Keying Enable
+pub type COLKEN_R = crate::BitReader<COLKEN>;
+impl COLKEN_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> COLKEN {
+        match self.bits {
+            false => COLKEN::Disabled,
+            true => COLKEN::Enabled,
+        }
+    }
+    ///Color keying disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == COLKEN::Disabled
+    }
+    ///Color keying enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == COLKEN::Enabled
+    }
+}
+///Field `COLKEN` writer - Color Keying Enable
+pub type COLKEN_W<'a, REG> = crate::BitWriter<'a, REG, COLKEN>;
+impl<'a, REG> COLKEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Color keying disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(COLKEN::Disabled)
+    }
+    ///Color keying enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(COLKEN::Enabled)
+    }
+}
+/**Color Look-Up Table Enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CLUTEN {
+    ///0: Color look-up table disabled
+    Disabled = 0,
+    ///1: Color look-up table enabled
+    Enabled = 1,
+}
+impl From<CLUTEN> for bool {
+    #[inline(always)]
+    fn from(variant: CLUTEN) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `CLUTEN` reader - Color Look-Up Table Enable
+pub type CLUTEN_R = crate::BitReader<CLUTEN>;
+impl CLUTEN_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> CLUTEN {
+        match self.bits {
+            false => CLUTEN::Disabled,
+            true => CLUTEN::Enabled,
+        }
+    }
+    ///Color look-up table disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == CLUTEN::Disabled
+    }
+    ///Color look-up table enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == CLUTEN::Enabled
+    }
+}
+///Field `CLUTEN` writer - Color Look-Up Table Enable
+pub type CLUTEN_W<'a, REG> = crate::BitWriter<'a, REG, CLUTEN>;
+impl<'a, REG> CLUTEN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Color look-up table disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(CLUTEN::Disabled)
+    }
+    ///Color look-up table enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(CLUTEN::Enabled)
+    }
+}
+impl R {
+    ///Bit 0 - Layer Enable
+    #[inline(always)]
+    pub fn len(&self) -> LEN_R {
+        LEN_R::new((self.bits & 1) != 0)
+    }
+    ///Bit 1 - Color Keying Enable
+    #[inline(always)]
+    pub fn colken(&self) -> COLKEN_R {
+        COLKEN_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    ///Bit 4 - Color Look-Up Table Enable
+    #[inline(always)]
+    pub fn cluten(&self) -> CLUTEN_R {
+        CLUTEN_R::new(((self.bits >> 4) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("L2CR")
+            .field("len", &self.len())
+            .field("colken", &self.colken())
+            .field("cluten", &self.cluten())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 0 - Layer Enable
+    #[inline(always)]
+    #[must_use]
+    pub fn len(&mut self) -> LEN_W<L2CRrs> {
+        LEN_W::new(self, 0)
+    }
+    ///Bit 1 - Color Keying Enable
+    #[inline(always)]
+    #[must_use]
+    pub fn colken(&mut self) -> COLKEN_W<L2CRrs> {
+        COLKEN_W::new(self, 1)
+    }
+    ///Bit 4 - Color Look-Up Table Enable
+    #[inline(always)]
+    #[must_use]
+    pub fn cluten(&mut self) -> CLUTEN_W<L2CRrs> {
+        CLUTEN_W::new(self, 4)
+    }
+}
+/**LTDC Layer Control Register
+
+You can [`read`](crate::Reg::read) this register and get [`l2cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`l2cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32L4P5.html#LTDC:L2CR)*/
+pub struct L2CRrs;
+impl crate::RegisterSpec for L2CRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`l2cr::R`](R) reader structure
+impl crate::Readable for L2CRrs {}
+///`write(|w| ..)` method takes [`l2cr::W`](W) writer structure
+impl crate::Writable for L2CRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets L2CR to value 0
+impl crate::Resettable for L2CRrs {
+    const RESET_VALUE: u32 = 0;
+}

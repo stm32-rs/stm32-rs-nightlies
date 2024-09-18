@@ -1,0 +1,41 @@
+///Register `LTDC_CPSR` reader
+pub type R = crate::R<LTDC_CPSRrs>;
+///Field `CYPOS` reader - CYPOS
+pub type CYPOS_R = crate::FieldReader<u16>;
+///Field `CXPOS` reader - CXPOS
+pub type CXPOS_R = crate::FieldReader<u16>;
+impl R {
+    ///Bits 0:15 - CYPOS
+    #[inline(always)]
+    pub fn cypos(&self) -> CYPOS_R {
+        CYPOS_R::new((self.bits & 0xffff) as u16)
+    }
+    ///Bits 16:31 - CXPOS
+    #[inline(always)]
+    pub fn cxpos(&self) -> CXPOS_R {
+        CXPOS_R::new(((self.bits >> 16) & 0xffff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("LTDC_CPSR")
+            .field("cypos", &self.cypos())
+            .field("cxpos", &self.cxpos())
+            .finish()
+    }
+}
+/**LTDC current position status register
+
+You can [`read`](crate::Reg::read) this register and get [`ltdc_cpsr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP153.html#LTDC:LTDC_CPSR)*/
+pub struct LTDC_CPSRrs;
+impl crate::RegisterSpec for LTDC_CPSRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`ltdc_cpsr::R`](R) reader structure
+impl crate::Readable for LTDC_CPSRrs {}
+///`reset()` method sets LTDC_CPSR to value 0
+impl crate::Resettable for LTDC_CPSRrs {
+    const RESET_VALUE: u32 = 0;
+}

@@ -1,0 +1,99 @@
+///Register `DDRCTRL_ADDRMAP2` reader
+pub type R = crate::R<DDRCTRL_ADDRMAP2rs>;
+///Register `DDRCTRL_ADDRMAP2` writer
+pub type W = crate::W<DDRCTRL_ADDRMAP2rs>;
+///Field `ADDRMAP_COL_B2` reader - ADDRMAP_COL_B2
+pub type ADDRMAP_COL_B2_R = crate::FieldReader;
+///Field `ADDRMAP_COL_B2` writer - ADDRMAP_COL_B2
+pub type ADDRMAP_COL_B2_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+///Field `ADDRMAP_COL_B3` reader - ADDRMAP_COL_B3
+pub type ADDRMAP_COL_B3_R = crate::FieldReader;
+///Field `ADDRMAP_COL_B3` writer - ADDRMAP_COL_B3
+pub type ADDRMAP_COL_B3_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+///Field `ADDRMAP_COL_B4` reader - ADDRMAP_COL_B4
+pub type ADDRMAP_COL_B4_R = crate::FieldReader;
+///Field `ADDRMAP_COL_B4` writer - ADDRMAP_COL_B4
+pub type ADDRMAP_COL_B4_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+///Field `ADDRMAP_COL_B5` reader - ADDRMAP_COL_B5
+pub type ADDRMAP_COL_B5_R = crate::FieldReader;
+///Field `ADDRMAP_COL_B5` writer - ADDRMAP_COL_B5
+pub type ADDRMAP_COL_B5_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+impl R {
+    ///Bits 0:3 - ADDRMAP_COL_B2
+    #[inline(always)]
+    pub fn addrmap_col_b2(&self) -> ADDRMAP_COL_B2_R {
+        ADDRMAP_COL_B2_R::new((self.bits & 0x0f) as u8)
+    }
+    ///Bits 8:11 - ADDRMAP_COL_B3
+    #[inline(always)]
+    pub fn addrmap_col_b3(&self) -> ADDRMAP_COL_B3_R {
+        ADDRMAP_COL_B3_R::new(((self.bits >> 8) & 0x0f) as u8)
+    }
+    ///Bits 16:19 - ADDRMAP_COL_B4
+    #[inline(always)]
+    pub fn addrmap_col_b4(&self) -> ADDRMAP_COL_B4_R {
+        ADDRMAP_COL_B4_R::new(((self.bits >> 16) & 0x0f) as u8)
+    }
+    ///Bits 24:27 - ADDRMAP_COL_B5
+    #[inline(always)]
+    pub fn addrmap_col_b5(&self) -> ADDRMAP_COL_B5_R {
+        ADDRMAP_COL_B5_R::new(((self.bits >> 24) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DDRCTRL_ADDRMAP2")
+            .field("addrmap_col_b2", &self.addrmap_col_b2())
+            .field("addrmap_col_b3", &self.addrmap_col_b3())
+            .field("addrmap_col_b4", &self.addrmap_col_b4())
+            .field("addrmap_col_b5", &self.addrmap_col_b5())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:3 - ADDRMAP_COL_B2
+    #[inline(always)]
+    #[must_use]
+    pub fn addrmap_col_b2(&mut self) -> ADDRMAP_COL_B2_W<DDRCTRL_ADDRMAP2rs> {
+        ADDRMAP_COL_B2_W::new(self, 0)
+    }
+    ///Bits 8:11 - ADDRMAP_COL_B3
+    #[inline(always)]
+    #[must_use]
+    pub fn addrmap_col_b3(&mut self) -> ADDRMAP_COL_B3_W<DDRCTRL_ADDRMAP2rs> {
+        ADDRMAP_COL_B3_W::new(self, 8)
+    }
+    ///Bits 16:19 - ADDRMAP_COL_B4
+    #[inline(always)]
+    #[must_use]
+    pub fn addrmap_col_b4(&mut self) -> ADDRMAP_COL_B4_W<DDRCTRL_ADDRMAP2rs> {
+        ADDRMAP_COL_B4_W::new(self, 16)
+    }
+    ///Bits 24:27 - ADDRMAP_COL_B5
+    #[inline(always)]
+    #[must_use]
+    pub fn addrmap_col_b5(&mut self) -> ADDRMAP_COL_B5_W<DDRCTRL_ADDRMAP2rs> {
+        ADDRMAP_COL_B5_W::new(self, 24)
+    }
+}
+/**DDRCTRL address map register 2
+
+You can [`read`](crate::Reg::read) this register and get [`ddrctrl_addrmap2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ddrctrl_addrmap2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP153.html#DDRCTRL:DDRCTRL_ADDRMAP2)*/
+pub struct DDRCTRL_ADDRMAP2rs;
+impl crate::RegisterSpec for DDRCTRL_ADDRMAP2rs {
+    type Ux = u32;
+}
+///`read()` method returns [`ddrctrl_addrmap2::R`](R) reader structure
+impl crate::Readable for DDRCTRL_ADDRMAP2rs {}
+///`write(|w| ..)` method takes [`ddrctrl_addrmap2::W`](W) writer structure
+impl crate::Writable for DDRCTRL_ADDRMAP2rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets DDRCTRL_ADDRMAP2 to value 0
+impl crate::Resettable for DDRCTRL_ADDRMAP2rs {
+    const RESET_VALUE: u32 = 0;
+}
