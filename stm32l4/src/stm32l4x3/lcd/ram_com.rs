@@ -1,0 +1,51 @@
+///Register `RAM_COM%s` reader
+pub type R = crate::R<RAM_COMrs>;
+///Register `RAM_COM%s` writer
+pub type W = crate::W<RAM_COMrs>;
+///Field `SEGS` reader - Segment states, one bit per segment, LSB: S00, MSB: S39
+pub type SEGS_R = crate::FieldReader<u64>;
+///Field `SEGS` writer - Segment states, one bit per segment, LSB: S00, MSB: S39
+pub type SEGS_W<'a, REG> = crate::FieldWriter<'a, REG, 40, u64>;
+impl R {
+    ///Bits 0:39 - Segment states, one bit per segment, LSB: S00, MSB: S39
+    #[inline(always)]
+    pub fn segs(&self) -> SEGS_R {
+        SEGS_R::new(self.bits & 0x00ff_ffff_ffff)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("RAM_COM")
+            .field("segs", &self.segs())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:39 - Segment states, one bit per segment, LSB: S00, MSB: S39
+    #[inline(always)]
+    #[must_use]
+    pub fn segs(&mut self) -> SEGS_W<RAM_COMrs> {
+        SEGS_W::new(self, 0)
+    }
+}
+/**display memory
+
+You can [`read`](crate::Reg::read) this register and get [`ram_com::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ram_com::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32L4x3.html#LCD:RAM_COM[0])*/
+pub struct RAM_COMrs;
+impl crate::RegisterSpec for RAM_COMrs {
+    type Ux = u64;
+}
+///`read()` method returns [`ram_com::R`](R) reader structure
+impl crate::Readable for RAM_COMrs {}
+///`write(|w| ..)` method takes [`ram_com::W`](W) writer structure
+impl crate::Writable for RAM_COMrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u64 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u64 = 0;
+}
+///`reset()` method sets RAM_COM%s to value 0
+impl crate::Resettable for RAM_COMrs {
+    const RESET_VALUE: u64 = 0;
+}
