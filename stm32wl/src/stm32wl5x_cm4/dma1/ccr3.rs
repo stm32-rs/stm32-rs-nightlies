@@ -1,0 +1,1024 @@
+///Register `CCR3` reader
+pub type R = crate::R<CCR3rs>;
+///Register `CCR3` writer
+pub type W = crate::W<CCR3rs>;
+/**channel enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum EN {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<EN> for bool {
+    #[inline(always)]
+    fn from(variant: EN) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `EN` reader - channel enable
+pub type EN_R = crate::BitReader<EN>;
+impl EN_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> EN {
+        match self.bits {
+            false => EN::Disabled,
+            true => EN::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == EN::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == EN::Enabled
+    }
+}
+///Field `EN` writer - channel enable
+pub type EN_W<'a, REG> = crate::BitWriter<'a, REG, EN>;
+impl<'a, REG> EN_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(EN::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(EN::Enabled)
+    }
+}
+/**transfer complete interrupt enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TCIE {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<TCIE> for bool {
+    #[inline(always)]
+    fn from(variant: TCIE) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `TCIE` reader - transfer complete interrupt enable
+pub type TCIE_R = crate::BitReader<TCIE>;
+impl TCIE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> TCIE {
+        match self.bits {
+            false => TCIE::Disabled,
+            true => TCIE::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == TCIE::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == TCIE::Enabled
+    }
+}
+///Field `TCIE` writer - transfer complete interrupt enable
+pub type TCIE_W<'a, REG> = crate::BitWriter<'a, REG, TCIE>;
+impl<'a, REG> TCIE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TCIE::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TCIE::Enabled)
+    }
+}
+/**half transfer interrupt enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HTIE {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<HTIE> for bool {
+    #[inline(always)]
+    fn from(variant: HTIE) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `HTIE` reader - half transfer interrupt enable
+pub type HTIE_R = crate::BitReader<HTIE>;
+impl HTIE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> HTIE {
+        match self.bits {
+            false => HTIE::Disabled,
+            true => HTIE::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == HTIE::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == HTIE::Enabled
+    }
+}
+///Field `HTIE` writer - half transfer interrupt enable
+pub type HTIE_W<'a, REG> = crate::BitWriter<'a, REG, HTIE>;
+impl<'a, REG> HTIE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(HTIE::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(HTIE::Enabled)
+    }
+}
+/**transfer error interrupt enable
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TEIE {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<TEIE> for bool {
+    #[inline(always)]
+    fn from(variant: TEIE) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `TEIE` reader - transfer error interrupt enable
+pub type TEIE_R = crate::BitReader<TEIE>;
+impl TEIE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> TEIE {
+        match self.bits {
+            false => TEIE::Disabled,
+            true => TEIE::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == TEIE::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == TEIE::Enabled
+    }
+}
+///Field `TEIE` writer - transfer error interrupt enable
+pub type TEIE_W<'a, REG> = crate::BitWriter<'a, REG, TEIE>;
+impl<'a, REG> TEIE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TEIE::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(TEIE::Enabled)
+    }
+}
+/**data transfer direction
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DIR {
+    ///0: Read from peripheral
+    Peripheral = 0,
+    ///1: Read from memory
+    Memory = 1,
+}
+impl From<DIR> for bool {
+    #[inline(always)]
+    fn from(variant: DIR) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `DIR` reader - data transfer direction
+pub type DIR_R = crate::BitReader<DIR>;
+impl DIR_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> DIR {
+        match self.bits {
+            false => DIR::Peripheral,
+            true => DIR::Memory,
+        }
+    }
+    ///Read from peripheral
+    #[inline(always)]
+    pub fn is_peripheral(&self) -> bool {
+        *self == DIR::Peripheral
+    }
+    ///Read from memory
+    #[inline(always)]
+    pub fn is_memory(&self) -> bool {
+        *self == DIR::Memory
+    }
+}
+///Field `DIR` writer - data transfer direction
+pub type DIR_W<'a, REG> = crate::BitWriter<'a, REG, DIR>;
+impl<'a, REG> DIR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Read from peripheral
+    #[inline(always)]
+    pub fn peripheral(self) -> &'a mut crate::W<REG> {
+        self.variant(DIR::Peripheral)
+    }
+    ///Read from memory
+    #[inline(always)]
+    pub fn memory(self) -> &'a mut crate::W<REG> {
+        self.variant(DIR::Memory)
+    }
+}
+/**circular mode
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CIRC {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<CIRC> for bool {
+    #[inline(always)]
+    fn from(variant: CIRC) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `CIRC` reader - circular mode
+pub type CIRC_R = crate::BitReader<CIRC>;
+impl CIRC_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> CIRC {
+        match self.bits {
+            false => CIRC::Disabled,
+            true => CIRC::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == CIRC::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == CIRC::Enabled
+    }
+}
+///Field `CIRC` writer - circular mode
+pub type CIRC_W<'a, REG> = crate::BitWriter<'a, REG, CIRC>;
+impl<'a, REG> CIRC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(CIRC::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(CIRC::Enabled)
+    }
+}
+/**peripheral increment mode
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PINC {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<PINC> for bool {
+    #[inline(always)]
+    fn from(variant: PINC) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `PINC` reader - peripheral increment mode
+pub type PINC_R = crate::BitReader<PINC>;
+impl PINC_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> PINC {
+        match self.bits {
+            false => PINC::Disabled,
+            true => PINC::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == PINC::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == PINC::Enabled
+    }
+}
+///Field `PINC` writer - peripheral increment mode
+pub type PINC_W<'a, REG> = crate::BitWriter<'a, REG, PINC>;
+impl<'a, REG> PINC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(PINC::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(PINC::Enabled)
+    }
+}
+/**memory increment mode
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MINC {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<MINC> for bool {
+    #[inline(always)]
+    fn from(variant: MINC) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `MINC` reader - memory increment mode
+pub type MINC_R = crate::BitReader<MINC>;
+impl MINC_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> MINC {
+        match self.bits {
+            false => MINC::Disabled,
+            true => MINC::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == MINC::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == MINC::Enabled
+    }
+}
+///Field `MINC` writer - memory increment mode
+pub type MINC_W<'a, REG> = crate::BitWriter<'a, REG, MINC>;
+impl<'a, REG> MINC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(MINC::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(MINC::Enabled)
+    }
+}
+/**peripheral size
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum PSIZE {
+    ///0: 8 bits
+    Bits8 = 0,
+    ///1: 16 bits
+    Bits16 = 1,
+    ///2: 32 bits
+    Bits32 = 2,
+}
+impl From<PSIZE> for u8 {
+    #[inline(always)]
+    fn from(variant: PSIZE) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for PSIZE {
+    type Ux = u8;
+}
+impl crate::IsEnum for PSIZE {}
+///Field `PSIZE` reader - peripheral size
+pub type PSIZE_R = crate::FieldReader<PSIZE>;
+impl PSIZE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<PSIZE> {
+        match self.bits {
+            0 => Some(PSIZE::Bits8),
+            1 => Some(PSIZE::Bits16),
+            2 => Some(PSIZE::Bits32),
+            _ => None,
+        }
+    }
+    ///8 bits
+    #[inline(always)]
+    pub fn is_bits8(&self) -> bool {
+        *self == PSIZE::Bits8
+    }
+    ///16 bits
+    #[inline(always)]
+    pub fn is_bits16(&self) -> bool {
+        *self == PSIZE::Bits16
+    }
+    ///32 bits
+    #[inline(always)]
+    pub fn is_bits32(&self) -> bool {
+        *self == PSIZE::Bits32
+    }
+}
+///Field `PSIZE` writer - peripheral size
+pub type PSIZE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PSIZE>;
+impl<'a, REG> PSIZE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///8 bits
+    #[inline(always)]
+    pub fn bits8(self) -> &'a mut crate::W<REG> {
+        self.variant(PSIZE::Bits8)
+    }
+    ///16 bits
+    #[inline(always)]
+    pub fn bits16(self) -> &'a mut crate::W<REG> {
+        self.variant(PSIZE::Bits16)
+    }
+    ///32 bits
+    #[inline(always)]
+    pub fn bits32(self) -> &'a mut crate::W<REG> {
+        self.variant(PSIZE::Bits32)
+    }
+}
+/**memory size
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum MSIZE {
+    ///0: 8 bits
+    Bits8 = 0,
+    ///1: 16 bits
+    Bits16 = 1,
+    ///2: 32 bits
+    Bits32 = 2,
+}
+impl From<MSIZE> for u8 {
+    #[inline(always)]
+    fn from(variant: MSIZE) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for MSIZE {
+    type Ux = u8;
+}
+impl crate::IsEnum for MSIZE {}
+///Field `MSIZE` reader - memory size
+pub type MSIZE_R = crate::FieldReader<MSIZE>;
+impl MSIZE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<MSIZE> {
+        match self.bits {
+            0 => Some(MSIZE::Bits8),
+            1 => Some(MSIZE::Bits16),
+            2 => Some(MSIZE::Bits32),
+            _ => None,
+        }
+    }
+    ///8 bits
+    #[inline(always)]
+    pub fn is_bits8(&self) -> bool {
+        *self == MSIZE::Bits8
+    }
+    ///16 bits
+    #[inline(always)]
+    pub fn is_bits16(&self) -> bool {
+        *self == MSIZE::Bits16
+    }
+    ///32 bits
+    #[inline(always)]
+    pub fn is_bits32(&self) -> bool {
+        *self == MSIZE::Bits32
+    }
+}
+///Field `MSIZE` writer - memory size
+pub type MSIZE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, MSIZE>;
+impl<'a, REG> MSIZE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///8 bits
+    #[inline(always)]
+    pub fn bits8(self) -> &'a mut crate::W<REG> {
+        self.variant(MSIZE::Bits8)
+    }
+    ///16 bits
+    #[inline(always)]
+    pub fn bits16(self) -> &'a mut crate::W<REG> {
+        self.variant(MSIZE::Bits16)
+    }
+    ///32 bits
+    #[inline(always)]
+    pub fn bits32(self) -> &'a mut crate::W<REG> {
+        self.variant(MSIZE::Bits32)
+    }
+}
+/**priority level
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum PL {
+    ///0: Low
+    Low = 0,
+    ///1: Medium
+    Medium = 1,
+    ///2: High
+    High = 2,
+    ///3: Very high
+    VeryHigh = 3,
+}
+impl From<PL> for u8 {
+    #[inline(always)]
+    fn from(variant: PL) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for PL {
+    type Ux = u8;
+}
+impl crate::IsEnum for PL {}
+///Field `PL` reader - priority level
+pub type PL_R = crate::FieldReader<PL>;
+impl PL_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> PL {
+        match self.bits {
+            0 => PL::Low,
+            1 => PL::Medium,
+            2 => PL::High,
+            3 => PL::VeryHigh,
+            _ => unreachable!(),
+        }
+    }
+    ///Low
+    #[inline(always)]
+    pub fn is_low(&self) -> bool {
+        *self == PL::Low
+    }
+    ///Medium
+    #[inline(always)]
+    pub fn is_medium(&self) -> bool {
+        *self == PL::Medium
+    }
+    ///High
+    #[inline(always)]
+    pub fn is_high(&self) -> bool {
+        *self == PL::High
+    }
+    ///Very high
+    #[inline(always)]
+    pub fn is_very_high(&self) -> bool {
+        *self == PL::VeryHigh
+    }
+}
+///Field `PL` writer - priority level
+pub type PL_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PL, crate::Safe>;
+impl<'a, REG> PL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///Low
+    #[inline(always)]
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(PL::Low)
+    }
+    ///Medium
+    #[inline(always)]
+    pub fn medium(self) -> &'a mut crate::W<REG> {
+        self.variant(PL::Medium)
+    }
+    ///High
+    #[inline(always)]
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(PL::High)
+    }
+    ///Very high
+    #[inline(always)]
+    pub fn very_high(self) -> &'a mut crate::W<REG> {
+        self.variant(PL::VeryHigh)
+    }
+}
+/**memory-to-memory mode
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MEM2MEM {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<MEM2MEM> for bool {
+    #[inline(always)]
+    fn from(variant: MEM2MEM) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `MEM2MEM` reader - memory-to-memory mode
+pub type MEM2MEM_R = crate::BitReader<MEM2MEM>;
+impl MEM2MEM_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> MEM2MEM {
+        match self.bits {
+            false => MEM2MEM::Disabled,
+            true => MEM2MEM::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == MEM2MEM::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == MEM2MEM::Enabled
+    }
+}
+///Field `MEM2MEM` writer - memory-to-memory mode
+pub type MEM2MEM_W<'a, REG> = crate::BitWriter<'a, REG, MEM2MEM>;
+impl<'a, REG> MEM2MEM_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(MEM2MEM::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(MEM2MEM::Enabled)
+    }
+}
+///Field `SECM` reader - ecure mode
+pub type SECM_R = crate::BitReader;
+///Field `SECM` writer - ecure mode
+pub type SECM_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `SSEC` reader - ecurity of the DMA transfer from the source
+pub type SSEC_R = crate::BitReader;
+///Field `SSEC` writer - ecurity of the DMA transfer from the source
+pub type SSEC_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `DSEC` reader - ecurity of the DMA transfer to the destination
+pub type DSEC_R = crate::BitReader;
+///Field `DSEC` writer - ecurity of the DMA transfer to the destination
+pub type DSEC_W<'a, REG> = crate::BitWriter<'a, REG>;
+/**rivileged mode
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PRIV {
+    ///0: Disabled
+    Disabled = 0,
+    ///1: Enabled
+    Enabled = 1,
+}
+impl From<PRIV> for bool {
+    #[inline(always)]
+    fn from(variant: PRIV) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `PRIV` reader - rivileged mode
+pub type PRIV_R = crate::BitReader<PRIV>;
+impl PRIV_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> PRIV {
+        match self.bits {
+            false => PRIV::Disabled,
+            true => PRIV::Enabled,
+        }
+    }
+    ///Disabled
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == PRIV::Disabled
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == PRIV::Enabled
+    }
+}
+///Field `PRIV` writer - rivileged mode
+pub type PRIV_W<'a, REG> = crate::BitWriter<'a, REG, PRIV>;
+impl<'a, REG> PRIV_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Disabled
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(PRIV::Disabled)
+    }
+    ///Enabled
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(PRIV::Enabled)
+    }
+}
+impl R {
+    ///Bit 0 - channel enable
+    #[inline(always)]
+    pub fn en(&self) -> EN_R {
+        EN_R::new((self.bits & 1) != 0)
+    }
+    ///Bit 1 - transfer complete interrupt enable
+    #[inline(always)]
+    pub fn tcie(&self) -> TCIE_R {
+        TCIE_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    ///Bit 2 - half transfer interrupt enable
+    #[inline(always)]
+    pub fn htie(&self) -> HTIE_R {
+        HTIE_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    ///Bit 3 - transfer error interrupt enable
+    #[inline(always)]
+    pub fn teie(&self) -> TEIE_R {
+        TEIE_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    ///Bit 4 - data transfer direction
+    #[inline(always)]
+    pub fn dir(&self) -> DIR_R {
+        DIR_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    ///Bit 5 - circular mode
+    #[inline(always)]
+    pub fn circ(&self) -> CIRC_R {
+        CIRC_R::new(((self.bits >> 5) & 1) != 0)
+    }
+    ///Bit 6 - peripheral increment mode
+    #[inline(always)]
+    pub fn pinc(&self) -> PINC_R {
+        PINC_R::new(((self.bits >> 6) & 1) != 0)
+    }
+    ///Bit 7 - memory increment mode
+    #[inline(always)]
+    pub fn minc(&self) -> MINC_R {
+        MINC_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    ///Bits 8:9 - peripheral size
+    #[inline(always)]
+    pub fn psize(&self) -> PSIZE_R {
+        PSIZE_R::new(((self.bits >> 8) & 3) as u8)
+    }
+    ///Bits 10:11 - memory size
+    #[inline(always)]
+    pub fn msize(&self) -> MSIZE_R {
+        MSIZE_R::new(((self.bits >> 10) & 3) as u8)
+    }
+    ///Bits 12:13 - priority level
+    #[inline(always)]
+    pub fn pl(&self) -> PL_R {
+        PL_R::new(((self.bits >> 12) & 3) as u8)
+    }
+    ///Bit 14 - memory-to-memory mode
+    #[inline(always)]
+    pub fn mem2mem(&self) -> MEM2MEM_R {
+        MEM2MEM_R::new(((self.bits >> 14) & 1) != 0)
+    }
+    ///Bit 17 - ecure mode
+    #[inline(always)]
+    pub fn secm(&self) -> SECM_R {
+        SECM_R::new(((self.bits >> 17) & 1) != 0)
+    }
+    ///Bit 18 - ecurity of the DMA transfer from the source
+    #[inline(always)]
+    pub fn ssec(&self) -> SSEC_R {
+        SSEC_R::new(((self.bits >> 18) & 1) != 0)
+    }
+    ///Bit 19 - ecurity of the DMA transfer to the destination
+    #[inline(always)]
+    pub fn dsec(&self) -> DSEC_R {
+        DSEC_R::new(((self.bits >> 19) & 1) != 0)
+    }
+    ///Bit 20 - rivileged mode
+    #[inline(always)]
+    pub fn priv_(&self) -> PRIV_R {
+        PRIV_R::new(((self.bits >> 20) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CCR3")
+            .field("priv_", &self.priv_())
+            .field("dsec", &self.dsec())
+            .field("ssec", &self.ssec())
+            .field("secm", &self.secm())
+            .field("mem2mem", &self.mem2mem())
+            .field("pl", &self.pl())
+            .field("msize", &self.msize())
+            .field("psize", &self.psize())
+            .field("minc", &self.minc())
+            .field("pinc", &self.pinc())
+            .field("circ", &self.circ())
+            .field("dir", &self.dir())
+            .field("teie", &self.teie())
+            .field("htie", &self.htie())
+            .field("tcie", &self.tcie())
+            .field("en", &self.en())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 0 - channel enable
+    #[inline(always)]
+    pub fn en(&mut self) -> EN_W<CCR3rs> {
+        EN_W::new(self, 0)
+    }
+    ///Bit 1 - transfer complete interrupt enable
+    #[inline(always)]
+    pub fn tcie(&mut self) -> TCIE_W<CCR3rs> {
+        TCIE_W::new(self, 1)
+    }
+    ///Bit 2 - half transfer interrupt enable
+    #[inline(always)]
+    pub fn htie(&mut self) -> HTIE_W<CCR3rs> {
+        HTIE_W::new(self, 2)
+    }
+    ///Bit 3 - transfer error interrupt enable
+    #[inline(always)]
+    pub fn teie(&mut self) -> TEIE_W<CCR3rs> {
+        TEIE_W::new(self, 3)
+    }
+    ///Bit 4 - data transfer direction
+    #[inline(always)]
+    pub fn dir(&mut self) -> DIR_W<CCR3rs> {
+        DIR_W::new(self, 4)
+    }
+    ///Bit 5 - circular mode
+    #[inline(always)]
+    pub fn circ(&mut self) -> CIRC_W<CCR3rs> {
+        CIRC_W::new(self, 5)
+    }
+    ///Bit 6 - peripheral increment mode
+    #[inline(always)]
+    pub fn pinc(&mut self) -> PINC_W<CCR3rs> {
+        PINC_W::new(self, 6)
+    }
+    ///Bit 7 - memory increment mode
+    #[inline(always)]
+    pub fn minc(&mut self) -> MINC_W<CCR3rs> {
+        MINC_W::new(self, 7)
+    }
+    ///Bits 8:9 - peripheral size
+    #[inline(always)]
+    pub fn psize(&mut self) -> PSIZE_W<CCR3rs> {
+        PSIZE_W::new(self, 8)
+    }
+    ///Bits 10:11 - memory size
+    #[inline(always)]
+    pub fn msize(&mut self) -> MSIZE_W<CCR3rs> {
+        MSIZE_W::new(self, 10)
+    }
+    ///Bits 12:13 - priority level
+    #[inline(always)]
+    pub fn pl(&mut self) -> PL_W<CCR3rs> {
+        PL_W::new(self, 12)
+    }
+    ///Bit 14 - memory-to-memory mode
+    #[inline(always)]
+    pub fn mem2mem(&mut self) -> MEM2MEM_W<CCR3rs> {
+        MEM2MEM_W::new(self, 14)
+    }
+    ///Bit 17 - ecure mode
+    #[inline(always)]
+    pub fn secm(&mut self) -> SECM_W<CCR3rs> {
+        SECM_W::new(self, 17)
+    }
+    ///Bit 18 - ecurity of the DMA transfer from the source
+    #[inline(always)]
+    pub fn ssec(&mut self) -> SSEC_W<CCR3rs> {
+        SSEC_W::new(self, 18)
+    }
+    ///Bit 19 - ecurity of the DMA transfer to the destination
+    #[inline(always)]
+    pub fn dsec(&mut self) -> DSEC_W<CCR3rs> {
+        DSEC_W::new(self, 19)
+    }
+    ///Bit 20 - rivileged mode
+    #[inline(always)]
+    pub fn priv_(&mut self) -> PRIV_W<CCR3rs> {
+        PRIV_W::new(self, 20)
+    }
+}
+/**channel x configuration register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM4.html#DMA1:CCR3)*/
+pub struct CCR3rs;
+impl crate::RegisterSpec for CCR3rs {
+    type Ux = u32;
+}
+///`read()` method returns [`ccr3::R`](R) reader structure
+impl crate::Readable for CCR3rs {}
+///`write(|w| ..)` method takes [`ccr3::W`](W) writer structure
+impl crate::Writable for CCR3rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets CCR3 to value 0
+impl crate::Resettable for CCR3rs {
+    const RESET_VALUE: u32 = 0;
+}
