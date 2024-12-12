@@ -1,0 +1,50 @@
+///Register `SUSP5R` reader
+pub type R = crate::R<SUSP5Rrs>;
+///Register `SUSP5R` writer
+pub type W = crate::W<SUSP5Rrs>;
+///Field `AES_SUSP5R` reader - AES suspend register 5
+pub type AES_SUSP5R_R = crate::FieldReader<u32>;
+///Field `AES_SUSP5R` writer - AES suspend register 5
+pub type AES_SUSP5R_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl R {
+    ///Bits 0:31 - AES suspend register 5
+    #[inline(always)]
+    pub fn aes_susp5r(&self) -> AES_SUSP5R_R {
+        AES_SUSP5R_R::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SUSP5R")
+            .field("aes_susp5r", &self.aes_susp5r())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:31 - AES suspend register 5
+    #[inline(always)]
+    pub fn aes_susp5r(&mut self) -> AES_SUSP5R_W<SUSP5Rrs> {
+        AES_SUSP5R_W::new(self, 0)
+    }
+}
+/**AES suspend register 5
+
+You can [`read`](crate::Reg::read) this register and get [`susp5r::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`susp5r::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32F7x2.html#AES:SUSP5R)*/
+pub struct SUSP5Rrs;
+impl crate::RegisterSpec for SUSP5Rrs {
+    type Ux = u32;
+}
+///`read()` method returns [`susp5r::R`](R) reader structure
+impl crate::Readable for SUSP5Rrs {}
+///`write(|w| ..)` method takes [`susp5r::W`](W) writer structure
+impl crate::Writable for SUSP5Rrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets SUSP5R to value 0
+impl crate::Resettable for SUSP5Rrs {
+    const RESET_VALUE: u32 = 0;
+}

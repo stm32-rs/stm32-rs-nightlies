@@ -1,0 +1,33 @@
+///Register `JDR2` reader
+pub type R = crate::R<JDR2rs>;
+///Field `JDATA2` reader - ADC group injected sequencer rank 2 conversion data
+pub type JDATA2_R = crate::FieldReader<u32>;
+impl R {
+    ///Bits 0:31 - ADC group injected sequencer rank 2 conversion data
+    #[inline(always)]
+    pub fn jdata2(&self) -> JDATA2_R {
+        JDATA2_R::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("JDR2")
+            .field("jdata2", &self.jdata2())
+            .finish()
+    }
+}
+/**ADC group injected sequencer rank 2 register
+
+You can [`read`](crate::Reg::read) this register and get [`jdr2::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32H757_CM7.html#ADC3:JDR2)*/
+pub struct JDR2rs;
+impl crate::RegisterSpec for JDR2rs {
+    type Ux = u32;
+}
+///`read()` method returns [`jdr2::R`](R) reader structure
+impl crate::Readable for JDR2rs {}
+///`reset()` method sets JDR2 to value 0
+impl crate::Resettable for JDR2rs {
+    const RESET_VALUE: u32 = 0;
+}

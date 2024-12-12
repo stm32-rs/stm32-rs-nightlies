@@ -1,0 +1,357 @@
+///Register `EMR` reader
+pub type R = crate::R<EMRrs>;
+///Register `EMR` writer
+pub type W = crate::W<EMRrs>;
+/**Event Mask on line 0
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum MR0 {
+    ///0: Interrupt request line is masked
+    Masked = 0,
+    ///1: Interrupt request line is unmasked
+    Unmasked = 1,
+}
+impl From<MR0> for bool {
+    #[inline(always)]
+    fn from(variant: MR0) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `MR0` reader - Event Mask on line 0
+pub type MR0_R = crate::BitReader<MR0>;
+impl MR0_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> MR0 {
+        match self.bits {
+            false => MR0::Masked,
+            true => MR0::Unmasked,
+        }
+    }
+    ///Interrupt request line is masked
+    #[inline(always)]
+    pub fn is_masked(&self) -> bool {
+        *self == MR0::Masked
+    }
+    ///Interrupt request line is unmasked
+    #[inline(always)]
+    pub fn is_unmasked(&self) -> bool {
+        *self == MR0::Unmasked
+    }
+}
+///Field `MR0` writer - Event Mask on line 0
+pub type MR0_W<'a, REG> = crate::BitWriter<'a, REG, MR0>;
+impl<'a, REG> MR0_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Interrupt request line is masked
+    #[inline(always)]
+    pub fn masked(self) -> &'a mut crate::W<REG> {
+        self.variant(MR0::Masked)
+    }
+    ///Interrupt request line is unmasked
+    #[inline(always)]
+    pub fn unmasked(self) -> &'a mut crate::W<REG> {
+        self.variant(MR0::Unmasked)
+    }
+}
+///Field `MR1` reader - Event Mask on line 1
+pub use MR0_R as MR1_R;
+///Field `MR2` reader - Event Mask on line 2
+pub use MR0_R as MR2_R;
+///Field `MR3` reader - Event Mask on line 3
+pub use MR0_R as MR3_R;
+///Field `MR4` reader - Event Mask on line 4
+pub use MR0_R as MR4_R;
+///Field `MR5` reader - Event Mask on line 5
+pub use MR0_R as MR5_R;
+///Field `MR6` reader - Event Mask on line 6
+pub use MR0_R as MR6_R;
+///Field `MR7` reader - Event Mask on line 7
+pub use MR0_R as MR7_R;
+///Field `MR8` reader - Event Mask on line 8
+pub use MR0_R as MR8_R;
+///Field `MR9` reader - Event Mask on line 9
+pub use MR0_R as MR9_R;
+///Field `MR10` reader - Event Mask on line 10
+pub use MR0_R as MR10_R;
+///Field `MR11` reader - Event Mask on line 11
+pub use MR0_R as MR11_R;
+///Field `MR12` reader - Event Mask on line 12
+pub use MR0_R as MR12_R;
+///Field `MR13` reader - Event Mask on line 13
+pub use MR0_R as MR13_R;
+///Field `MR14` reader - Event Mask on line 14
+pub use MR0_R as MR14_R;
+///Field `MR15` reader - Event Mask on line 15
+pub use MR0_R as MR15_R;
+///Field `MR16` reader - Event Mask on line 16
+pub use MR0_R as MR16_R;
+///Field `MR17` reader - Event Mask on line 17
+pub use MR0_R as MR17_R;
+///Field `MR1` writer - Event Mask on line 1
+pub use MR0_W as MR1_W;
+///Field `MR2` writer - Event Mask on line 2
+pub use MR0_W as MR2_W;
+///Field `MR3` writer - Event Mask on line 3
+pub use MR0_W as MR3_W;
+///Field `MR4` writer - Event Mask on line 4
+pub use MR0_W as MR4_W;
+///Field `MR5` writer - Event Mask on line 5
+pub use MR0_W as MR5_W;
+///Field `MR6` writer - Event Mask on line 6
+pub use MR0_W as MR6_W;
+///Field `MR7` writer - Event Mask on line 7
+pub use MR0_W as MR7_W;
+///Field `MR8` writer - Event Mask on line 8
+pub use MR0_W as MR8_W;
+///Field `MR9` writer - Event Mask on line 9
+pub use MR0_W as MR9_W;
+///Field `MR10` writer - Event Mask on line 10
+pub use MR0_W as MR10_W;
+///Field `MR11` writer - Event Mask on line 11
+pub use MR0_W as MR11_W;
+///Field `MR12` writer - Event Mask on line 12
+pub use MR0_W as MR12_W;
+///Field `MR13` writer - Event Mask on line 13
+pub use MR0_W as MR13_W;
+///Field `MR14` writer - Event Mask on line 14
+pub use MR0_W as MR14_W;
+///Field `MR15` writer - Event Mask on line 15
+pub use MR0_W as MR15_W;
+///Field `MR16` writer - Event Mask on line 16
+pub use MR0_W as MR16_W;
+///Field `MR17` writer - Event Mask on line 17
+pub use MR0_W as MR17_W;
+impl R {
+    ///Bit 0 - Event Mask on line 0
+    #[inline(always)]
+    pub fn mr0(&self) -> MR0_R {
+        MR0_R::new((self.bits & 1) != 0)
+    }
+    ///Bit 1 - Event Mask on line 1
+    #[inline(always)]
+    pub fn mr1(&self) -> MR1_R {
+        MR1_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    ///Bit 2 - Event Mask on line 2
+    #[inline(always)]
+    pub fn mr2(&self) -> MR2_R {
+        MR2_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    ///Bit 3 - Event Mask on line 3
+    #[inline(always)]
+    pub fn mr3(&self) -> MR3_R {
+        MR3_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    ///Bit 4 - Event Mask on line 4
+    #[inline(always)]
+    pub fn mr4(&self) -> MR4_R {
+        MR4_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    ///Bit 5 - Event Mask on line 5
+    #[inline(always)]
+    pub fn mr5(&self) -> MR5_R {
+        MR5_R::new(((self.bits >> 5) & 1) != 0)
+    }
+    ///Bit 6 - Event Mask on line 6
+    #[inline(always)]
+    pub fn mr6(&self) -> MR6_R {
+        MR6_R::new(((self.bits >> 6) & 1) != 0)
+    }
+    ///Bit 7 - Event Mask on line 7
+    #[inline(always)]
+    pub fn mr7(&self) -> MR7_R {
+        MR7_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    ///Bit 8 - Event Mask on line 8
+    #[inline(always)]
+    pub fn mr8(&self) -> MR8_R {
+        MR8_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    ///Bit 9 - Event Mask on line 9
+    #[inline(always)]
+    pub fn mr9(&self) -> MR9_R {
+        MR9_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    ///Bit 10 - Event Mask on line 10
+    #[inline(always)]
+    pub fn mr10(&self) -> MR10_R {
+        MR10_R::new(((self.bits >> 10) & 1) != 0)
+    }
+    ///Bit 11 - Event Mask on line 11
+    #[inline(always)]
+    pub fn mr11(&self) -> MR11_R {
+        MR11_R::new(((self.bits >> 11) & 1) != 0)
+    }
+    ///Bit 12 - Event Mask on line 12
+    #[inline(always)]
+    pub fn mr12(&self) -> MR12_R {
+        MR12_R::new(((self.bits >> 12) & 1) != 0)
+    }
+    ///Bit 13 - Event Mask on line 13
+    #[inline(always)]
+    pub fn mr13(&self) -> MR13_R {
+        MR13_R::new(((self.bits >> 13) & 1) != 0)
+    }
+    ///Bit 14 - Event Mask on line 14
+    #[inline(always)]
+    pub fn mr14(&self) -> MR14_R {
+        MR14_R::new(((self.bits >> 14) & 1) != 0)
+    }
+    ///Bit 15 - Event Mask on line 15
+    #[inline(always)]
+    pub fn mr15(&self) -> MR15_R {
+        MR15_R::new(((self.bits >> 15) & 1) != 0)
+    }
+    ///Bit 16 - Event Mask on line 16
+    #[inline(always)]
+    pub fn mr16(&self) -> MR16_R {
+        MR16_R::new(((self.bits >> 16) & 1) != 0)
+    }
+    ///Bit 17 - Event Mask on line 17
+    #[inline(always)]
+    pub fn mr17(&self) -> MR17_R {
+        MR17_R::new(((self.bits >> 17) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("EMR")
+            .field("mr0", &self.mr0())
+            .field("mr1", &self.mr1())
+            .field("mr2", &self.mr2())
+            .field("mr3", &self.mr3())
+            .field("mr4", &self.mr4())
+            .field("mr5", &self.mr5())
+            .field("mr6", &self.mr6())
+            .field("mr7", &self.mr7())
+            .field("mr8", &self.mr8())
+            .field("mr9", &self.mr9())
+            .field("mr10", &self.mr10())
+            .field("mr11", &self.mr11())
+            .field("mr12", &self.mr12())
+            .field("mr13", &self.mr13())
+            .field("mr14", &self.mr14())
+            .field("mr15", &self.mr15())
+            .field("mr16", &self.mr16())
+            .field("mr17", &self.mr17())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 0 - Event Mask on line 0
+    #[inline(always)]
+    pub fn mr0(&mut self) -> MR0_W<EMRrs> {
+        MR0_W::new(self, 0)
+    }
+    ///Bit 1 - Event Mask on line 1
+    #[inline(always)]
+    pub fn mr1(&mut self) -> MR1_W<EMRrs> {
+        MR1_W::new(self, 1)
+    }
+    ///Bit 2 - Event Mask on line 2
+    #[inline(always)]
+    pub fn mr2(&mut self) -> MR2_W<EMRrs> {
+        MR2_W::new(self, 2)
+    }
+    ///Bit 3 - Event Mask on line 3
+    #[inline(always)]
+    pub fn mr3(&mut self) -> MR3_W<EMRrs> {
+        MR3_W::new(self, 3)
+    }
+    ///Bit 4 - Event Mask on line 4
+    #[inline(always)]
+    pub fn mr4(&mut self) -> MR4_W<EMRrs> {
+        MR4_W::new(self, 4)
+    }
+    ///Bit 5 - Event Mask on line 5
+    #[inline(always)]
+    pub fn mr5(&mut self) -> MR5_W<EMRrs> {
+        MR5_W::new(self, 5)
+    }
+    ///Bit 6 - Event Mask on line 6
+    #[inline(always)]
+    pub fn mr6(&mut self) -> MR6_W<EMRrs> {
+        MR6_W::new(self, 6)
+    }
+    ///Bit 7 - Event Mask on line 7
+    #[inline(always)]
+    pub fn mr7(&mut self) -> MR7_W<EMRrs> {
+        MR7_W::new(self, 7)
+    }
+    ///Bit 8 - Event Mask on line 8
+    #[inline(always)]
+    pub fn mr8(&mut self) -> MR8_W<EMRrs> {
+        MR8_W::new(self, 8)
+    }
+    ///Bit 9 - Event Mask on line 9
+    #[inline(always)]
+    pub fn mr9(&mut self) -> MR9_W<EMRrs> {
+        MR9_W::new(self, 9)
+    }
+    ///Bit 10 - Event Mask on line 10
+    #[inline(always)]
+    pub fn mr10(&mut self) -> MR10_W<EMRrs> {
+        MR10_W::new(self, 10)
+    }
+    ///Bit 11 - Event Mask on line 11
+    #[inline(always)]
+    pub fn mr11(&mut self) -> MR11_W<EMRrs> {
+        MR11_W::new(self, 11)
+    }
+    ///Bit 12 - Event Mask on line 12
+    #[inline(always)]
+    pub fn mr12(&mut self) -> MR12_W<EMRrs> {
+        MR12_W::new(self, 12)
+    }
+    ///Bit 13 - Event Mask on line 13
+    #[inline(always)]
+    pub fn mr13(&mut self) -> MR13_W<EMRrs> {
+        MR13_W::new(self, 13)
+    }
+    ///Bit 14 - Event Mask on line 14
+    #[inline(always)]
+    pub fn mr14(&mut self) -> MR14_W<EMRrs> {
+        MR14_W::new(self, 14)
+    }
+    ///Bit 15 - Event Mask on line 15
+    #[inline(always)]
+    pub fn mr15(&mut self) -> MR15_W<EMRrs> {
+        MR15_W::new(self, 15)
+    }
+    ///Bit 16 - Event Mask on line 16
+    #[inline(always)]
+    pub fn mr16(&mut self) -> MR16_W<EMRrs> {
+        MR16_W::new(self, 16)
+    }
+    ///Bit 17 - Event Mask on line 17
+    #[inline(always)]
+    pub fn mr17(&mut self) -> MR17_W<EMRrs> {
+        MR17_W::new(self, 17)
+    }
+}
+/**Event mask register (EXTI_EMR)
+
+You can [`read`](crate::Reg::read) this register and get [`emr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`emr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32F100.html#EXTI:EMR)*/
+pub struct EMRrs;
+impl crate::RegisterSpec for EMRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`emr::R`](R) reader structure
+impl crate::Readable for EMRrs {}
+///`write(|w| ..)` method takes [`emr::W`](W) writer structure
+impl crate::Writable for EMRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets EMR to value 0
+impl crate::Resettable for EMRrs {
+    const RESET_VALUE: u32 = 0;
+}
