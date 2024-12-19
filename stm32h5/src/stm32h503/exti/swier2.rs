@@ -1,0 +1,105 @@
+///Register `SWIER2` reader
+pub type R = crate::R<SWIER2rs>;
+///Register `SWIER2` writer
+pub type W = crate::W<SWIER2rs>;
+/**Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SWI50W {
+    ///1: Generates an interrupt request
+    Pend = 1,
+}
+impl From<SWI50W> for bool {
+    #[inline(always)]
+    fn from(variant: SWI50W) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `SWI50` reader - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+pub type SWI50_R = crate::BitReader<SWI50W>;
+impl SWI50_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<SWI50W> {
+        match self.bits {
+            true => Some(SWI50W::Pend),
+            _ => None,
+        }
+    }
+    ///Generates an interrupt request
+    #[inline(always)]
+    pub fn is_pend(&self) -> bool {
+        *self == SWI50W::Pend
+    }
+}
+///Field `SWI50` writer - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+pub type SWI50_W<'a, REG> = crate::BitWriter<'a, REG, SWI50W>;
+impl<'a, REG> SWI50_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Generates an interrupt request
+    #[inline(always)]
+    pub fn pend(self) -> &'a mut crate::W<REG> {
+        self.variant(SWI50W::Pend)
+    }
+}
+///Field `SWI53` reader - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+pub use SWI50_R as SWI53_R;
+///Field `SWI53` writer - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+pub use SWI50_W as SWI53_W;
+impl R {
+    ///Bit 18 - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+    #[inline(always)]
+    pub fn swi50(&self) -> SWI50_R {
+        SWI50_R::new(((self.bits >> 18) & 1) != 0)
+    }
+    ///Bit 21 - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+    #[inline(always)]
+    pub fn swi53(&self) -> SWI53_R {
+        SWI53_R::new(((self.bits >> 21) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("SWIER2")
+            .field("swi50", &self.swi50())
+            .field("swi53", &self.swi53())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 18 - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+    #[inline(always)]
+    pub fn swi50(&mut self) -> SWI50_W<SWIER2rs> {
+        SWI50_W::new(self, 18)
+    }
+    ///Bit 21 - Software interrupt on event x When EXTI_PRIVCFGR.PRIVx is disabled, SWIx can be accessed with unprivileged and privileged access. When EXTI_PRIVCFGR.PRIVx is enabled, SWIx can only be accessed with privileged access. Unprivileged write to this SWIx is discarded, unprivileged read returns 0. A software interrupt is generated independent from the setting in EXTI_RTSR and EXTI_FTSR. It always returns 0 when read.
+    #[inline(always)]
+    pub fn swi53(&mut self) -> SWI53_W<SWIER2rs> {
+        SWI53_W::new(self, 21)
+    }
+}
+/**EXTI software interrupt event register 2
+
+You can [`read`](crate::Reg::read) this register and get [`swier2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`swier2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32H503.html#EXTI:SWIER2)*/
+pub struct SWIER2rs;
+impl crate::RegisterSpec for SWIER2rs {
+    type Ux = u32;
+}
+///`read()` method returns [`swier2::R`](R) reader structure
+impl crate::Readable for SWIER2rs {}
+///`write(|w| ..)` method takes [`swier2::W`](W) writer structure
+impl crate::Writable for SWIER2rs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets SWIER2 to value 0
+impl crate::Resettable for SWIER2rs {
+    const RESET_VALUE: u32 = 0;
+}
