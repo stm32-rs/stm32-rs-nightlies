@@ -1,0 +1,132 @@
+///Register `OTYPER` reader
+pub type R = crate::R<OTYPERrs>;
+///Register `OTYPER` writer
+pub type W = crate::W<OTYPERrs>;
+/**Port x configuration bits (y = 0..15)
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OT0 {
+    ///0: Output push-pull (reset state)
+    PushPull = 0,
+    ///1: Output open-drain
+    OpenDrain = 1,
+}
+impl From<OT0> for bool {
+    #[inline(always)]
+    fn from(variant: OT0) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `OT0` reader - Port x configuration bits (y = 0..15)
+pub type OT0_R = crate::BitReader<OT0>;
+impl OT0_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> OT0 {
+        match self.bits {
+            false => OT0::PushPull,
+            true => OT0::OpenDrain,
+        }
+    }
+    ///Output push-pull (reset state)
+    #[inline(always)]
+    pub fn is_push_pull(&self) -> bool {
+        *self == OT0::PushPull
+    }
+    ///Output open-drain
+    #[inline(always)]
+    pub fn is_open_drain(&self) -> bool {
+        *self == OT0::OpenDrain
+    }
+}
+///Field `OT0` writer - Port x configuration bits (y = 0..15)
+pub type OT0_W<'a, REG> = crate::BitWriter<'a, REG, OT0>;
+impl<'a, REG> OT0_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Output push-pull (reset state)
+    #[inline(always)]
+    pub fn push_pull(self) -> &'a mut crate::W<REG> {
+        self.variant(OT0::PushPull)
+    }
+    ///Output open-drain
+    #[inline(always)]
+    pub fn open_drain(self) -> &'a mut crate::W<REG> {
+        self.variant(OT0::OpenDrain)
+    }
+}
+///Field `OT1` reader - Port x configuration bits (y = 0..15)
+pub use OT0_R as OT1_R;
+///Field `OT3` reader - Port x configuration bits (y = 0..15)
+pub use OT0_R as OT3_R;
+///Field `OT1` writer - Port x configuration bits (y = 0..15)
+pub use OT0_W as OT1_W;
+///Field `OT3` writer - Port x configuration bits (y = 0..15)
+pub use OT0_W as OT3_W;
+impl R {
+    ///Bit 0 - Port x configuration bits (y = 0..15)
+    #[inline(always)]
+    pub fn ot0(&self) -> OT0_R {
+        OT0_R::new((self.bits & 1) != 0)
+    }
+    ///Bit 1 - Port x configuration bits (y = 0..15)
+    #[inline(always)]
+    pub fn ot1(&self) -> OT1_R {
+        OT1_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    ///Bit 3 - Port x configuration bits (y = 0..15)
+    #[inline(always)]
+    pub fn ot3(&self) -> OT3_R {
+        OT3_R::new(((self.bits >> 3) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("OTYPER")
+            .field("ot0", &self.ot0())
+            .field("ot3", &self.ot3())
+            .field("ot1", &self.ot1())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 0 - Port x configuration bits (y = 0..15)
+    #[inline(always)]
+    pub fn ot0(&mut self) -> OT0_W<OTYPERrs> {
+        OT0_W::new(self, 0)
+    }
+    ///Bit 1 - Port x configuration bits (y = 0..15)
+    #[inline(always)]
+    pub fn ot1(&mut self) -> OT1_W<OTYPERrs> {
+        OT1_W::new(self, 1)
+    }
+    ///Bit 3 - Port x configuration bits (y = 0..15)
+    #[inline(always)]
+    pub fn ot3(&mut self) -> OT3_W<OTYPERrs> {
+        OT3_W::new(self, 3)
+    }
+}
+/**GPIO port output type register
+
+You can [`read`](crate::Reg::read) this register and get [`otyper::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`otyper::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB55.html#GPIOH:OTYPER)*/
+pub struct OTYPERrs;
+impl crate::RegisterSpec for OTYPERrs {
+    type Ux = u32;
+}
+///`read()` method returns [`otyper::R`](R) reader structure
+impl crate::Readable for OTYPERrs {}
+///`write(|w| ..)` method takes [`otyper::W`](W) writer structure
+impl crate::Writable for OTYPERrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets OTYPER to value 0
+impl crate::Resettable for OTYPERrs {
+    const RESET_VALUE: u32 = 0;
+}

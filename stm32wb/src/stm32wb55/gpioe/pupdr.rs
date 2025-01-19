@@ -1,0 +1,190 @@
+///Register `PUPDR` reader
+pub type R = crate::R<PUPDRrs>;
+///Register `PUPDR` writer
+pub type W = crate::W<PUPDRrs>;
+/**Port x configuration pin %s
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum PUPDR0 {
+    ///0: No pull-up, pull-down
+    Floating = 0,
+    ///1: Pull-up
+    PullUp = 1,
+    ///2: Pull-down
+    PullDown = 2,
+}
+impl From<PUPDR0> for u8 {
+    #[inline(always)]
+    fn from(variant: PUPDR0) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for PUPDR0 {
+    type Ux = u8;
+}
+impl crate::IsEnum for PUPDR0 {}
+///Field `PUPDR(0-4)` reader - Port x configuration pin %s
+pub type PUPDR_R = crate::FieldReader<PUPDR0>;
+impl PUPDR_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<PUPDR0> {
+        match self.bits {
+            0 => Some(PUPDR0::Floating),
+            1 => Some(PUPDR0::PullUp),
+            2 => Some(PUPDR0::PullDown),
+            _ => None,
+        }
+    }
+    ///No pull-up, pull-down
+    #[inline(always)]
+    pub fn is_floating(&self) -> bool {
+        *self == PUPDR0::Floating
+    }
+    ///Pull-up
+    #[inline(always)]
+    pub fn is_pull_up(&self) -> bool {
+        *self == PUPDR0::PullUp
+    }
+    ///Pull-down
+    #[inline(always)]
+    pub fn is_pull_down(&self) -> bool {
+        *self == PUPDR0::PullDown
+    }
+}
+///Field `PUPDR(0-4)` writer - Port x configuration pin %s
+pub type PUPDR_W<'a, REG> = crate::FieldWriter<'a, REG, 2, PUPDR0>;
+impl<'a, REG> PUPDR_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///No pull-up, pull-down
+    #[inline(always)]
+    pub fn floating(self) -> &'a mut crate::W<REG> {
+        self.variant(PUPDR0::Floating)
+    }
+    ///Pull-up
+    #[inline(always)]
+    pub fn pull_up(self) -> &'a mut crate::W<REG> {
+        self.variant(PUPDR0::PullUp)
+    }
+    ///Pull-down
+    #[inline(always)]
+    pub fn pull_down(self) -> &'a mut crate::W<REG> {
+        self.variant(PUPDR0::PullDown)
+    }
+}
+impl R {
+    ///Port x configuration pin (0-4)
+    ///
+    ///<div class="warning">`n` is number of field in register. `n == 0` corresponds to `PUPDR0` field.</div>
+    #[inline(always)]
+    pub fn pupdr(&self, n: u8) -> PUPDR_R {
+        #[allow(clippy::no_effect)]
+        [(); 5][n as usize];
+        PUPDR_R::new(((self.bits >> (n * 2)) & 3) as u8)
+    }
+    ///Iterator for array of:
+    ///Port x configuration pin (0-4)
+    #[inline(always)]
+    pub fn pupdr_iter(&self) -> impl Iterator<Item = PUPDR_R> + '_ {
+        (0..5).map(move |n| PUPDR_R::new(((self.bits >> (n * 2)) & 3) as u8))
+    }
+    ///Bits 0:1 - Port x configuration pin 0
+    #[inline(always)]
+    pub fn pupdr0(&self) -> PUPDR_R {
+        PUPDR_R::new((self.bits & 3) as u8)
+    }
+    ///Bits 2:3 - Port x configuration pin 1
+    #[inline(always)]
+    pub fn pupdr1(&self) -> PUPDR_R {
+        PUPDR_R::new(((self.bits >> 2) & 3) as u8)
+    }
+    ///Bits 4:5 - Port x configuration pin 2
+    #[inline(always)]
+    pub fn pupdr2(&self) -> PUPDR_R {
+        PUPDR_R::new(((self.bits >> 4) & 3) as u8)
+    }
+    ///Bits 6:7 - Port x configuration pin 3
+    #[inline(always)]
+    pub fn pupdr3(&self) -> PUPDR_R {
+        PUPDR_R::new(((self.bits >> 6) & 3) as u8)
+    }
+    ///Bits 8:9 - Port x configuration pin 4
+    #[inline(always)]
+    pub fn pupdr4(&self) -> PUPDR_R {
+        PUPDR_R::new(((self.bits >> 8) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("PUPDR")
+            .field("pupdr0", &self.pupdr0())
+            .field("pupdr1", &self.pupdr1())
+            .field("pupdr2", &self.pupdr2())
+            .field("pupdr3", &self.pupdr3())
+            .field("pupdr4", &self.pupdr4())
+            .finish()
+    }
+}
+impl W {
+    ///Port x configuration pin (0-4)
+    ///
+    ///<div class="warning">`n` is number of field in register. `n == 0` corresponds to `PUPDR0` field.</div>
+    #[inline(always)]
+    pub fn pupdr(&mut self, n: u8) -> PUPDR_W<PUPDRrs> {
+        #[allow(clippy::no_effect)]
+        [(); 5][n as usize];
+        PUPDR_W::new(self, n * 2)
+    }
+    ///Bits 0:1 - Port x configuration pin 0
+    #[inline(always)]
+    pub fn pupdr0(&mut self) -> PUPDR_W<PUPDRrs> {
+        PUPDR_W::new(self, 0)
+    }
+    ///Bits 2:3 - Port x configuration pin 1
+    #[inline(always)]
+    pub fn pupdr1(&mut self) -> PUPDR_W<PUPDRrs> {
+        PUPDR_W::new(self, 2)
+    }
+    ///Bits 4:5 - Port x configuration pin 2
+    #[inline(always)]
+    pub fn pupdr2(&mut self) -> PUPDR_W<PUPDRrs> {
+        PUPDR_W::new(self, 4)
+    }
+    ///Bits 6:7 - Port x configuration pin 3
+    #[inline(always)]
+    pub fn pupdr3(&mut self) -> PUPDR_W<PUPDRrs> {
+        PUPDR_W::new(self, 6)
+    }
+    ///Bits 8:9 - Port x configuration pin 4
+    #[inline(always)]
+    pub fn pupdr4(&mut self) -> PUPDR_W<PUPDRrs> {
+        PUPDR_W::new(self, 8)
+    }
+}
+/**GPIO port pull-up/pull-down register
+
+You can [`read`](crate::Reg::read) this register and get [`pupdr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pupdr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB55.html#GPIOE:PUPDR)*/
+pub struct PUPDRrs;
+impl crate::RegisterSpec for PUPDRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`pupdr::R`](R) reader structure
+impl crate::Readable for PUPDRrs {}
+///`write(|w| ..)` method takes [`pupdr::W`](W) writer structure
+impl crate::Writable for PUPDRrs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets PUPDR to value 0
+impl crate::Resettable for PUPDRrs {
+    const RESET_VALUE: u32 = 0;
+}
