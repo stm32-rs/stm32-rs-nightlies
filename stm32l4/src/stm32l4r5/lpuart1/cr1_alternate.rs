@@ -1,0 +1,332 @@
+///Register `CR1_ALTERNATE` reader
+pub type R = crate::R<CR1_ALTERNATErs>;
+///Register `CR1_ALTERNATE` writer
+pub type W = crate::W<CR1_ALTERNATErs>;
+///Field `UE` reader - LPUART enable When this bit is cleared, the LPUART prescalers and outputs are stopped immediately, and current operations are discarded. The configuration of the LPUART is kept, but all the status flags, in the LPUART_ISR are reset. This bit is set and cleared by software. Note: To enter low-power mode without generating errors on the line, the TE bit must be reset before and the software must wait for the TC bit in the LPUART_ISR to be set before resetting the UE bit. Note: The DMA requests are also reset when UE = 0 so the DMA channel must be disabled before resetting the UE bit.
+pub type UE_R = crate::BitReader;
+///Field `UE` writer - LPUART enable When this bit is cleared, the LPUART prescalers and outputs are stopped immediately, and current operations are discarded. The configuration of the LPUART is kept, but all the status flags, in the LPUART_ISR are reset. This bit is set and cleared by software. Note: To enter low-power mode without generating errors on the line, the TE bit must be reset before and the software must wait for the TC bit in the LPUART_ISR to be set before resetting the UE bit. Note: The DMA requests are also reset when UE = 0 so the DMA channel must be disabled before resetting the UE bit.
+pub type UE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `UESM` reader - LPUART enable in Stop mode When this bit is cleared, the LPUART is not able to wake up the MCU from low-power mode. When this bit is set, the LPUART is able to wake up the MCU from low-power mode, provided that the LPUART clock selection is HSI or LSE in the RCC. This bit is set and cleared by software. Note: It is recommended to set the UESM bit just before entering low-power mode and clear it on exit from low-power mode.
+pub type UESM_R = crate::BitReader;
+///Field `UESM` writer - LPUART enable in Stop mode When this bit is cleared, the LPUART is not able to wake up the MCU from low-power mode. When this bit is set, the LPUART is able to wake up the MCU from low-power mode, provided that the LPUART clock selection is HSI or LSE in the RCC. This bit is set and cleared by software. Note: It is recommended to set the UESM bit just before entering low-power mode and clear it on exit from low-power mode.
+pub type UESM_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `RE` reader - Receiver enable This bit enables the receiver. It is set and cleared by software.
+pub type RE_R = crate::BitReader;
+///Field `RE` writer - Receiver enable This bit enables the receiver. It is set and cleared by software.
+pub type RE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `TE` reader - Transmitter enable This bit enables the transmitter. It is set and cleared by software. Note: During transmission, a low pulse on the TE bit ( 0 followed by 1 ) sends a preamble (idle line) after the current word. In order to generate an idle character, the TE must not be immediately written to 1. In order to ensure the required duration, the software can poll the TEACK bit in the LPUART_ISR register. Note: When TE is set there is a 1 bit-time delay before the transmission starts.
+pub type TE_R = crate::BitReader;
+///Field `TE` writer - Transmitter enable This bit enables the transmitter. It is set and cleared by software. Note: During transmission, a low pulse on the TE bit ( 0 followed by 1 ) sends a preamble (idle line) after the current word. In order to generate an idle character, the TE must not be immediately written to 1. In order to ensure the required duration, the software can poll the TEACK bit in the LPUART_ISR register. Note: When TE is set there is a 1 bit-time delay before the transmission starts.
+pub type TE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `IDLEIE` reader - IDLE interrupt enable This bit is set and cleared by software.
+pub type IDLEIE_R = crate::BitReader;
+///Field `IDLEIE` writer - IDLE interrupt enable This bit is set and cleared by software.
+pub type IDLEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `RXNEIE` reader - Receive data register not empty This bit is set and cleared by software.
+pub type RXNEIE_R = crate::BitReader;
+///Field `RXNEIE` writer - Receive data register not empty This bit is set and cleared by software.
+pub type RXNEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `TCIE` reader - Transmission complete interrupt enable This bit is set and cleared by software.
+pub type TCIE_R = crate::BitReader;
+///Field `TCIE` writer - Transmission complete interrupt enable This bit is set and cleared by software.
+pub type TCIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `TXEIE` reader - Transmit data register empty This bit is set and cleared by software.
+pub type TXEIE_R = crate::BitReader;
+///Field `TXEIE` writer - Transmit data register empty This bit is set and cleared by software.
+pub type TXEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `PEIE` reader - PE interrupt enable This bit is set and cleared by software.
+pub type PEIE_R = crate::BitReader;
+///Field `PEIE` writer - PE interrupt enable This bit is set and cleared by software.
+pub type PEIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `PS` reader - Parity selection This bit selects the odd or even parity when the parity generation/detection is enabled (PCE bit set). It is set and cleared by software. The parity is selected after the current byte. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type PS_R = crate::BitReader;
+///Field `PS` writer - Parity selection This bit selects the odd or even parity when the parity generation/detection is enabled (PCE bit set). It is set and cleared by software. The parity is selected after the current byte. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type PS_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `PCE` reader - Parity control enable This bit selects the hardware parity control (generation and detection). When the parity control is enabled, the computed parity is inserted at the MSB position (9th bit if M = 1; 8th bit if M = 0) and parity is checked on the received data. This bit is set and cleared by software. Once it is set, PCE is active after the current byte (in reception and in transmission). This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type PCE_R = crate::BitReader;
+///Field `PCE` writer - Parity control enable This bit selects the hardware parity control (generation and detection). When the parity control is enabled, the computed parity is inserted at the MSB position (9th bit if M = 1; 8th bit if M = 0) and parity is checked on the received data. This bit is set and cleared by software. Once it is set, PCE is active after the current byte (in reception and in transmission). This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type PCE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `WAKE` reader - Receiver wakeup method This bit determines the LPUART wakeup method from Mute mode. It is set or cleared by software. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type WAKE_R = crate::BitReader;
+///Field `WAKE` writer - Receiver wakeup method This bit determines the LPUART wakeup method from Mute mode. It is set or cleared by software. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type WAKE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `M0` reader - Word length This bit is used in conjunction with bit 28 (M1) to determine the word length. It is set or cleared by software (refer to bit 28 (M1) description). This bit can only be written when the LPUART is disabled (UE = 0).
+pub type M0_R = crate::BitReader;
+///Field `M0` writer - Word length This bit is used in conjunction with bit 28 (M1) to determine the word length. It is set or cleared by software (refer to bit 28 (M1) description). This bit can only be written when the LPUART is disabled (UE = 0).
+pub type M0_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `MME` reader - Mute mode enable This bit activates the Mute mode function of the LPUART. When set, the LPUART can switch between the active and Mute modes, as defined by the WAKE bit. It is set and cleared by software.
+pub type MME_R = crate::BitReader;
+///Field `MME` writer - Mute mode enable This bit activates the Mute mode function of the LPUART. When set, the LPUART can switch between the active and Mute modes, as defined by the WAKE bit. It is set and cleared by software.
+pub type MME_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `CMIE` reader - Character match interrupt enable This bit is set and cleared by software.
+pub type CMIE_R = crate::BitReader;
+///Field `CMIE` writer - Character match interrupt enable This bit is set and cleared by software.
+pub type CMIE_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `DEDT` reader - Driver enable deassertion time This 5-bit value defines the time between the end of the last stop bit, in a transmitted message, and the de-activation of the DE (Driver Enable) signal.It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 34.4.13: RS232 Hardware flow control and RS485 Driver Enable. If the LPUART_TDR register is written during the DEDT time, the new data is transmitted only when the DEDT and DEAT times have both elapsed. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type DEDT_R = crate::FieldReader;
+///Field `DEDT` writer - Driver enable deassertion time This 5-bit value defines the time between the end of the last stop bit, in a transmitted message, and the de-activation of the DE (Driver Enable) signal.It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 34.4.13: RS232 Hardware flow control and RS485 Driver Enable. If the LPUART_TDR register is written during the DEDT time, the new data is transmitted only when the DEDT and DEAT times have both elapsed. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type DEDT_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+///Field `DEAT` reader - Driver enable assertion time This 5-bit value defines the time between the activation of the DE (Driver Enable) signal and the beginning of the start bit. It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 33.5.20: RS232 Hardware flow control and RS485 Driver Enable. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type DEAT_R = crate::FieldReader;
+///Field `DEAT` writer - Driver enable assertion time This 5-bit value defines the time between the activation of the DE (Driver Enable) signal and the beginning of the start bit. It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 33.5.20: RS232 Hardware flow control and RS485 Driver Enable. This bitfield can only be written when the LPUART is disabled (UE = 0).
+pub type DEAT_W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+/**Field `M1` reader - Word length This bit must be used in conjunction with bit 12 (M0) to determine the word length. It is set or cleared by software. M\[1:0\]
+= 00 : 1 Start bit, 8 Data bits, n Stop bit M\[1:0\]
+= 01 : 1 Start bit, 9 Data bits, n Stop bit M\[1:0\]
+= 10 : 1 Start bit, 7 Data bits, n Stop bit This bit can only be written when the LPUART is disabled (UE = 0). Note: In 7-bit data length mode, the Smartcard mode, LIN master mode and Auto baud rate (0x7F and 0x55 frames detection) are not supported.*/
+pub type M1_R = crate::BitReader;
+/**Field `M1` writer - Word length This bit must be used in conjunction with bit 12 (M0) to determine the word length. It is set or cleared by software. M\[1:0\]
+= 00 : 1 Start bit, 8 Data bits, n Stop bit M\[1:0\]
+= 01 : 1 Start bit, 9 Data bits, n Stop bit M\[1:0\]
+= 10 : 1 Start bit, 7 Data bits, n Stop bit This bit can only be written when the LPUART is disabled (UE = 0). Note: In 7-bit data length mode, the Smartcard mode, LIN master mode and Auto baud rate (0x7F and 0x55 frames detection) are not supported.*/
+pub type M1_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `FIFOEN` reader - FIFO mode enable This bit is set and cleared by software.
+pub type FIFOEN_R = crate::BitReader;
+///Field `FIFOEN` writer - FIFO mode enable This bit is set and cleared by software.
+pub type FIFOEN_W<'a, REG> = crate::BitWriter<'a, REG>;
+impl R {
+    ///Bit 0 - LPUART enable When this bit is cleared, the LPUART prescalers and outputs are stopped immediately, and current operations are discarded. The configuration of the LPUART is kept, but all the status flags, in the LPUART_ISR are reset. This bit is set and cleared by software. Note: To enter low-power mode without generating errors on the line, the TE bit must be reset before and the software must wait for the TC bit in the LPUART_ISR to be set before resetting the UE bit. Note: The DMA requests are also reset when UE = 0 so the DMA channel must be disabled before resetting the UE bit.
+    #[inline(always)]
+    pub fn ue(&self) -> UE_R {
+        UE_R::new((self.bits & 1) != 0)
+    }
+    ///Bit 1 - LPUART enable in Stop mode When this bit is cleared, the LPUART is not able to wake up the MCU from low-power mode. When this bit is set, the LPUART is able to wake up the MCU from low-power mode, provided that the LPUART clock selection is HSI or LSE in the RCC. This bit is set and cleared by software. Note: It is recommended to set the UESM bit just before entering low-power mode and clear it on exit from low-power mode.
+    #[inline(always)]
+    pub fn uesm(&self) -> UESM_R {
+        UESM_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    ///Bit 2 - Receiver enable This bit enables the receiver. It is set and cleared by software.
+    #[inline(always)]
+    pub fn re(&self) -> RE_R {
+        RE_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    ///Bit 3 - Transmitter enable This bit enables the transmitter. It is set and cleared by software. Note: During transmission, a low pulse on the TE bit ( 0 followed by 1 ) sends a preamble (idle line) after the current word. In order to generate an idle character, the TE must not be immediately written to 1. In order to ensure the required duration, the software can poll the TEACK bit in the LPUART_ISR register. Note: When TE is set there is a 1 bit-time delay before the transmission starts.
+    #[inline(always)]
+    pub fn te(&self) -> TE_R {
+        TE_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    ///Bit 4 - IDLE interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn idleie(&self) -> IDLEIE_R {
+        IDLEIE_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    ///Bit 5 - Receive data register not empty This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn rxneie(&self) -> RXNEIE_R {
+        RXNEIE_R::new(((self.bits >> 5) & 1) != 0)
+    }
+    ///Bit 6 - Transmission complete interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn tcie(&self) -> TCIE_R {
+        TCIE_R::new(((self.bits >> 6) & 1) != 0)
+    }
+    ///Bit 7 - Transmit data register empty This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn txeie(&self) -> TXEIE_R {
+        TXEIE_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    ///Bit 8 - PE interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn peie(&self) -> PEIE_R {
+        PEIE_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    ///Bit 9 - Parity selection This bit selects the odd or even parity when the parity generation/detection is enabled (PCE bit set). It is set and cleared by software. The parity is selected after the current byte. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn ps(&self) -> PS_R {
+        PS_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    ///Bit 10 - Parity control enable This bit selects the hardware parity control (generation and detection). When the parity control is enabled, the computed parity is inserted at the MSB position (9th bit if M = 1; 8th bit if M = 0) and parity is checked on the received data. This bit is set and cleared by software. Once it is set, PCE is active after the current byte (in reception and in transmission). This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn pce(&self) -> PCE_R {
+        PCE_R::new(((self.bits >> 10) & 1) != 0)
+    }
+    ///Bit 11 - Receiver wakeup method This bit determines the LPUART wakeup method from Mute mode. It is set or cleared by software. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn wake(&self) -> WAKE_R {
+        WAKE_R::new(((self.bits >> 11) & 1) != 0)
+    }
+    ///Bit 12 - Word length This bit is used in conjunction with bit 28 (M1) to determine the word length. It is set or cleared by software (refer to bit 28 (M1) description). This bit can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn m0(&self) -> M0_R {
+        M0_R::new(((self.bits >> 12) & 1) != 0)
+    }
+    ///Bit 13 - Mute mode enable This bit activates the Mute mode function of the LPUART. When set, the LPUART can switch between the active and Mute modes, as defined by the WAKE bit. It is set and cleared by software.
+    #[inline(always)]
+    pub fn mme(&self) -> MME_R {
+        MME_R::new(((self.bits >> 13) & 1) != 0)
+    }
+    ///Bit 14 - Character match interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn cmie(&self) -> CMIE_R {
+        CMIE_R::new(((self.bits >> 14) & 1) != 0)
+    }
+    ///Bits 16:20 - Driver enable deassertion time This 5-bit value defines the time between the end of the last stop bit, in a transmitted message, and the de-activation of the DE (Driver Enable) signal.It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 34.4.13: RS232 Hardware flow control and RS485 Driver Enable. If the LPUART_TDR register is written during the DEDT time, the new data is transmitted only when the DEDT and DEAT times have both elapsed. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn dedt(&self) -> DEDT_R {
+        DEDT_R::new(((self.bits >> 16) & 0x1f) as u8)
+    }
+    ///Bits 21:25 - Driver enable assertion time This 5-bit value defines the time between the activation of the DE (Driver Enable) signal and the beginning of the start bit. It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 33.5.20: RS232 Hardware flow control and RS485 Driver Enable. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn deat(&self) -> DEAT_R {
+        DEAT_R::new(((self.bits >> 21) & 0x1f) as u8)
+    }
+    /**Bit 28 - Word length This bit must be used in conjunction with bit 12 (M0) to determine the word length. It is set or cleared by software. M\[1:0\]
+    = 00 : 1 Start bit, 8 Data bits, n Stop bit M\[1:0\]
+    = 01 : 1 Start bit, 9 Data bits, n Stop bit M\[1:0\]
+    = 10 : 1 Start bit, 7 Data bits, n Stop bit This bit can only be written when the LPUART is disabled (UE = 0). Note: In 7-bit data length mode, the Smartcard mode, LIN master mode and Auto baud rate (0x7F and 0x55 frames detection) are not supported.*/
+    #[inline(always)]
+    pub fn m1(&self) -> M1_R {
+        M1_R::new(((self.bits >> 28) & 1) != 0)
+    }
+    ///Bit 29 - FIFO mode enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn fifoen(&self) -> FIFOEN_R {
+        FIFOEN_R::new(((self.bits >> 29) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CR1_ALTERNATE")
+            .field("ue", &self.ue())
+            .field("uesm", &self.uesm())
+            .field("re", &self.re())
+            .field("te", &self.te())
+            .field("idleie", &self.idleie())
+            .field("rxneie", &self.rxneie())
+            .field("tcie", &self.tcie())
+            .field("txeie", &self.txeie())
+            .field("peie", &self.peie())
+            .field("ps", &self.ps())
+            .field("pce", &self.pce())
+            .field("wake", &self.wake())
+            .field("m0", &self.m0())
+            .field("mme", &self.mme())
+            .field("cmie", &self.cmie())
+            .field("dedt", &self.dedt())
+            .field("deat", &self.deat())
+            .field("m1", &self.m1())
+            .field("fifoen", &self.fifoen())
+            .finish()
+    }
+}
+impl W {
+    ///Bit 0 - LPUART enable When this bit is cleared, the LPUART prescalers and outputs are stopped immediately, and current operations are discarded. The configuration of the LPUART is kept, but all the status flags, in the LPUART_ISR are reset. This bit is set and cleared by software. Note: To enter low-power mode without generating errors on the line, the TE bit must be reset before and the software must wait for the TC bit in the LPUART_ISR to be set before resetting the UE bit. Note: The DMA requests are also reset when UE = 0 so the DMA channel must be disabled before resetting the UE bit.
+    #[inline(always)]
+    pub fn ue(&mut self) -> UE_W<CR1_ALTERNATErs> {
+        UE_W::new(self, 0)
+    }
+    ///Bit 1 - LPUART enable in Stop mode When this bit is cleared, the LPUART is not able to wake up the MCU from low-power mode. When this bit is set, the LPUART is able to wake up the MCU from low-power mode, provided that the LPUART clock selection is HSI or LSE in the RCC. This bit is set and cleared by software. Note: It is recommended to set the UESM bit just before entering low-power mode and clear it on exit from low-power mode.
+    #[inline(always)]
+    pub fn uesm(&mut self) -> UESM_W<CR1_ALTERNATErs> {
+        UESM_W::new(self, 1)
+    }
+    ///Bit 2 - Receiver enable This bit enables the receiver. It is set and cleared by software.
+    #[inline(always)]
+    pub fn re(&mut self) -> RE_W<CR1_ALTERNATErs> {
+        RE_W::new(self, 2)
+    }
+    ///Bit 3 - Transmitter enable This bit enables the transmitter. It is set and cleared by software. Note: During transmission, a low pulse on the TE bit ( 0 followed by 1 ) sends a preamble (idle line) after the current word. In order to generate an idle character, the TE must not be immediately written to 1. In order to ensure the required duration, the software can poll the TEACK bit in the LPUART_ISR register. Note: When TE is set there is a 1 bit-time delay before the transmission starts.
+    #[inline(always)]
+    pub fn te(&mut self) -> TE_W<CR1_ALTERNATErs> {
+        TE_W::new(self, 3)
+    }
+    ///Bit 4 - IDLE interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn idleie(&mut self) -> IDLEIE_W<CR1_ALTERNATErs> {
+        IDLEIE_W::new(self, 4)
+    }
+    ///Bit 5 - Receive data register not empty This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn rxneie(&mut self) -> RXNEIE_W<CR1_ALTERNATErs> {
+        RXNEIE_W::new(self, 5)
+    }
+    ///Bit 6 - Transmission complete interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn tcie(&mut self) -> TCIE_W<CR1_ALTERNATErs> {
+        TCIE_W::new(self, 6)
+    }
+    ///Bit 7 - Transmit data register empty This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn txeie(&mut self) -> TXEIE_W<CR1_ALTERNATErs> {
+        TXEIE_W::new(self, 7)
+    }
+    ///Bit 8 - PE interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn peie(&mut self) -> PEIE_W<CR1_ALTERNATErs> {
+        PEIE_W::new(self, 8)
+    }
+    ///Bit 9 - Parity selection This bit selects the odd or even parity when the parity generation/detection is enabled (PCE bit set). It is set and cleared by software. The parity is selected after the current byte. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn ps(&mut self) -> PS_W<CR1_ALTERNATErs> {
+        PS_W::new(self, 9)
+    }
+    ///Bit 10 - Parity control enable This bit selects the hardware parity control (generation and detection). When the parity control is enabled, the computed parity is inserted at the MSB position (9th bit if M = 1; 8th bit if M = 0) and parity is checked on the received data. This bit is set and cleared by software. Once it is set, PCE is active after the current byte (in reception and in transmission). This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn pce(&mut self) -> PCE_W<CR1_ALTERNATErs> {
+        PCE_W::new(self, 10)
+    }
+    ///Bit 11 - Receiver wakeup method This bit determines the LPUART wakeup method from Mute mode. It is set or cleared by software. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn wake(&mut self) -> WAKE_W<CR1_ALTERNATErs> {
+        WAKE_W::new(self, 11)
+    }
+    ///Bit 12 - Word length This bit is used in conjunction with bit 28 (M1) to determine the word length. It is set or cleared by software (refer to bit 28 (M1) description). This bit can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn m0(&mut self) -> M0_W<CR1_ALTERNATErs> {
+        M0_W::new(self, 12)
+    }
+    ///Bit 13 - Mute mode enable This bit activates the Mute mode function of the LPUART. When set, the LPUART can switch between the active and Mute modes, as defined by the WAKE bit. It is set and cleared by software.
+    #[inline(always)]
+    pub fn mme(&mut self) -> MME_W<CR1_ALTERNATErs> {
+        MME_W::new(self, 13)
+    }
+    ///Bit 14 - Character match interrupt enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn cmie(&mut self) -> CMIE_W<CR1_ALTERNATErs> {
+        CMIE_W::new(self, 14)
+    }
+    ///Bits 16:20 - Driver enable deassertion time This 5-bit value defines the time between the end of the last stop bit, in a transmitted message, and the de-activation of the DE (Driver Enable) signal.It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 34.4.13: RS232 Hardware flow control and RS485 Driver Enable. If the LPUART_TDR register is written during the DEDT time, the new data is transmitted only when the DEDT and DEAT times have both elapsed. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn dedt(&mut self) -> DEDT_W<CR1_ALTERNATErs> {
+        DEDT_W::new(self, 16)
+    }
+    ///Bits 21:25 - Driver enable assertion time This 5-bit value defines the time between the activation of the DE (Driver Enable) signal and the beginning of the start bit. It is expressed in lpuart_ker_ck clock cycles. For more details, refer Section 33.5.20: RS232 Hardware flow control and RS485 Driver Enable. This bitfield can only be written when the LPUART is disabled (UE = 0).
+    #[inline(always)]
+    pub fn deat(&mut self) -> DEAT_W<CR1_ALTERNATErs> {
+        DEAT_W::new(self, 21)
+    }
+    /**Bit 28 - Word length This bit must be used in conjunction with bit 12 (M0) to determine the word length. It is set or cleared by software. M\[1:0\]
+    = 00 : 1 Start bit, 8 Data bits, n Stop bit M\[1:0\]
+    = 01 : 1 Start bit, 9 Data bits, n Stop bit M\[1:0\]
+    = 10 : 1 Start bit, 7 Data bits, n Stop bit This bit can only be written when the LPUART is disabled (UE = 0). Note: In 7-bit data length mode, the Smartcard mode, LIN master mode and Auto baud rate (0x7F and 0x55 frames detection) are not supported.*/
+    #[inline(always)]
+    pub fn m1(&mut self) -> M1_W<CR1_ALTERNATErs> {
+        M1_W::new(self, 28)
+    }
+    ///Bit 29 - FIFO mode enable This bit is set and cleared by software.
+    #[inline(always)]
+    pub fn fifoen(&mut self) -> FIFOEN_W<CR1_ALTERNATErs> {
+        FIFOEN_W::new(self, 29)
+    }
+}
+/**LPUART control register 1
+
+You can [`read`](crate::Reg::read) this register and get [`cr1_alternate::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1_alternate::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32L4R5.html#LPUART1:CR1_ALTERNATE)*/
+pub struct CR1_ALTERNATErs;
+impl crate::RegisterSpec for CR1_ALTERNATErs {
+    type Ux = u32;
+}
+///`read()` method returns [`cr1_alternate::R`](R) reader structure
+impl crate::Readable for CR1_ALTERNATErs {}
+///`write(|w| ..)` method takes [`cr1_alternate::W`](W) writer structure
+impl crate::Writable for CR1_ALTERNATErs {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+}
+///`reset()` method sets CR1_ALTERNATE to value 0
+impl crate::Resettable for CR1_ALTERNATErs {
+    const RESET_VALUE: u32 = 0;
+}
