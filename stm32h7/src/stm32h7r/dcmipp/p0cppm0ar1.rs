@@ -1,0 +1,31 @@
+///Register `P0CPPM0AR1` reader
+pub type R = crate::R<P0CPPM0AR1rs>;
+///Field `M0A` reader - Memory0 address Base address of the current memory area 0, to whom data are written. It is assumed to be a multiple of 16, hence its bits 3:0 are always at 0x0.
+pub type M0A_R = crate::FieldReader<u32>;
+impl R {
+    ///Bits 0:31 - Memory0 address Base address of the current memory area 0, to whom data are written. It is assumed to be a multiple of 16, hence its bits 3:0 are always at 0x0.
+    #[inline(always)]
+    pub fn m0a(&self) -> M0A_R {
+        M0A_R::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("P0CPPM0AR1")
+            .field("m0a", &self.m0a())
+            .finish()
+    }
+}
+/**DCMIPP Pipe0 current pixel packer Memory0 address register 1
+
+You can [`read`](crate::Reg::read) this register and get [`p0cppm0ar1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32H7R.html#DCMIPP:P0CPPM0AR1)*/
+pub struct P0CPPM0AR1rs;
+impl crate::RegisterSpec for P0CPPM0AR1rs {
+    type Ux = u32;
+}
+///`read()` method returns [`p0cppm0ar1::R`](R) reader structure
+impl crate::Readable for P0CPPM0AR1rs {}
+///`reset()` method sets P0CPPM0AR1 to value 0
+impl crate::Resettable for P0CPPM0AR1rs {}
