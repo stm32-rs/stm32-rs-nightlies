@@ -1,0 +1,424 @@
+#[repr(C)]
+#[derive(Debug)]
+///Register block
+pub struct RegisterBlock {
+    cr1: CR1,
+    cr2: CR2,
+    smcr: SMCR,
+    dier: DIER,
+    sr: SR,
+    egr: EGR,
+    _reserved_6_ccmr: [u8; 0x04],
+    _reserved_7_ccmr: [u8; 0x04],
+    ccer: CCER,
+    cnt: CNT,
+    psc: PSC,
+    arr: ARR,
+    rcr: RCR,
+    ccr1: CCR1,
+    ccr2: CCR2,
+    ccr3: CCR3,
+    ccr4: CCR4,
+    bdtr: BDTR,
+    _reserved18: [u8; 0x0c],
+    _reserved_18_ccmr: [u8; 0x04],
+    ccr5: CCR5,
+    ccr6: CCR6,
+    af1: AF1,
+    af2: AF2,
+}
+impl RegisterBlock {
+    ///0x00 - CR1 register
+    #[inline(always)]
+    pub const fn cr1(&self) -> &CR1 {
+        &self.cr1
+    }
+    ///0x04 - CR2 register
+    #[inline(always)]
+    pub const fn cr2(&self) -> &CR2 {
+        &self.cr2
+    }
+    ///0x08 - SMCR register
+    #[inline(always)]
+    pub const fn smcr(&self) -> &SMCR {
+        &self.smcr
+    }
+    ///0x0c - DIER register
+    #[inline(always)]
+    pub const fn dier(&self) -> &DIER {
+        &self.dier
+    }
+    ///0x10 - SR register
+    #[inline(always)]
+    pub const fn sr(&self) -> &SR {
+        &self.sr
+    }
+    ///0x14 - EGR register
+    #[inline(always)]
+    pub const fn egr(&self) -> &EGR {
+        &self.egr
+    }
+    ///0x18 -
+    #[inline(always)]
+    pub const fn ccmr1_in(&self) -> &CCMR1_IN {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(24).cast() }
+    }
+    ///0x18 - CCMR1 register
+    #[inline(always)]
+    pub const fn ccmr1(&self) -> &CCMR1 {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(24).cast() }
+    }
+    ///0x1c -
+    #[inline(always)]
+    pub const fn ccmr2_in(&self) -> &CCMR2_IN {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(28).cast() }
+    }
+    ///0x1c - CCMR2 register
+    #[inline(always)]
+    pub const fn ccmr2(&self) -> &CCMR2 {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(28).cast() }
+    }
+    ///0x20 - CCER register
+    #[inline(always)]
+    pub const fn ccer(&self) -> &CCER {
+        &self.ccer
+    }
+    ///0x24 - CNT register
+    #[inline(always)]
+    pub const fn cnt(&self) -> &CNT {
+        &self.cnt
+    }
+    ///0x28 - PSC register
+    #[inline(always)]
+    pub const fn psc(&self) -> &PSC {
+        &self.psc
+    }
+    ///0x2c - ARR register
+    #[inline(always)]
+    pub const fn arr(&self) -> &ARR {
+        &self.arr
+    }
+    ///0x30 - RCR register
+    #[inline(always)]
+    pub const fn rcr(&self) -> &RCR {
+        &self.rcr
+    }
+    ///0x34 - CCR1 register
+    #[inline(always)]
+    pub const fn ccr1(&self) -> &CCR1 {
+        &self.ccr1
+    }
+    ///0x38 - CCR2 register
+    #[inline(always)]
+    pub const fn ccr2(&self) -> &CCR2 {
+        &self.ccr2
+    }
+    ///0x3c - CCR3 register
+    #[inline(always)]
+    pub const fn ccr3(&self) -> &CCR3 {
+        &self.ccr3
+    }
+    ///0x40 - CCR4 register
+    #[inline(always)]
+    pub const fn ccr4(&self) -> &CCR4 {
+        &self.ccr4
+    }
+    ///0x44 - BDTR register
+    #[inline(always)]
+    pub const fn bdtr(&self) -> &BDTR {
+        &self.bdtr
+    }
+    ///0x54 -
+    #[inline(always)]
+    pub const fn ccmr3_in(&self) -> &CCMR3_IN {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(84).cast() }
+    }
+    ///0x54 - CCMR3 register
+    #[inline(always)]
+    pub const fn ccmr3(&self) -> &CCMR3 {
+        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(84).cast() }
+    }
+    ///0x58 - CCR5 register
+    #[inline(always)]
+    pub const fn ccr5(&self) -> &CCR5 {
+        &self.ccr5
+    }
+    ///0x5c - CCR6 register
+    #[inline(always)]
+    pub const fn ccr6(&self) -> &CCR6 {
+        &self.ccr6
+    }
+    ///0x60 - AF1 register
+    #[inline(always)]
+    pub const fn af1(&self) -> &AF1 {
+        &self.af1
+    }
+    ///0x64 - AF2 register
+    #[inline(always)]
+    pub const fn af2(&self) -> &AF2 {
+        &self.af2
+    }
+}
+/**CR1 (rw) register accessor: CR1 register
+
+You can [`read`](crate::Reg::read) this register and get [`cr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CR1)
+
+For information about available fields see [`mod@cr1`] module*/
+pub type CR1 = crate::Reg<cr1::CR1rs>;
+///CR1 register
+pub mod cr1;
+/**CR2 (rw) register accessor: CR2 register
+
+You can [`read`](crate::Reg::read) this register and get [`cr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CR2)
+
+For information about available fields see [`mod@cr2`] module*/
+pub type CR2 = crate::Reg<cr2::CR2rs>;
+///CR2 register
+pub mod cr2;
+/**SMCR (rw) register accessor: SMCR register
+
+You can [`read`](crate::Reg::read) this register and get [`smcr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`smcr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:SMCR)
+
+For information about available fields see [`mod@smcr`] module*/
+pub type SMCR = crate::Reg<smcr::SMCRrs>;
+///SMCR register
+pub mod smcr;
+/**DIER (rw) register accessor: DIER register
+
+You can [`read`](crate::Reg::read) this register and get [`dier::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dier::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:DIER)
+
+For information about available fields see [`mod@dier`] module*/
+pub type DIER = crate::Reg<dier::DIERrs>;
+///DIER register
+pub mod dier;
+/**SR (rw) register accessor: SR register
+
+You can [`read`](crate::Reg::read) this register and get [`sr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:SR)
+
+For information about available fields see [`mod@sr`] module*/
+pub type SR = crate::Reg<sr::SRrs>;
+///SR register
+pub mod sr;
+/**EGR (rw) register accessor: EGR register
+
+You can [`read`](crate::Reg::read) this register and get [`egr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`egr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:EGR)
+
+For information about available fields see [`mod@egr`] module*/
+pub type EGR = crate::Reg<egr::EGRrs>;
+///EGR register
+pub mod egr;
+/**CCMR1 (rw) register accessor: CCMR1 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccmr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccmr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCMR1)
+
+For information about available fields see [`mod@ccmr1`] module*/
+pub type CCMR1 = crate::Reg<ccmr1::CCMR1rs>;
+///CCMR1 register
+pub mod ccmr1;
+/**CCMR1_in (rw) register accessor:
+
+You can [`read`](crate::Reg::read) this register and get [`ccmr1_in::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccmr1_in::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCMR1_in)
+
+For information about available fields see [`mod@ccmr1_in`] module*/
+#[doc(alias = "CCMR1_in")]
+pub type CCMR1_IN = crate::Reg<ccmr1_in::CCMR1_INrs>;
+///
+pub mod ccmr1_in;
+/**CCMR2 (rw) register accessor: CCMR2 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccmr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccmr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCMR2)
+
+For information about available fields see [`mod@ccmr2`] module*/
+pub type CCMR2 = crate::Reg<ccmr2::CCMR2rs>;
+///CCMR2 register
+pub mod ccmr2;
+/**CCMR2_in (rw) register accessor:
+
+You can [`read`](crate::Reg::read) this register and get [`ccmr2_in::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccmr2_in::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCMR2_in)
+
+For information about available fields see [`mod@ccmr2_in`] module*/
+#[doc(alias = "CCMR2_in")]
+pub type CCMR2_IN = crate::Reg<ccmr2_in::CCMR2_INrs>;
+///
+pub mod ccmr2_in;
+/**CCER (rw) register accessor: CCER register
+
+You can [`read`](crate::Reg::read) this register and get [`ccer::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccer::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCER)
+
+For information about available fields see [`mod@ccer`] module*/
+pub type CCER = crate::Reg<ccer::CCERrs>;
+///CCER register
+pub mod ccer;
+/**CNT (rw) register accessor: CNT register
+
+You can [`read`](crate::Reg::read) this register and get [`cnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CNT)
+
+For information about available fields see [`mod@cnt`] module*/
+pub type CNT = crate::Reg<cnt::CNTrs>;
+///CNT register
+pub mod cnt;
+/**PSC (rw) register accessor: PSC register
+
+You can [`read`](crate::Reg::read) this register and get [`psc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`psc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:PSC)
+
+For information about available fields see [`mod@psc`] module*/
+pub type PSC = crate::Reg<psc::PSCrs>;
+///PSC register
+pub mod psc;
+/**ARR (rw) register accessor: ARR register
+
+You can [`read`](crate::Reg::read) this register and get [`arr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`arr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:ARR)
+
+For information about available fields see [`mod@arr`] module*/
+pub type ARR = crate::Reg<arr::ARRrs>;
+///ARR register
+pub mod arr;
+/**RCR (rw) register accessor: RCR register
+
+You can [`read`](crate::Reg::read) this register and get [`rcr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rcr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:RCR)
+
+For information about available fields see [`mod@rcr`] module*/
+pub type RCR = crate::Reg<rcr::RCRrs>;
+///RCR register
+pub mod rcr;
+/**CCR1 (rw) register accessor: CCR1 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCR1)
+
+For information about available fields see [`mod@ccr1`] module*/
+pub type CCR1 = crate::Reg<ccr1::CCR1rs>;
+///CCR1 register
+pub mod ccr1;
+/**CCR2 (rw) register accessor: CCR2 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCR2)
+
+For information about available fields see [`mod@ccr2`] module*/
+pub type CCR2 = crate::Reg<ccr2::CCR2rs>;
+///CCR2 register
+pub mod ccr2;
+/**CCR3 (rw) register accessor: CCR3 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCR3)
+
+For information about available fields see [`mod@ccr3`] module*/
+pub type CCR3 = crate::Reg<ccr3::CCR3rs>;
+///CCR3 register
+pub mod ccr3;
+/**CCR4 (rw) register accessor: CCR4 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCR4)
+
+For information about available fields see [`mod@ccr4`] module*/
+pub type CCR4 = crate::Reg<ccr4::CCR4rs>;
+///CCR4 register
+pub mod ccr4;
+/**BDTR (rw) register accessor: BDTR register
+
+You can [`read`](crate::Reg::read) this register and get [`bdtr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`bdtr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:BDTR)
+
+For information about available fields see [`mod@bdtr`] module*/
+pub type BDTR = crate::Reg<bdtr::BDTRrs>;
+///BDTR register
+pub mod bdtr;
+/**CCMR3 (rw) register accessor: CCMR3 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccmr3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccmr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCMR3)
+
+For information about available fields see [`mod@ccmr3`] module*/
+pub type CCMR3 = crate::Reg<ccmr3::CCMR3rs>;
+///CCMR3 register
+pub mod ccmr3;
+/**CCMR3_in (rw) register accessor:
+
+You can [`read`](crate::Reg::read) this register and get [`ccmr3_in::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccmr3_in::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCMR3_in)
+
+For information about available fields see [`mod@ccmr3_in`] module*/
+#[doc(alias = "CCMR3_in")]
+pub type CCMR3_IN = crate::Reg<ccmr3_in::CCMR3_INrs>;
+///
+pub mod ccmr3_in;
+/**CCR5 (rw) register accessor: CCR5 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCR5)
+
+For information about available fields see [`mod@ccr5`] module*/
+pub type CCR5 = crate::Reg<ccr5::CCR5rs>;
+///CCR5 register
+pub mod ccr5;
+/**CCR6 (rw) register accessor: CCR6 register
+
+You can [`read`](crate::Reg::read) this register and get [`ccr6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:CCR6)
+
+For information about available fields see [`mod@ccr6`] module*/
+pub type CCR6 = crate::Reg<ccr6::CCR6rs>;
+///CCR6 register
+pub mod ccr6;
+/**AF1 (rw) register accessor: AF1 register
+
+You can [`read`](crate::Reg::read) this register and get [`af1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`af1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:AF1)
+
+For information about available fields see [`mod@af1`] module*/
+pub type AF1 = crate::Reg<af1::AF1rs>;
+///AF1 register
+pub mod af1;
+/**AF2 (rw) register accessor: AF2 register
+
+You can [`read`](crate::Reg::read) this register and get [`af2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`af2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB07.html#TIM1:AF2)
+
+For information about available fields see [`mod@af2`] module*/
+pub type AF2 = crate::Reg<af2::AF2rs>;
+///AF2 register
+pub mod af2;
