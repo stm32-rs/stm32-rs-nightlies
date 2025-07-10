@@ -1,0 +1,22 @@
+PROVIDE(FLASH = DefaultHandler);
+PROVIDE(RCC = DefaultHandler);
+PROVIDE(PVD = DefaultHandler);
+PROVIDE(I2C1 = DefaultHandler);
+PROVIDE(SPI3 = DefaultHandler);
+PROVIDE(USART = DefaultHandler);
+PROVIDE(LPUART = DefaultHandler);
+PROVIDE(TIM2 = DefaultHandler);
+PROVIDE(RTC = DefaultHandler);
+PROVIDE(ADC = DefaultHandler);
+PROVIDE(PKA = DefaultHandler);
+PROVIDE(GPIOA = DefaultHandler);
+PROVIDE(GPIOB = DefaultHandler);
+PROVIDE(DMA = DefaultHandler);
+PROVIDE(RADIO_TXRX = DefaultHandler);
+PROVIDE(RADIO_ERROR = DefaultHandler);
+PROVIDE(RADIO_CPU_WKUP = DefaultHandler);
+PROVIDE(RADIO_TXRX_WKUP = DefaultHandler);
+PROVIDE(TIM16 = DefaultHandler);
+PROVIDE(TIM17 = DefaultHandler);
+PROVIDE(TRNG = DefaultHandler);
+
