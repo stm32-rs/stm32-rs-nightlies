@@ -1,0 +1,116 @@
+///Register `CIFR` reader
+pub type R = crate::R<CIFRrs>;
+/**LSI ready interrupt flag
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum LSIRDYF {
+    ///0: Interrupt not triggered
+    NotInterrupted = 0,
+    ///1: Interrup triggered
+    Interrupted = 1,
+}
+impl From<LSIRDYF> for bool {
+    #[inline(always)]
+    fn from(variant: LSIRDYF) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `LSIRDYF` reader - LSI ready interrupt flag
+pub type LSIRDYF_R = crate::BitReader<LSIRDYF>;
+impl LSIRDYF_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> LSIRDYF {
+        match self.bits {
+            false => LSIRDYF::NotInterrupted,
+            true => LSIRDYF::Interrupted,
+        }
+    }
+    ///Interrupt not triggered
+    #[inline(always)]
+    pub fn is_not_interrupted(&self) -> bool {
+        *self == LSIRDYF::NotInterrupted
+    }
+    ///Interrup triggered
+    #[inline(always)]
+    pub fn is_interrupted(&self) -> bool {
+        *self == LSIRDYF::Interrupted
+    }
+}
+///Field `LSERDYF` reader - LSE ready interrupt flag
+pub use LSIRDYF_R as LSERDYF_R;
+///Field `HSIRDYF` reader - HSI ready interrupt flag
+pub use LSIRDYF_R as HSIRDYF_R;
+///Field `HSERDYF` reader - HSE ready interrupt flag
+pub use LSIRDYF_R as HSERDYF_R;
+///Field `PLLSYSRDYF` reader - PLL ready interrupt flag
+pub use LSIRDYF_R as PLLSYSRDYF_R;
+///Field `CSSF` reader - Clock security system interrupt flag
+pub use LSIRDYF_R as CSSF_R;
+///Field `LSECSSF` reader - LSE Clock security system interrupt flag
+pub use LSIRDYF_R as LSECSSF_R;
+impl R {
+    ///Bit 0 - LSI ready interrupt flag
+    #[inline(always)]
+    pub fn lsirdyf(&self) -> LSIRDYF_R {
+        LSIRDYF_R::new((self.bits & 1) != 0)
+    }
+    ///Bit 1 - LSE ready interrupt flag
+    #[inline(always)]
+    pub fn lserdyf(&self) -> LSERDYF_R {
+        LSERDYF_R::new(((self.bits >> 1) & 1) != 0)
+    }
+    ///Bit 3 - HSI ready interrupt flag
+    #[inline(always)]
+    pub fn hsirdyf(&self) -> HSIRDYF_R {
+        HSIRDYF_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    ///Bit 4 - HSE ready interrupt flag
+    #[inline(always)]
+    pub fn hserdyf(&self) -> HSERDYF_R {
+        HSERDYF_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    ///Bit 5 - PLL ready interrupt flag
+    #[inline(always)]
+    pub fn pllsysrdyf(&self) -> PLLSYSRDYF_R {
+        PLLSYSRDYF_R::new(((self.bits >> 5) & 1) != 0)
+    }
+    ///Bit 8 - Clock security system interrupt flag
+    #[inline(always)]
+    pub fn cssf(&self) -> CSSF_R {
+        CSSF_R::new(((self.bits >> 8) & 1) != 0)
+    }
+    ///Bit 9 - LSE Clock security system interrupt flag
+    #[inline(always)]
+    pub fn lsecssf(&self) -> LSECSSF_R {
+        LSECSSF_R::new(((self.bits >> 9) & 1) != 0)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CIFR")
+            .field("lsirdyf", &self.lsirdyf())
+            .field("lserdyf", &self.lserdyf())
+            .field("hsirdyf", &self.hsirdyf())
+            .field("hserdyf", &self.hserdyf())
+            .field("pllsysrdyf", &self.pllsysrdyf())
+            .field("cssf", &self.cssf())
+            .field("lsecssf", &self.lsecssf())
+            .finish()
+    }
+}
+/**Clock interrupt flag register
+
+You can [`read`](crate::Reg::read) this register and get [`cifr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32G051.html#RCC:CIFR)*/
+pub struct CIFRrs;
+impl crate::RegisterSpec for CIFRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`cifr::R`](R) reader structure
+impl crate::Readable for CIFRrs {}
+///`reset()` method sets CIFR to value 0
+impl crate::Resettable for CIFRrs {}
