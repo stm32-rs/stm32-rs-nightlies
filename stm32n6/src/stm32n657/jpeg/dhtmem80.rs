@@ -1,0 +1,91 @@
+///Register `DHTMEM80` reader
+pub type R = crate::R<DHTMEM80rs>;
+///Register `DHTMEM80` writer
+pub type W = crate::W<DHTMEM80rs>;
+///Field `DATA320` reader - Huffman table data 320
+pub type DATA320_R = crate::FieldReader;
+///Field `DATA320` writer - Huffman table data 320
+pub type DATA320_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+///Field `DATA321` reader - Huffman table data 321
+pub type DATA321_R = crate::FieldReader;
+///Field `DATA321` writer - Huffman table data 321
+pub type DATA321_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+///Field `DATA322` reader - Huffman table data 322
+pub type DATA322_R = crate::FieldReader;
+///Field `DATA322` writer - Huffman table data 322
+pub type DATA322_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+///Field `DATA323` reader - Huffman table data 323
+pub type DATA323_R = crate::FieldReader;
+///Field `DATA323` writer - Huffman table data 323
+pub type DATA323_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+impl R {
+    ///Bits 0:7 - Huffman table data 320
+    #[inline(always)]
+    pub fn data320(&self) -> DATA320_R {
+        DATA320_R::new((self.bits & 0xff) as u8)
+    }
+    ///Bits 8:15 - Huffman table data 321
+    #[inline(always)]
+    pub fn data321(&self) -> DATA321_R {
+        DATA321_R::new(((self.bits >> 8) & 0xff) as u8)
+    }
+    ///Bits 16:23 - Huffman table data 322
+    #[inline(always)]
+    pub fn data322(&self) -> DATA322_R {
+        DATA322_R::new(((self.bits >> 16) & 0xff) as u8)
+    }
+    ///Bits 24:31 - Huffman table data 323
+    #[inline(always)]
+    pub fn data323(&self) -> DATA323_R {
+        DATA323_R::new(((self.bits >> 24) & 0xff) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("DHTMEM80")
+            .field("data320", &self.data320())
+            .field("data321", &self.data321())
+            .field("data322", &self.data322())
+            .field("data323", &self.data323())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:7 - Huffman table data 320
+    #[inline(always)]
+    pub fn data320(&mut self) -> DATA320_W<'_, DHTMEM80rs> {
+        DATA320_W::new(self, 0)
+    }
+    ///Bits 8:15 - Huffman table data 321
+    #[inline(always)]
+    pub fn data321(&mut self) -> DATA321_W<'_, DHTMEM80rs> {
+        DATA321_W::new(self, 8)
+    }
+    ///Bits 16:23 - Huffman table data 322
+    #[inline(always)]
+    pub fn data322(&mut self) -> DATA322_W<'_, DHTMEM80rs> {
+        DATA322_W::new(self, 16)
+    }
+    ///Bits 24:31 - Huffman table data 323
+    #[inline(always)]
+    pub fn data323(&mut self) -> DATA323_W<'_, DHTMEM80rs> {
+        DATA323_W::new(self, 24)
+    }
+}
+/**JPEG DHT memory
+
+You can [`read`](crate::Reg::read) this register and get [`dhtmem80::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dhtmem80::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32N657.html#JPEG:DHTMEM80)*/
+pub struct DHTMEM80rs;
+impl crate::RegisterSpec for DHTMEM80rs {
+    type Ux = u32;
+}
+///`read()` method returns [`dhtmem80::R`](R) reader structure
+impl crate::Readable for DHTMEM80rs {}
+///`write(|w| ..)` method takes [`dhtmem80::W`](W) writer structure
+impl crate::Writable for DHTMEM80rs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets DHTMEM80 to value 0
+impl crate::Resettable for DHTMEM80rs {}
