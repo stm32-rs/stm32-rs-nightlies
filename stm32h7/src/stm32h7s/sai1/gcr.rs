@@ -1,0 +1,61 @@
+///Register `GCR` reader
+pub type R = crate::R<GCRrs>;
+///Register `GCR` writer
+pub type W = crate::W<GCRrs>;
+///Field `SYNCIN` reader - Synchronization inputs These bits are set and cleared by software. Refer to Table 418: External synchronization selection (TinyShark, Beluga and STM32U5_Cobra2M and 4M, Viper, Mustang, Python) for information on how to program this field. These bits must be set when both audio blocks (A and B) are disabled. They are meaningful if one of the two audio blocks is defined to operate in synchronous mode with an external SAI (SYNCEN\[1:0\] = 10 in SAI_ACR1 or in SAI_BCR1 registers).
+pub type SYNCIN_R = crate::FieldReader;
+///Field `SYNCIN` writer - Synchronization inputs These bits are set and cleared by software. Refer to Table 418: External synchronization selection (TinyShark, Beluga and STM32U5_Cobra2M and 4M, Viper, Mustang, Python) for information on how to program this field. These bits must be set when both audio blocks (A and B) are disabled. They are meaningful if one of the two audio blocks is defined to operate in synchronous mode with an external SAI (SYNCEN\[1:0\] = 10 in SAI_ACR1 or in SAI_BCR1 registers).
+pub type SYNCIN_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+///Field `SYNCOUT` reader - Synchronization outputs These bits are set and cleared by software.
+pub type SYNCOUT_R = crate::FieldReader;
+///Field `SYNCOUT` writer - Synchronization outputs These bits are set and cleared by software.
+pub type SYNCOUT_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+impl R {
+    ///Bits 0:1 - Synchronization inputs These bits are set and cleared by software. Refer to Table 418: External synchronization selection (TinyShark, Beluga and STM32U5_Cobra2M and 4M, Viper, Mustang, Python) for information on how to program this field. These bits must be set when both audio blocks (A and B) are disabled. They are meaningful if one of the two audio blocks is defined to operate in synchronous mode with an external SAI (SYNCEN\[1:0\] = 10 in SAI_ACR1 or in SAI_BCR1 registers).
+    #[inline(always)]
+    pub fn syncin(&self) -> SYNCIN_R {
+        SYNCIN_R::new((self.bits & 3) as u8)
+    }
+    ///Bits 4:5 - Synchronization outputs These bits are set and cleared by software.
+    #[inline(always)]
+    pub fn syncout(&self) -> SYNCOUT_R {
+        SYNCOUT_R::new(((self.bits >> 4) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("GCR")
+            .field("syncin", &self.syncin())
+            .field("syncout", &self.syncout())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:1 - Synchronization inputs These bits are set and cleared by software. Refer to Table 418: External synchronization selection (TinyShark, Beluga and STM32U5_Cobra2M and 4M, Viper, Mustang, Python) for information on how to program this field. These bits must be set when both audio blocks (A and B) are disabled. They are meaningful if one of the two audio blocks is defined to operate in synchronous mode with an external SAI (SYNCEN\[1:0\] = 10 in SAI_ACR1 or in SAI_BCR1 registers).
+    #[inline(always)]
+    pub fn syncin(&mut self) -> SYNCIN_W<'_, GCRrs> {
+        SYNCIN_W::new(self, 0)
+    }
+    ///Bits 4:5 - Synchronization outputs These bits are set and cleared by software.
+    #[inline(always)]
+    pub fn syncout(&mut self) -> SYNCOUT_W<'_, GCRrs> {
+        SYNCOUT_W::new(self, 4)
+    }
+}
+/**SAI global configuration register
+
+You can [`read`](crate::Reg::read) this register and get [`gcr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gcr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32H7S.html#SAI1:GCR)*/
+pub struct GCRrs;
+impl crate::RegisterSpec for GCRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`gcr::R`](R) reader structure
+impl crate::Readable for GCRrs {}
+///`write(|w| ..)` method takes [`gcr::W`](W) writer structure
+impl crate::Writable for GCRrs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets GCR to value 0
+impl crate::Resettable for GCRrs {}
