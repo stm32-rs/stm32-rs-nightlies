@@ -1,0 +1,76 @@
+///Register `MACPPSCR` reader
+pub type R = crate::R<MACPPSCRrs>;
+///Register `MACPPSCR` writer
+pub type W = crate::W<MACPPSCRrs>;
+///Field `PPSCTRL` reader - PPSCTRL
+pub type PPSCTRL_R = crate::FieldReader;
+///Field `PPSCTRL` writer - PPSCTRL
+pub type PPSCTRL_W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+///Field `PPSEN0` reader - PPSEN0
+pub type PPSEN0_R = crate::BitReader;
+///Field `PPSEN0` writer - PPSEN0
+pub type PPSEN0_W<'a, REG> = crate::BitWriter<'a, REG>;
+///Field `TRGTMODSEL0` reader - TRGTMODSEL0
+pub type TRGTMODSEL0_R = crate::FieldReader;
+///Field `TRGTMODSEL0` writer - TRGTMODSEL0
+pub type TRGTMODSEL0_W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+impl R {
+    ///Bits 0:3 - PPSCTRL
+    #[inline(always)]
+    pub fn ppsctrl(&self) -> PPSCTRL_R {
+        PPSCTRL_R::new((self.bits & 0x0f) as u8)
+    }
+    ///Bit 4 - PPSEN0
+    #[inline(always)]
+    pub fn ppsen0(&self) -> PPSEN0_R {
+        PPSEN0_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    ///Bits 5:6 - TRGTMODSEL0
+    #[inline(always)]
+    pub fn trgtmodsel0(&self) -> TRGTMODSEL0_R {
+        TRGTMODSEL0_R::new(((self.bits >> 5) & 3) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("MACPPSCR")
+            .field("ppsctrl", &self.ppsctrl())
+            .field("ppsen0", &self.ppsen0())
+            .field("trgtmodsel0", &self.trgtmodsel0())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:3 - PPSCTRL
+    #[inline(always)]
+    pub fn ppsctrl(&mut self) -> PPSCTRL_W<'_, MACPPSCRrs> {
+        PPSCTRL_W::new(self, 0)
+    }
+    ///Bit 4 - PPSEN0
+    #[inline(always)]
+    pub fn ppsen0(&mut self) -> PPSEN0_W<'_, MACPPSCRrs> {
+        PPSEN0_W::new(self, 4)
+    }
+    ///Bits 5:6 - TRGTMODSEL0
+    #[inline(always)]
+    pub fn trgtmodsel0(&mut self) -> TRGTMODSEL0_W<'_, MACPPSCRrs> {
+        TRGTMODSEL0_W::new(self, 5)
+    }
+}
+/**The PPS Control register is present only when the Timestamp feature is selected and External Timestamp is not enabled. Bits\[30:24\] of this register are valid only when four Flexible PPS outputs are selected. Bits\[22:16\] are valid only when three or more Flexible PPS outputs are selected. Bits\[14:8\] are valid only when two or more Flexible PPS outputs are selected. Bits\[6:4\] are valid only when Flexible PPS feature is selected.
+
+You can [`read`](crate::Reg::read) this register and get [`macppscr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`macppscr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP157.html#ETH_MAC_MMC:MACPPSCR)*/
+pub struct MACPPSCRrs;
+impl crate::RegisterSpec for MACPPSCRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`macppscr::R`](R) reader structure
+impl crate::Readable for MACPPSCRrs {}
+///`write(|w| ..)` method takes [`macppscr::W`](W) writer structure
+impl crate::Writable for MACPPSCRrs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets MACPPSCR to value 0
+impl crate::Resettable for MACPPSCRrs {}

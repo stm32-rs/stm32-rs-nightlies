@@ -1,0 +1,46 @@
+///Register `WUTR` reader
+pub type R = crate::R<WUTRrs>;
+///Register `WUTR` writer
+pub type W = crate::W<WUTRrs>;
+///Field `WUT` reader - WUT
+pub type WUT_R = crate::FieldReader<u16>;
+///Field `WUT` writer - WUT
+pub type WUT_W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
+impl R {
+    ///Bits 0:15 - WUT
+    #[inline(always)]
+    pub fn wut(&self) -> WUT_R {
+        WUT_R::new((self.bits & 0xffff) as u16)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("WUTR").field("wut", &self.wut()).finish()
+    }
+}
+impl W {
+    ///Bits 0:15 - WUT
+    #[inline(always)]
+    pub fn wut(&mut self) -> WUT_W<'_, WUTRrs> {
+        WUT_W::new(self, 0)
+    }
+}
+/**This register can be written only when WUTWF is set to 1 in RTC_ICSR. This register is write protected. The write access procedure is described in RTC register write protection on page1830. This register can be protected against non-secure access. Refer to Section50.3.4: RTC secure protection modes.
+
+You can [`read`](crate::Reg::read) this register and get [`wutr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wutr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32MP153.html#RTC:WUTR)*/
+pub struct WUTRrs;
+impl crate::RegisterSpec for WUTRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`wutr::R`](R) reader structure
+impl crate::Readable for WUTRrs {}
+///`write(|w| ..)` method takes [`wutr::W`](W) writer structure
+impl crate::Writable for WUTRrs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets WUTR to value 0xffff
+impl crate::Resettable for WUTRrs {
+    const RESET_VALUE: u32 = 0xffff;
+}

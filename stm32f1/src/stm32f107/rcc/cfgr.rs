@@ -1,0 +1,1073 @@
+///Register `CFGR` reader
+pub type R = crate::R<CFGRrs>;
+///Register `CFGR` writer
+pub type W = crate::W<CFGRrs>;
+/**System clock Switch
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum SW {
+    ///0: HSI selected as system clock
+    Hsi = 0,
+    ///1: HSE selected as system clock
+    Hse = 1,
+    ///2: PLL selected as system clock
+    Pll = 2,
+}
+impl From<SW> for u8 {
+    #[inline(always)]
+    fn from(variant: SW) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for SW {
+    type Ux = u8;
+}
+impl crate::IsEnum for SW {}
+///Field `SW` reader - System clock Switch
+pub type SW_R = crate::FieldReader<SW>;
+impl SW_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<SW> {
+        match self.bits {
+            0 => Some(SW::Hsi),
+            1 => Some(SW::Hse),
+            2 => Some(SW::Pll),
+            _ => None,
+        }
+    }
+    ///HSI selected as system clock
+    #[inline(always)]
+    pub fn is_hsi(&self) -> bool {
+        *self == SW::Hsi
+    }
+    ///HSE selected as system clock
+    #[inline(always)]
+    pub fn is_hse(&self) -> bool {
+        *self == SW::Hse
+    }
+    ///PLL selected as system clock
+    #[inline(always)]
+    pub fn is_pll(&self) -> bool {
+        *self == SW::Pll
+    }
+}
+///Field `SW` writer - System clock Switch
+pub type SW_W<'a, REG> = crate::FieldWriter<'a, REG, 2, SW>;
+impl<'a, REG> SW_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///HSI selected as system clock
+    #[inline(always)]
+    pub fn hsi(self) -> &'a mut crate::W<REG> {
+        self.variant(SW::Hsi)
+    }
+    ///HSE selected as system clock
+    #[inline(always)]
+    pub fn hse(self) -> &'a mut crate::W<REG> {
+        self.variant(SW::Hse)
+    }
+    ///PLL selected as system clock
+    #[inline(always)]
+    pub fn pll(self) -> &'a mut crate::W<REG> {
+        self.variant(SW::Pll)
+    }
+}
+/**System Clock Switch Status
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum SWSR {
+    ///0: HSI oscillator used as system clock
+    Hsi = 0,
+    ///1: HSE oscillator used as system clock
+    Hse = 1,
+    ///2: PLL used as system clock
+    Pll = 2,
+}
+impl From<SWSR> for u8 {
+    #[inline(always)]
+    fn from(variant: SWSR) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for SWSR {
+    type Ux = u8;
+}
+impl crate::IsEnum for SWSR {}
+///Field `SWS` reader - System Clock Switch Status
+pub type SWS_R = crate::FieldReader<SWSR>;
+impl SWS_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<SWSR> {
+        match self.bits {
+            0 => Some(SWSR::Hsi),
+            1 => Some(SWSR::Hse),
+            2 => Some(SWSR::Pll),
+            _ => None,
+        }
+    }
+    ///HSI oscillator used as system clock
+    #[inline(always)]
+    pub fn is_hsi(&self) -> bool {
+        *self == SWSR::Hsi
+    }
+    ///HSE oscillator used as system clock
+    #[inline(always)]
+    pub fn is_hse(&self) -> bool {
+        *self == SWSR::Hse
+    }
+    ///PLL used as system clock
+    #[inline(always)]
+    pub fn is_pll(&self) -> bool {
+        *self == SWSR::Pll
+    }
+}
+/**AHB prescaler
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum HPRE {
+    ///8: SYSCLK divided by 2
+    Div2 = 8,
+    ///9: SYSCLK divided by 4
+    Div4 = 9,
+    ///10: SYSCLK divided by 8
+    Div8 = 10,
+    ///11: SYSCLK divided by 16
+    Div16 = 11,
+    ///12: SYSCLK divided by 64
+    Div64 = 12,
+    ///13: SYSCLK divided by 128
+    Div128 = 13,
+    ///14: SYSCLK divided by 256
+    Div256 = 14,
+    ///15: SYSCLK divided by 512
+    Div512 = 15,
+    ///0: SYSCLK not divided
+    Div1 = 0,
+}
+impl From<HPRE> for u8 {
+    #[inline(always)]
+    fn from(variant: HPRE) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for HPRE {
+    type Ux = u8;
+}
+impl crate::IsEnum for HPRE {}
+///Field `HPRE` reader - AHB prescaler
+pub type HPRE_R = crate::FieldReader<HPRE>;
+impl HPRE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> HPRE {
+        match self.bits {
+            8 => HPRE::Div2,
+            9 => HPRE::Div4,
+            10 => HPRE::Div8,
+            11 => HPRE::Div16,
+            12 => HPRE::Div64,
+            13 => HPRE::Div128,
+            14 => HPRE::Div256,
+            15 => HPRE::Div512,
+            _ => HPRE::Div1,
+        }
+    }
+    ///SYSCLK divided by 2
+    #[inline(always)]
+    pub fn is_div2(&self) -> bool {
+        *self == HPRE::Div2
+    }
+    ///SYSCLK divided by 4
+    #[inline(always)]
+    pub fn is_div4(&self) -> bool {
+        *self == HPRE::Div4
+    }
+    ///SYSCLK divided by 8
+    #[inline(always)]
+    pub fn is_div8(&self) -> bool {
+        *self == HPRE::Div8
+    }
+    ///SYSCLK divided by 16
+    #[inline(always)]
+    pub fn is_div16(&self) -> bool {
+        *self == HPRE::Div16
+    }
+    ///SYSCLK divided by 64
+    #[inline(always)]
+    pub fn is_div64(&self) -> bool {
+        *self == HPRE::Div64
+    }
+    ///SYSCLK divided by 128
+    #[inline(always)]
+    pub fn is_div128(&self) -> bool {
+        *self == HPRE::Div128
+    }
+    ///SYSCLK divided by 256
+    #[inline(always)]
+    pub fn is_div256(&self) -> bool {
+        *self == HPRE::Div256
+    }
+    ///SYSCLK divided by 512
+    #[inline(always)]
+    pub fn is_div512(&self) -> bool {
+        *self == HPRE::Div512
+    }
+    ///SYSCLK not divided
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        matches!(self.variant(), HPRE::Div1)
+    }
+}
+///Field `HPRE` writer - AHB prescaler
+pub type HPRE_W<'a, REG> = crate::FieldWriter<'a, REG, 4, HPRE, crate::Safe>;
+impl<'a, REG> HPRE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///SYSCLK divided by 2
+    #[inline(always)]
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div2)
+    }
+    ///SYSCLK divided by 4
+    #[inline(always)]
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div4)
+    }
+    ///SYSCLK divided by 8
+    #[inline(always)]
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div8)
+    }
+    ///SYSCLK divided by 16
+    #[inline(always)]
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div16)
+    }
+    ///SYSCLK divided by 64
+    #[inline(always)]
+    pub fn div64(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div64)
+    }
+    ///SYSCLK divided by 128
+    #[inline(always)]
+    pub fn div128(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div128)
+    }
+    ///SYSCLK divided by 256
+    #[inline(always)]
+    pub fn div256(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div256)
+    }
+    ///SYSCLK divided by 512
+    #[inline(always)]
+    pub fn div512(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div512)
+    }
+    ///SYSCLK not divided
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(HPRE::Div1)
+    }
+}
+/**APB Low speed prescaler (APB1)
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum PPRE1 {
+    ///4: HCLK divided by 2
+    Div2 = 4,
+    ///5: HCLK divided by 4
+    Div4 = 5,
+    ///6: HCLK divided by 8
+    Div8 = 6,
+    ///7: HCLK divided by 16
+    Div16 = 7,
+    ///0: HCLK not divided
+    Div1 = 0,
+}
+impl From<PPRE1> for u8 {
+    #[inline(always)]
+    fn from(variant: PPRE1) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for PPRE1 {
+    type Ux = u8;
+}
+impl crate::IsEnum for PPRE1 {}
+///Field `PPRE1` reader - APB Low speed prescaler (APB1)
+pub type PPRE1_R = crate::FieldReader<PPRE1>;
+impl PPRE1_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> PPRE1 {
+        match self.bits {
+            4 => PPRE1::Div2,
+            5 => PPRE1::Div4,
+            6 => PPRE1::Div8,
+            7 => PPRE1::Div16,
+            _ => PPRE1::Div1,
+        }
+    }
+    ///HCLK divided by 2
+    #[inline(always)]
+    pub fn is_div2(&self) -> bool {
+        *self == PPRE1::Div2
+    }
+    ///HCLK divided by 4
+    #[inline(always)]
+    pub fn is_div4(&self) -> bool {
+        *self == PPRE1::Div4
+    }
+    ///HCLK divided by 8
+    #[inline(always)]
+    pub fn is_div8(&self) -> bool {
+        *self == PPRE1::Div8
+    }
+    ///HCLK divided by 16
+    #[inline(always)]
+    pub fn is_div16(&self) -> bool {
+        *self == PPRE1::Div16
+    }
+    ///HCLK not divided
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        matches!(self.variant(), PPRE1::Div1)
+    }
+}
+///Field `PPRE1` writer - APB Low speed prescaler (APB1)
+pub type PPRE1_W<'a, REG> = crate::FieldWriter<'a, REG, 3, PPRE1, crate::Safe>;
+impl<'a, REG> PPRE1_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///HCLK divided by 2
+    #[inline(always)]
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(PPRE1::Div2)
+    }
+    ///HCLK divided by 4
+    #[inline(always)]
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(PPRE1::Div4)
+    }
+    ///HCLK divided by 8
+    #[inline(always)]
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(PPRE1::Div8)
+    }
+    ///HCLK divided by 16
+    #[inline(always)]
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(PPRE1::Div16)
+    }
+    ///HCLK not divided
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(PPRE1::Div1)
+    }
+}
+///Field `PPRE2` reader - APB High speed prescaler (APB2)
+pub use PPRE1_R as PPRE2_R;
+///Field `PPRE2` writer - APB High speed prescaler (APB2)
+pub use PPRE1_W as PPRE2_W;
+/**ADC prescaler
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum ADCPRE {
+    ///0: PCLK2 divided by 2
+    Div2 = 0,
+    ///1: PCLK2 divided by 4
+    Div4 = 1,
+    ///2: PCLK2 divided by 8
+    Div6 = 2,
+    ///3: PCLK2 divided by 16
+    Div8 = 3,
+}
+impl From<ADCPRE> for u8 {
+    #[inline(always)]
+    fn from(variant: ADCPRE) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for ADCPRE {
+    type Ux = u8;
+}
+impl crate::IsEnum for ADCPRE {}
+///Field `ADCPRE` reader - ADC prescaler
+pub type ADCPRE_R = crate::FieldReader<ADCPRE>;
+impl ADCPRE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> ADCPRE {
+        match self.bits {
+            0 => ADCPRE::Div2,
+            1 => ADCPRE::Div4,
+            2 => ADCPRE::Div6,
+            3 => ADCPRE::Div8,
+            _ => unreachable!(),
+        }
+    }
+    ///PCLK2 divided by 2
+    #[inline(always)]
+    pub fn is_div2(&self) -> bool {
+        *self == ADCPRE::Div2
+    }
+    ///PCLK2 divided by 4
+    #[inline(always)]
+    pub fn is_div4(&self) -> bool {
+        *self == ADCPRE::Div4
+    }
+    ///PCLK2 divided by 8
+    #[inline(always)]
+    pub fn is_div6(&self) -> bool {
+        *self == ADCPRE::Div6
+    }
+    ///PCLK2 divided by 16
+    #[inline(always)]
+    pub fn is_div8(&self) -> bool {
+        *self == ADCPRE::Div8
+    }
+}
+///Field `ADCPRE` writer - ADC prescaler
+pub type ADCPRE_W<'a, REG> = crate::FieldWriter<'a, REG, 2, ADCPRE, crate::Safe>;
+impl<'a, REG> ADCPRE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///PCLK2 divided by 2
+    #[inline(always)]
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(ADCPRE::Div2)
+    }
+    ///PCLK2 divided by 4
+    #[inline(always)]
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(ADCPRE::Div4)
+    }
+    ///PCLK2 divided by 8
+    #[inline(always)]
+    pub fn div6(self) -> &'a mut crate::W<REG> {
+        self.variant(ADCPRE::Div6)
+    }
+    ///PCLK2 divided by 16
+    #[inline(always)]
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(ADCPRE::Div8)
+    }
+}
+/**PLL entry clock source
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PLLSRC {
+    ///0: HSI divided by 2 selected as PLL input clock
+    HsiDiv2 = 0,
+    ///1: HSE divided by PREDIV selected as PLL input clock
+    HseDivPrediv = 1,
+}
+impl From<PLLSRC> for bool {
+    #[inline(always)]
+    fn from(variant: PLLSRC) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `PLLSRC` reader - PLL entry clock source
+pub type PLLSRC_R = crate::BitReader<PLLSRC>;
+impl PLLSRC_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> PLLSRC {
+        match self.bits {
+            false => PLLSRC::HsiDiv2,
+            true => PLLSRC::HseDivPrediv,
+        }
+    }
+    ///HSI divided by 2 selected as PLL input clock
+    #[inline(always)]
+    pub fn is_hsi_div2(&self) -> bool {
+        *self == PLLSRC::HsiDiv2
+    }
+    ///HSE divided by PREDIV selected as PLL input clock
+    #[inline(always)]
+    pub fn is_hse_div_prediv(&self) -> bool {
+        *self == PLLSRC::HseDivPrediv
+    }
+}
+///Field `PLLSRC` writer - PLL entry clock source
+pub type PLLSRC_W<'a, REG> = crate::BitWriter<'a, REG, PLLSRC>;
+impl<'a, REG> PLLSRC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///HSI divided by 2 selected as PLL input clock
+    #[inline(always)]
+    pub fn hsi_div2(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLSRC::HsiDiv2)
+    }
+    ///HSE divided by PREDIV selected as PLL input clock
+    #[inline(always)]
+    pub fn hse_div_prediv(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLSRC::HseDivPrediv)
+    }
+}
+/**HSE divider for PLL entry
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum PLLXTPRE {
+    ///0: HSE clock not divided
+    Div1 = 0,
+    ///1: HSE clock divided by 2
+    Div2 = 1,
+}
+impl From<PLLXTPRE> for bool {
+    #[inline(always)]
+    fn from(variant: PLLXTPRE) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `PLLXTPRE` reader - HSE divider for PLL entry
+pub type PLLXTPRE_R = crate::BitReader<PLLXTPRE>;
+impl PLLXTPRE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> PLLXTPRE {
+        match self.bits {
+            false => PLLXTPRE::Div1,
+            true => PLLXTPRE::Div2,
+        }
+    }
+    ///HSE clock not divided
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        *self == PLLXTPRE::Div1
+    }
+    ///HSE clock divided by 2
+    #[inline(always)]
+    pub fn is_div2(&self) -> bool {
+        *self == PLLXTPRE::Div2
+    }
+}
+///Field `PLLXTPRE` writer - HSE divider for PLL entry
+pub type PLLXTPRE_W<'a, REG> = crate::BitWriter<'a, REG, PLLXTPRE>;
+impl<'a, REG> PLLXTPRE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///HSE clock not divided
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLXTPRE::Div1)
+    }
+    ///HSE clock divided by 2
+    #[inline(always)]
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLXTPRE::Div2)
+    }
+}
+/**PLL Multiplication Factor
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum PLLMUL {
+    ///2: PLL input clock x4
+    Mul4 = 2,
+    ///3: PLL input clock x5
+    Mul5 = 3,
+    ///4: PLL input clock x6
+    Mul6 = 4,
+    ///5: PLL input clock x7
+    Mul7 = 5,
+    ///6: PLL input clock x8
+    Mul8 = 6,
+    ///7: PLL input clock x9
+    Mul9 = 7,
+    ///13: PLL input clock x6.5
+    Mul6_5 = 13,
+}
+impl From<PLLMUL> for u8 {
+    #[inline(always)]
+    fn from(variant: PLLMUL) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for PLLMUL {
+    type Ux = u8;
+}
+impl crate::IsEnum for PLLMUL {}
+///Field `PLLMUL` reader - PLL Multiplication Factor
+pub type PLLMUL_R = crate::FieldReader<PLLMUL>;
+impl PLLMUL_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<PLLMUL> {
+        match self.bits {
+            2 => Some(PLLMUL::Mul4),
+            3 => Some(PLLMUL::Mul5),
+            4 => Some(PLLMUL::Mul6),
+            5 => Some(PLLMUL::Mul7),
+            6 => Some(PLLMUL::Mul8),
+            7 => Some(PLLMUL::Mul9),
+            13 => Some(PLLMUL::Mul6_5),
+            _ => None,
+        }
+    }
+    ///PLL input clock x4
+    #[inline(always)]
+    pub fn is_mul4(&self) -> bool {
+        *self == PLLMUL::Mul4
+    }
+    ///PLL input clock x5
+    #[inline(always)]
+    pub fn is_mul5(&self) -> bool {
+        *self == PLLMUL::Mul5
+    }
+    ///PLL input clock x6
+    #[inline(always)]
+    pub fn is_mul6(&self) -> bool {
+        *self == PLLMUL::Mul6
+    }
+    ///PLL input clock x7
+    #[inline(always)]
+    pub fn is_mul7(&self) -> bool {
+        *self == PLLMUL::Mul7
+    }
+    ///PLL input clock x8
+    #[inline(always)]
+    pub fn is_mul8(&self) -> bool {
+        *self == PLLMUL::Mul8
+    }
+    ///PLL input clock x9
+    #[inline(always)]
+    pub fn is_mul9(&self) -> bool {
+        *self == PLLMUL::Mul9
+    }
+    ///PLL input clock x6.5
+    #[inline(always)]
+    pub fn is_mul6_5(&self) -> bool {
+        *self == PLLMUL::Mul6_5
+    }
+}
+///Field `PLLMUL` writer - PLL Multiplication Factor
+pub type PLLMUL_W<'a, REG> = crate::FieldWriter<'a, REG, 4, PLLMUL>;
+impl<'a, REG> PLLMUL_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///PLL input clock x4
+    #[inline(always)]
+    pub fn mul4(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul4)
+    }
+    ///PLL input clock x5
+    #[inline(always)]
+    pub fn mul5(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul5)
+    }
+    ///PLL input clock x6
+    #[inline(always)]
+    pub fn mul6(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul6)
+    }
+    ///PLL input clock x7
+    #[inline(always)]
+    pub fn mul7(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul7)
+    }
+    ///PLL input clock x8
+    #[inline(always)]
+    pub fn mul8(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul8)
+    }
+    ///PLL input clock x9
+    #[inline(always)]
+    pub fn mul9(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul9)
+    }
+    ///PLL input clock x6.5
+    #[inline(always)]
+    pub fn mul6_5(self) -> &'a mut crate::W<REG> {
+        self.variant(PLLMUL::Mul6_5)
+    }
+}
+/**USB OTG FS prescaler
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum OTGFSPRE {
+    ///0: PLL clock is divided by 1.5
+    Div1_5 = 0,
+    ///1: PLL clock is not divided
+    Div1 = 1,
+}
+impl From<OTGFSPRE> for bool {
+    #[inline(always)]
+    fn from(variant: OTGFSPRE) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `OTGFSPRE` reader - USB OTG FS prescaler
+pub type OTGFSPRE_R = crate::BitReader<OTGFSPRE>;
+impl OTGFSPRE_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> OTGFSPRE {
+        match self.bits {
+            false => OTGFSPRE::Div1_5,
+            true => OTGFSPRE::Div1,
+        }
+    }
+    ///PLL clock is divided by 1.5
+    #[inline(always)]
+    pub fn is_div1_5(&self) -> bool {
+        *self == OTGFSPRE::Div1_5
+    }
+    ///PLL clock is not divided
+    #[inline(always)]
+    pub fn is_div1(&self) -> bool {
+        *self == OTGFSPRE::Div1
+    }
+}
+///Field `OTGFSPRE` writer - USB OTG FS prescaler
+pub type OTGFSPRE_W<'a, REG> = crate::BitWriter<'a, REG, OTGFSPRE>;
+impl<'a, REG> OTGFSPRE_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///PLL clock is divided by 1.5
+    #[inline(always)]
+    pub fn div1_5(self) -> &'a mut crate::W<REG> {
+        self.variant(OTGFSPRE::Div1_5)
+    }
+    ///PLL clock is not divided
+    #[inline(always)]
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(OTGFSPRE::Div1)
+    }
+}
+/**Microcontroller clock output
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum MCO {
+    ///0: MCO output disabled, no clock on MCO
+    NoMco = 0,
+    ///4: System clock selected
+    Sysclk = 4,
+    ///5: HSI oscillator clock selected
+    Hsi = 5,
+    ///6: HSE oscillator clock selected
+    Hse = 6,
+    ///7: PLL clock divided by 2 selected
+    Pll = 7,
+    ///8: PLL2 clock selected
+    Pll2 = 8,
+    ///9: PLL3 clock divided by 2 selected
+    Pll3 = 9,
+    ///10: XT1 external 3-25 MHz oscillator clock selected (for Ethernet)
+    Xt1 = 10,
+    ///11: PLL3 clock selected (for Ethernet)
+    Pll3ethernet = 11,
+}
+impl From<MCO> for u8 {
+    #[inline(always)]
+    fn from(variant: MCO) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for MCO {
+    type Ux = u8;
+}
+impl crate::IsEnum for MCO {}
+///Field `MCO` reader - Microcontroller clock output
+pub type MCO_R = crate::FieldReader<MCO>;
+impl MCO_R {
+    ///Get enumerated values variant
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<MCO> {
+        match self.bits {
+            0 => Some(MCO::NoMco),
+            4 => Some(MCO::Sysclk),
+            5 => Some(MCO::Hsi),
+            6 => Some(MCO::Hse),
+            7 => Some(MCO::Pll),
+            8 => Some(MCO::Pll2),
+            9 => Some(MCO::Pll3),
+            10 => Some(MCO::Xt1),
+            11 => Some(MCO::Pll3ethernet),
+            _ => None,
+        }
+    }
+    ///MCO output disabled, no clock on MCO
+    #[inline(always)]
+    pub fn is_no_mco(&self) -> bool {
+        *self == MCO::NoMco
+    }
+    ///System clock selected
+    #[inline(always)]
+    pub fn is_sysclk(&self) -> bool {
+        *self == MCO::Sysclk
+    }
+    ///HSI oscillator clock selected
+    #[inline(always)]
+    pub fn is_hsi(&self) -> bool {
+        *self == MCO::Hsi
+    }
+    ///HSE oscillator clock selected
+    #[inline(always)]
+    pub fn is_hse(&self) -> bool {
+        *self == MCO::Hse
+    }
+    ///PLL clock divided by 2 selected
+    #[inline(always)]
+    pub fn is_pll(&self) -> bool {
+        *self == MCO::Pll
+    }
+    ///PLL2 clock selected
+    #[inline(always)]
+    pub fn is_pll2(&self) -> bool {
+        *self == MCO::Pll2
+    }
+    ///PLL3 clock divided by 2 selected
+    #[inline(always)]
+    pub fn is_pll3(&self) -> bool {
+        *self == MCO::Pll3
+    }
+    ///XT1 external 3-25 MHz oscillator clock selected (for Ethernet)
+    #[inline(always)]
+    pub fn is_xt1(&self) -> bool {
+        *self == MCO::Xt1
+    }
+    ///PLL3 clock selected (for Ethernet)
+    #[inline(always)]
+    pub fn is_pll3ethernet(&self) -> bool {
+        *self == MCO::Pll3ethernet
+    }
+}
+///Field `MCO` writer - Microcontroller clock output
+pub type MCO_W<'a, REG> = crate::FieldWriter<'a, REG, 4, MCO>;
+impl<'a, REG> MCO_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    ///MCO output disabled, no clock on MCO
+    #[inline(always)]
+    pub fn no_mco(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::NoMco)
+    }
+    ///System clock selected
+    #[inline(always)]
+    pub fn sysclk(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Sysclk)
+    }
+    ///HSI oscillator clock selected
+    #[inline(always)]
+    pub fn hsi(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Hsi)
+    }
+    ///HSE oscillator clock selected
+    #[inline(always)]
+    pub fn hse(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Hse)
+    }
+    ///PLL clock divided by 2 selected
+    #[inline(always)]
+    pub fn pll(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Pll)
+    }
+    ///PLL2 clock selected
+    #[inline(always)]
+    pub fn pll2(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Pll2)
+    }
+    ///PLL3 clock divided by 2 selected
+    #[inline(always)]
+    pub fn pll3(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Pll3)
+    }
+    ///XT1 external 3-25 MHz oscillator clock selected (for Ethernet)
+    #[inline(always)]
+    pub fn xt1(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Xt1)
+    }
+    ///PLL3 clock selected (for Ethernet)
+    #[inline(always)]
+    pub fn pll3ethernet(self) -> &'a mut crate::W<REG> {
+        self.variant(MCO::Pll3ethernet)
+    }
+}
+impl R {
+    ///Bits 0:1 - System clock Switch
+    #[inline(always)]
+    pub fn sw(&self) -> SW_R {
+        SW_R::new((self.bits & 3) as u8)
+    }
+    ///Bits 2:3 - System Clock Switch Status
+    #[inline(always)]
+    pub fn sws(&self) -> SWS_R {
+        SWS_R::new(((self.bits >> 2) & 3) as u8)
+    }
+    ///Bits 4:7 - AHB prescaler
+    #[inline(always)]
+    pub fn hpre(&self) -> HPRE_R {
+        HPRE_R::new(((self.bits >> 4) & 0x0f) as u8)
+    }
+    ///Bits 8:10 - APB Low speed prescaler (APB1)
+    #[inline(always)]
+    pub fn ppre1(&self) -> PPRE1_R {
+        PPRE1_R::new(((self.bits >> 8) & 7) as u8)
+    }
+    ///Bits 11:13 - APB High speed prescaler (APB2)
+    #[inline(always)]
+    pub fn ppre2(&self) -> PPRE2_R {
+        PPRE2_R::new(((self.bits >> 11) & 7) as u8)
+    }
+    ///Bits 14:15 - ADC prescaler
+    #[inline(always)]
+    pub fn adcpre(&self) -> ADCPRE_R {
+        ADCPRE_R::new(((self.bits >> 14) & 3) as u8)
+    }
+    ///Bit 16 - PLL entry clock source
+    #[inline(always)]
+    pub fn pllsrc(&self) -> PLLSRC_R {
+        PLLSRC_R::new(((self.bits >> 16) & 1) != 0)
+    }
+    ///Bit 17 - HSE divider for PLL entry
+    #[inline(always)]
+    pub fn pllxtpre(&self) -> PLLXTPRE_R {
+        PLLXTPRE_R::new(((self.bits >> 17) & 1) != 0)
+    }
+    ///Bits 18:21 - PLL Multiplication Factor
+    #[inline(always)]
+    pub fn pllmul(&self) -> PLLMUL_R {
+        PLLMUL_R::new(((self.bits >> 18) & 0x0f) as u8)
+    }
+    ///Bit 22 - USB OTG FS prescaler
+    #[inline(always)]
+    pub fn otgfspre(&self) -> OTGFSPRE_R {
+        OTGFSPRE_R::new(((self.bits >> 22) & 1) != 0)
+    }
+    ///Bits 24:27 - Microcontroller clock output
+    #[inline(always)]
+    pub fn mco(&self) -> MCO_R {
+        MCO_R::new(((self.bits >> 24) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("CFGR")
+            .field("sw", &self.sw())
+            .field("sws", &self.sws())
+            .field("hpre", &self.hpre())
+            .field("ppre1", &self.ppre1())
+            .field("ppre2", &self.ppre2())
+            .field("adcpre", &self.adcpre())
+            .field("pllsrc", &self.pllsrc())
+            .field("pllxtpre", &self.pllxtpre())
+            .field("pllmul", &self.pllmul())
+            .field("otgfspre", &self.otgfspre())
+            .field("mco", &self.mco())
+            .finish()
+    }
+}
+impl W {
+    ///Bits 0:1 - System clock Switch
+    #[inline(always)]
+    pub fn sw(&mut self) -> SW_W<'_, CFGRrs> {
+        SW_W::new(self, 0)
+    }
+    ///Bits 4:7 - AHB prescaler
+    #[inline(always)]
+    pub fn hpre(&mut self) -> HPRE_W<'_, CFGRrs> {
+        HPRE_W::new(self, 4)
+    }
+    ///Bits 8:10 - APB Low speed prescaler (APB1)
+    #[inline(always)]
+    pub fn ppre1(&mut self) -> PPRE1_W<'_, CFGRrs> {
+        PPRE1_W::new(self, 8)
+    }
+    ///Bits 11:13 - APB High speed prescaler (APB2)
+    #[inline(always)]
+    pub fn ppre2(&mut self) -> PPRE2_W<'_, CFGRrs> {
+        PPRE2_W::new(self, 11)
+    }
+    ///Bits 14:15 - ADC prescaler
+    #[inline(always)]
+    pub fn adcpre(&mut self) -> ADCPRE_W<'_, CFGRrs> {
+        ADCPRE_W::new(self, 14)
+    }
+    ///Bit 16 - PLL entry clock source
+    #[inline(always)]
+    pub fn pllsrc(&mut self) -> PLLSRC_W<'_, CFGRrs> {
+        PLLSRC_W::new(self, 16)
+    }
+    ///Bit 17 - HSE divider for PLL entry
+    #[inline(always)]
+    pub fn pllxtpre(&mut self) -> PLLXTPRE_W<'_, CFGRrs> {
+        PLLXTPRE_W::new(self, 17)
+    }
+    ///Bits 18:21 - PLL Multiplication Factor
+    #[inline(always)]
+    pub fn pllmul(&mut self) -> PLLMUL_W<'_, CFGRrs> {
+        PLLMUL_W::new(self, 18)
+    }
+    ///Bit 22 - USB OTG FS prescaler
+    #[inline(always)]
+    pub fn otgfspre(&mut self) -> OTGFSPRE_W<'_, CFGRrs> {
+        OTGFSPRE_W::new(self, 22)
+    }
+    ///Bits 24:27 - Microcontroller clock output
+    #[inline(always)]
+    pub fn mco(&mut self) -> MCO_W<'_, CFGRrs> {
+        MCO_W::new(self, 24)
+    }
+}
+/**Clock configuration register (RCC_CFGR)
+
+You can [`read`](crate::Reg::read) this register and get [`cfgr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32F107.html#RCC:CFGR)*/
+pub struct CFGRrs;
+impl crate::RegisterSpec for CFGRrs {
+    type Ux = u32;
+}
+///`read()` method returns [`cfgr::R`](R) reader structure
+impl crate::Readable for CFGRrs {}
+///`write(|w| ..)` method takes [`cfgr::W`](W) writer structure
+impl crate::Writable for CFGRrs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets CFGR to value 0
+impl crate::Resettable for CFGRrs {}

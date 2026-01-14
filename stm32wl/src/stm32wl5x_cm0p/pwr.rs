@@ -1,0 +1,362 @@
+#[repr(C)]
+#[derive(Debug)]
+///Register block
+pub struct RegisterBlock {
+    cr1: CR1,
+    cr2: CR2,
+    cr3: CR3,
+    cr4: CR4,
+    sr1: SR1,
+    sr2: SR2,
+    scr: SCR,
+    cr5: CR5,
+    pucra: PUCRA,
+    pdcra: PDCRA,
+    pucrb: PUCRB,
+    pdcrb: PDCRB,
+    pucrc: PUCRC,
+    pdcrc: PDCRC,
+    _reserved14: [u8; 0x20],
+    pucrh: PUCRH,
+    pdcrh: PDCRH,
+    _reserved16: [u8; 0x20],
+    c2cr1: C2CR1,
+    c2cr3: C2CR3,
+    extscr: EXTSCR,
+    seccfgr: SECCFGR,
+    subghzspicr: SUBGHZSPICR,
+    _reserved21: [u8; 0x04],
+    rsscmdr: RSSCMDR,
+}
+impl RegisterBlock {
+    ///0x00 - Power control register 1
+    #[inline(always)]
+    pub const fn cr1(&self) -> &CR1 {
+        &self.cr1
+    }
+    ///0x04 - Power control register 2
+    #[inline(always)]
+    pub const fn cr2(&self) -> &CR2 {
+        &self.cr2
+    }
+    ///0x08 - Power control register 3
+    #[inline(always)]
+    pub const fn cr3(&self) -> &CR3 {
+        &self.cr3
+    }
+    ///0x0c - Power control register 4
+    #[inline(always)]
+    pub const fn cr4(&self) -> &CR4 {
+        &self.cr4
+    }
+    ///0x10 - Power status register 1
+    #[inline(always)]
+    pub const fn sr1(&self) -> &SR1 {
+        &self.sr1
+    }
+    ///0x14 - Power status register 2
+    #[inline(always)]
+    pub const fn sr2(&self) -> &SR2 {
+        &self.sr2
+    }
+    ///0x18 - Power status clear register
+    #[inline(always)]
+    pub const fn scr(&self) -> &SCR {
+        &self.scr
+    }
+    ///0x1c - Power control register 5
+    #[inline(always)]
+    pub const fn cr5(&self) -> &CR5 {
+        &self.cr5
+    }
+    ///0x20 - Power Port A pull-up control register
+    #[inline(always)]
+    pub const fn pucra(&self) -> &PUCRA {
+        &self.pucra
+    }
+    ///0x24 - Power Port A pull-down control register
+    #[inline(always)]
+    pub const fn pdcra(&self) -> &PDCRA {
+        &self.pdcra
+    }
+    ///0x28 - Power Port B pull-up control register
+    #[inline(always)]
+    pub const fn pucrb(&self) -> &PUCRB {
+        &self.pucrb
+    }
+    ///0x2c - Power Port B pull-down control register
+    #[inline(always)]
+    pub const fn pdcrb(&self) -> &PDCRB {
+        &self.pdcrb
+    }
+    ///0x30 - Power Port C pull-up control register
+    #[inline(always)]
+    pub const fn pucrc(&self) -> &PUCRC {
+        &self.pucrc
+    }
+    ///0x34 - Power Port C pull-down control register
+    #[inline(always)]
+    pub const fn pdcrc(&self) -> &PDCRC {
+        &self.pdcrc
+    }
+    ///0x58 - Power Port H pull-up control register
+    #[inline(always)]
+    pub const fn pucrh(&self) -> &PUCRH {
+        &self.pucrh
+    }
+    ///0x5c - Power Port H pull-down control register
+    #[inline(always)]
+    pub const fn pdcrh(&self) -> &PDCRH {
+        &self.pdcrh
+    }
+    ///0x80 - Power CPU2 control register 1 \[dual core device only\]
+    #[inline(always)]
+    pub const fn c2cr1(&self) -> &C2CR1 {
+        &self.c2cr1
+    }
+    ///0x84 - Power CPU2 control register 3 \[dual core device only\]
+    #[inline(always)]
+    pub const fn c2cr3(&self) -> &C2CR3 {
+        &self.c2cr3
+    }
+    ///0x88 - Power extended status and status clear register
+    #[inline(always)]
+    pub const fn extscr(&self) -> &EXTSCR {
+        &self.extscr
+    }
+    ///0x8c - Power security configuration register \[dual core device only\]
+    #[inline(always)]
+    pub const fn seccfgr(&self) -> &SECCFGR {
+        &self.seccfgr
+    }
+    ///0x90 - Power SPI3 control register
+    #[inline(always)]
+    pub const fn subghzspicr(&self) -> &SUBGHZSPICR {
+        &self.subghzspicr
+    }
+    ///0x98 - RSS Command register \[dual core device only\]
+    #[inline(always)]
+    pub const fn rsscmdr(&self) -> &RSSCMDR {
+        &self.rsscmdr
+    }
+}
+/**CR1 (rw) register accessor: Power control register 1
+
+You can [`read`](crate::Reg::read) this register and get [`cr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:CR1)
+
+For information about available fields see [`mod@cr1`] module*/
+pub type CR1 = crate::Reg<cr1::CR1rs>;
+///Power control register 1
+pub mod cr1;
+/**CR2 (rw) register accessor: Power control register 2
+
+You can [`read`](crate::Reg::read) this register and get [`cr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:CR2)
+
+For information about available fields see [`mod@cr2`] module*/
+pub type CR2 = crate::Reg<cr2::CR2rs>;
+///Power control register 2
+pub mod cr2;
+/**CR3 (rw) register accessor: Power control register 3
+
+You can [`read`](crate::Reg::read) this register and get [`cr3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:CR3)
+
+For information about available fields see [`mod@cr3`] module*/
+pub type CR3 = crate::Reg<cr3::CR3rs>;
+///Power control register 3
+pub mod cr3;
+/**CR4 (rw) register accessor: Power control register 4
+
+You can [`read`](crate::Reg::read) this register and get [`cr4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:CR4)
+
+For information about available fields see [`mod@cr4`] module*/
+pub type CR4 = crate::Reg<cr4::CR4rs>;
+///Power control register 4
+pub mod cr4;
+/**SR1 (r) register accessor: Power status register 1
+
+You can [`read`](crate::Reg::read) this register and get [`sr1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:SR1)
+
+For information about available fields see [`mod@sr1`] module*/
+pub type SR1 = crate::Reg<sr1::SR1rs>;
+///Power status register 1
+pub mod sr1;
+/**SR2 (r) register accessor: Power status register 2
+
+You can [`read`](crate::Reg::read) this register and get [`sr2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:SR2)
+
+For information about available fields see [`mod@sr2`] module*/
+pub type SR2 = crate::Reg<sr2::SR2rs>;
+///Power status register 2
+pub mod sr2;
+/**SCR (w) register accessor: Power status clear register
+
+You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`scr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:SCR)
+
+For information about available fields see [`mod@scr`] module*/
+pub type SCR = crate::Reg<scr::SCRrs>;
+///Power status clear register
+pub mod scr;
+/**CR5 (rw) register accessor: Power control register 5
+
+You can [`read`](crate::Reg::read) this register and get [`cr5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:CR5)
+
+For information about available fields see [`mod@cr5`] module*/
+pub type CR5 = crate::Reg<cr5::CR5rs>;
+///Power control register 5
+pub mod cr5;
+/**PUCRA (rw) register accessor: Power Port A pull-up control register
+
+You can [`read`](crate::Reg::read) this register and get [`pucra::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pucra::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PUCRA)
+
+For information about available fields see [`mod@pucra`] module*/
+pub type PUCRA = crate::Reg<pucra::PUCRArs>;
+///Power Port A pull-up control register
+pub mod pucra;
+/**PDCRA (rw) register accessor: Power Port A pull-down control register
+
+You can [`read`](crate::Reg::read) this register and get [`pdcra::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pdcra::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PDCRA)
+
+For information about available fields see [`mod@pdcra`] module*/
+pub type PDCRA = crate::Reg<pdcra::PDCRArs>;
+///Power Port A pull-down control register
+pub mod pdcra;
+/**PUCRB (rw) register accessor: Power Port B pull-up control register
+
+You can [`read`](crate::Reg::read) this register and get [`pucrb::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pucrb::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PUCRB)
+
+For information about available fields see [`mod@pucrb`] module*/
+pub type PUCRB = crate::Reg<pucrb::PUCRBrs>;
+///Power Port B pull-up control register
+pub mod pucrb;
+/**PDCRB (rw) register accessor: Power Port B pull-down control register
+
+You can [`read`](crate::Reg::read) this register and get [`pdcrb::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pdcrb::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PDCRB)
+
+For information about available fields see [`mod@pdcrb`] module*/
+pub type PDCRB = crate::Reg<pdcrb::PDCRBrs>;
+///Power Port B pull-down control register
+pub mod pdcrb;
+/**PUCRC (rw) register accessor: Power Port C pull-up control register
+
+You can [`read`](crate::Reg::read) this register and get [`pucrc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pucrc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PUCRC)
+
+For information about available fields see [`mod@pucrc`] module*/
+pub type PUCRC = crate::Reg<pucrc::PUCRCrs>;
+///Power Port C pull-up control register
+pub mod pucrc;
+/**PDCRC (rw) register accessor: Power Port C pull-down control register
+
+You can [`read`](crate::Reg::read) this register and get [`pdcrc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pdcrc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PDCRC)
+
+For information about available fields see [`mod@pdcrc`] module*/
+pub type PDCRC = crate::Reg<pdcrc::PDCRCrs>;
+///Power Port C pull-down control register
+pub mod pdcrc;
+/**PUCRH (rw) register accessor: Power Port H pull-up control register
+
+You can [`read`](crate::Reg::read) this register and get [`pucrh::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pucrh::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PUCRH)
+
+For information about available fields see [`mod@pucrh`] module*/
+pub type PUCRH = crate::Reg<pucrh::PUCRHrs>;
+///Power Port H pull-up control register
+pub mod pucrh;
+/**PDCRH (rw) register accessor: Power Port H pull-down control register
+
+You can [`read`](crate::Reg::read) this register and get [`pdcrh::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pdcrh::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:PDCRH)
+
+For information about available fields see [`mod@pdcrh`] module*/
+pub type PDCRH = crate::Reg<pdcrh::PDCRHrs>;
+///Power Port H pull-down control register
+pub mod pdcrh;
+/**C2CR1 (rw) register accessor: Power CPU2 control register 1 \[dual core device only\]
+
+You can [`read`](crate::Reg::read) this register and get [`c2cr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c2cr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:C2CR1)
+
+For information about available fields see [`mod@c2cr1`] module*/
+pub type C2CR1 = crate::Reg<c2cr1::C2CR1rs>;
+///Power CPU2 control register 1 \[dual core device only\]
+pub mod c2cr1;
+/**C2CR3 (rw) register accessor: Power CPU2 control register 3 \[dual core device only\]
+
+You can [`read`](crate::Reg::read) this register and get [`c2cr3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c2cr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:C2CR3)
+
+For information about available fields see [`mod@c2cr3`] module*/
+pub type C2CR3 = crate::Reg<c2cr3::C2CR3rs>;
+///Power CPU2 control register 3 \[dual core device only\]
+pub mod c2cr3;
+/**EXTSCR (rw) register accessor: Power extended status and status clear register
+
+You can [`read`](crate::Reg::read) this register and get [`extscr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`extscr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:EXTSCR)
+
+For information about available fields see [`mod@extscr`] module*/
+pub type EXTSCR = crate::Reg<extscr::EXTSCRrs>;
+///Power extended status and status clear register
+pub mod extscr;
+/**SECCFGR (rw) register accessor: Power security configuration register \[dual core device only\]
+
+You can [`read`](crate::Reg::read) this register and get [`seccfgr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`seccfgr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:SECCFGR)
+
+For information about available fields see [`mod@seccfgr`] module*/
+pub type SECCFGR = crate::Reg<seccfgr::SECCFGRrs>;
+///Power security configuration register \[dual core device only\]
+pub mod seccfgr;
+/**SUBGHZSPICR (rw) register accessor: Power SPI3 control register
+
+You can [`read`](crate::Reg::read) this register and get [`subghzspicr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`subghzspicr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:SUBGHZSPICR)
+
+For information about available fields see [`mod@subghzspicr`] module*/
+pub type SUBGHZSPICR = crate::Reg<subghzspicr::SUBGHZSPICRrs>;
+///Power SPI3 control register
+pub mod subghzspicr;
+/**RSSCMDR (rw) register accessor: RSS Command register \[dual core device only\]
+
+You can [`read`](crate::Reg::read) this register and get [`rsscmdr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rsscmdr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WL5X_CM0P.html#PWR:RSSCMDR)
+
+For information about available fields see [`mod@rsscmdr`] module*/
+pub type RSSCMDR = crate::Reg<rsscmdr::RSSCMDRrs>;
+///RSS Command register \[dual core device only\]
+pub mod rsscmdr;
