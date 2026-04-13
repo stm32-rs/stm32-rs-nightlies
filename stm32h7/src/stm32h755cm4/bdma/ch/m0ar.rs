@@ -1,0 +1,42 @@
+///Register `M0AR` reader
+pub type R = crate::R<M0ARrs>;
+///Register `M0AR` writer
+pub type W = crate::W<M0ARrs>;
+///Field `MA` reader - Memory address Base address of the memory area from/to which the data will be read/written. When MSIZE is 01 (16-bit), the MA\[0\] bit is ignored. Access is automatically aligned to a half-word address. When MSIZE is 10 (32-bit), MA\[1:0\] are ignored. Access is automatically aligned to a word address.
+pub type MA_R = crate::FieldReader<u32>;
+///Field `MA` writer - Memory address Base address of the memory area from/to which the data will be read/written. When MSIZE is 01 (16-bit), the MA\[0\] bit is ignored. Access is automatically aligned to a half-word address. When MSIZE is 10 (32-bit), MA\[1:0\] are ignored. Access is automatically aligned to a word address.
+pub type MA_W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl R {
+    ///Bits 0:31 - Memory address Base address of the memory area from/to which the data will be read/written. When MSIZE is 01 (16-bit), the MA\[0\] bit is ignored. Access is automatically aligned to a half-word address. When MSIZE is 10 (32-bit), MA\[1:0\] are ignored. Access is automatically aligned to a word address.
+    #[inline(always)]
+    pub fn ma(&self) -> MA_R {
+        MA_R::new(self.bits)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("M0AR").field("ma", &self.ma()).finish()
+    }
+}
+impl W {
+    ///Bits 0:31 - Memory address Base address of the memory area from/to which the data will be read/written. When MSIZE is 01 (16-bit), the MA\[0\] bit is ignored. Access is automatically aligned to a half-word address. When MSIZE is 10 (32-bit), MA\[1:0\] are ignored. Access is automatically aligned to a word address.
+    #[inline(always)]
+    pub fn ma(&mut self) -> MA_W<'_, M0ARrs> {
+        MA_W::new(self, 0)
+    }
+}
+/**This register must not be written when the channel is enabled.
+
+You can [`read`](crate::Reg::read) this register and get [`m0ar::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`m0ar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).*/
+pub struct M0ARrs;
+impl crate::RegisterSpec for M0ARrs {
+    type Ux = u32;
+}
+///`read()` method returns [`m0ar::R`](R) reader structure
+impl crate::Readable for M0ARrs {}
+///`write(|w| ..)` method takes [`m0ar::W`](W) writer structure
+impl crate::Writable for M0ARrs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets M0AR to value 0
+impl crate::Resettable for M0ARrs {}

@@ -1,0 +1,105 @@
+///Register `AFRH` reader
+pub type R = crate::R<AFRHrs>;
+///Register `AFRH` writer
+pub type W = crate::W<AFRHrs>;
+///Field `AFSEL(8-11)` reader - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+pub use super::afrl::AFSEL_R;
+///Field `AFSEL(8-11)` writer - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+pub use super::afrl::AFSEL_W;
+///y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+pub use super::afrl::ALTERNATE_FUNCTION;
+impl R {
+    ///y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    ///
+    ///<div class="warning">`n` is number of field in register. `n == 0` corresponds to `AFSEL8` field.</div>
+    #[inline(always)]
+    pub fn afsel(&self, n: u8) -> AFSEL_R {
+        #[allow(clippy::no_effect)]
+        [(); 4][n as usize];
+        AFSEL_R::new(((self.bits >> (n * 4)) & 0x0f) as u8)
+    }
+    ///Iterator for array of:
+    ///y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel_iter(&self) -> impl Iterator<Item = AFSEL_R> + '_ {
+        (0..4).map(move |n| AFSEL_R::new(((self.bits >> (n * 4)) & 0x0f) as u8))
+    }
+    ///Bits 0:3 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel8(&self) -> AFSEL_R {
+        AFSEL_R::new((self.bits & 0x0f) as u8)
+    }
+    ///Bits 4:7 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel9(&self) -> AFSEL_R {
+        AFSEL_R::new(((self.bits >> 4) & 0x0f) as u8)
+    }
+    ///Bits 8:11 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel10(&self) -> AFSEL_R {
+        AFSEL_R::new(((self.bits >> 8) & 0x0f) as u8)
+    }
+    ///Bits 12:15 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel11(&self) -> AFSEL_R {
+        AFSEL_R::new(((self.bits >> 12) & 0x0f) as u8)
+    }
+}
+impl core::fmt::Debug for R {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("AFRH")
+            .field("afsel8", &self.afsel8())
+            .field("afsel9", &self.afsel9())
+            .field("afsel10", &self.afsel10())
+            .field("afsel11", &self.afsel11())
+            .finish()
+    }
+}
+impl W {
+    ///y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    ///
+    ///<div class="warning">`n` is number of field in register. `n == 0` corresponds to `AFSEL8` field.</div>
+    #[inline(always)]
+    pub fn afsel(&mut self, n: u8) -> AFSEL_W<'_, AFRHrs> {
+        #[allow(clippy::no_effect)]
+        [(); 4][n as usize];
+        AFSEL_W::new(self, n * 4)
+    }
+    ///Bits 0:3 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel8(&mut self) -> AFSEL_W<'_, AFRHrs> {
+        AFSEL_W::new(self, 0)
+    }
+    ///Bits 4:7 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel9(&mut self) -> AFSEL_W<'_, AFRHrs> {
+        AFSEL_W::new(self, 4)
+    }
+    ///Bits 8:11 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel10(&mut self) -> AFSEL_W<'_, AFRHrs> {
+        AFSEL_W::new(self, 8)
+    }
+    ///Bits 12:15 - y\[3:0\]: Alternate function selection for port A pin y (y = 8..15) These bits are written by software to configure alternate function I/Os AFSELy selection: -0000: AF0 -0001: AF1 -0010: AF2 -0011: AF3 -0100: AF4 -0101: AF5 -0110: AF6 -0111: AF7 1xxx: Reserved
+    #[inline(always)]
+    pub fn afsel11(&mut self) -> AFSEL_W<'_, AFRHrs> {
+        AFSEL_W::new(self, 12)
+    }
+}
+/**AFRH register
+
+You can [`read`](crate::Reg::read) this register and get [`afrh::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`afrh::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32WB05.html#GPIOA:AFRH)*/
+pub struct AFRHrs;
+impl crate::RegisterSpec for AFRHrs {
+    type Ux = u32;
+}
+///`read()` method returns [`afrh::R`](R) reader structure
+impl crate::Readable for AFRHrs {}
+///`write(|w| ..)` method takes [`afrh::W`](W) writer structure
+impl crate::Writable for AFRHrs {
+    type Safety = crate::Unsafe;
+}
+///`reset()` method sets AFRH to value 0
+impl crate::Resettable for AFRHrs {}
