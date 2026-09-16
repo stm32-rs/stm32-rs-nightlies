@@ -1,0 +1,106 @@
+///Register `IFCR` writer
+pub type W = crate::W<IFCRrs>;
+/**end of transfer flag clear
+
+Value on reset: 0*/
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum EOTCW {
+    ///1: Clear interrupt flag
+    Clear = 1,
+}
+impl From<EOTCW> for bool {
+    #[inline(always)]
+    fn from(variant: EOTCW) -> Self {
+        variant as u8 != 0
+    }
+}
+///Field `EOTC` writer - end of transfer flag clear
+pub type EOTC_W<'a, REG> = crate::BitWriter1C<'a, REG, EOTCW>;
+impl<'a, REG> EOTC_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    ///Clear interrupt flag
+    #[inline(always)]
+    pub fn clear(self) -> &'a mut crate::W<REG> {
+        self.variant(EOTCW::Clear)
+    }
+}
+///Field `TXTFC` writer - transmission transfer filled flag clear
+pub use EOTC_W as TXTFC_W;
+///Field `UDRC` writer - underrun flag clear
+pub use EOTC_W as UDRC_W;
+///Field `OVRC` writer - overrun flag clear
+pub use EOTC_W as OVRC_W;
+///Field `CRCEC` writer - CRC error flag clear
+pub use EOTC_W as CRCEC_W;
+///Field `TIFREC` writer - TI frame format error flag clear
+pub use EOTC_W as TIFREC_W;
+///Field `MODFC` writer - mode fault flag clear
+pub use EOTC_W as MODFC_W;
+///Field `SUSPC` writer - Suspend flag clear
+pub use EOTC_W as SUSPC_W;
+impl core::fmt::Debug for crate::generic::Reg<IFCRrs> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "(not readable)")
+    }
+}
+impl W {
+    ///Bit 3 - end of transfer flag clear
+    #[inline(always)]
+    pub fn eotc(&mut self) -> EOTC_W<'_, IFCRrs> {
+        EOTC_W::new(self, 3)
+    }
+    ///Bit 4 - transmission transfer filled flag clear
+    #[inline(always)]
+    pub fn txtfc(&mut self) -> TXTFC_W<'_, IFCRrs> {
+        TXTFC_W::new(self, 4)
+    }
+    ///Bit 5 - underrun flag clear
+    #[inline(always)]
+    pub fn udrc(&mut self) -> UDRC_W<'_, IFCRrs> {
+        UDRC_W::new(self, 5)
+    }
+    ///Bit 6 - overrun flag clear
+    #[inline(always)]
+    pub fn ovrc(&mut self) -> OVRC_W<'_, IFCRrs> {
+        OVRC_W::new(self, 6)
+    }
+    ///Bit 7 - CRC error flag clear
+    #[inline(always)]
+    pub fn crcec(&mut self) -> CRCEC_W<'_, IFCRrs> {
+        CRCEC_W::new(self, 7)
+    }
+    ///Bit 8 - TI frame format error flag clear
+    #[inline(always)]
+    pub fn tifrec(&mut self) -> TIFREC_W<'_, IFCRrs> {
+        TIFREC_W::new(self, 8)
+    }
+    ///Bit 9 - mode fault flag clear
+    #[inline(always)]
+    pub fn modfc(&mut self) -> MODFC_W<'_, IFCRrs> {
+        MODFC_W::new(self, 9)
+    }
+    ///Bit 11 - Suspend flag clear
+    #[inline(always)]
+    pub fn suspc(&mut self) -> SUSPC_W<'_, IFCRrs> {
+        SUSPC_W::new(self, 11)
+    }
+}
+/**SPI/I2S interrupt/status flags clear register
+
+You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ifcr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api).
+
+See register [structure](https://stm32-rs.github.io/stm32-rs/STM32H523.html#SPI1:IFCR)*/
+pub struct IFCRrs;
+impl crate::RegisterSpec for IFCRrs {
+    type Ux = u32;
+}
+///`write(|w| ..)` method takes [`ifcr::W`](W) writer structure
+impl crate::Writable for IFCRrs {
+    type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x0bf8;
+}
+///`reset()` method sets IFCR to value 0
+impl crate::Resettable for IFCRrs {}
